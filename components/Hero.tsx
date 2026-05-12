@@ -1,6 +1,5 @@
 'use client'
 import { motion } from 'framer-motion'
-import BullSVG from './BullSVG'
 
 const stats = [
   { icon: 'bolt',          label: 'Tight Spreads',    sub: 'From 0.0 pips' },
@@ -190,8 +189,28 @@ export default function Hero() {
             />
 
             {/* Bull */}
-            <div className="bull-float" style={{ width: 340, height: 310 }}>
-              <BullSVG />
+            <div 
+              className="bull-float" 
+              style={{ 
+                position: 'absolute',
+                bottom: '5%',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: 340, 
+                height: 310 
+              }}
+            >
+              <img 
+                src="/bull.png" 
+                alt="Bull" 
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  objectPosition: 'center bottom',
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))',
+                }}
+              />
             </div>
           </div>
 
