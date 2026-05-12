@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:      #080a0e;
+  --section: #0d1017;
+  --card:    #111520;
+  --blue:    #2563eb;
+  --muted:   #a0aab8;
+  --subtle:  #6b7585;
+  --green:   #22c55e;
+  --red:     #ef4444;
+  --border:  rgba(255,255,255,0.08);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Grid background ── */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Glass panel ── */
+.glass-panel {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 24px;
+}
+
+/* ── Advantage card ── */
+.adv-card {
+  background: #111520;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: border-color .3s, box-shadow .3s, transform .3s;
+  position: relative;
+  overflow: hidden;
+}
+.adv-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.5), transparent);
+  opacity: 0;
+  transition: opacity .3s;
+}
+.adv-card:hover {
+  border-color: rgba(37,99,235,0.3);
+  box-shadow: 0 -4px 24px -6px rgba(37,99,235,0.35),
+              inset 0 0 30px rgba(37,99,235,0.04);
+  transform: translateY(-3px);
+}
+.adv-card:hover::before { opacity: 1; }
+
+/* ── Icon box ── */
+.icon-box {
+  height: 130px;
+  background: linear-gradient(145deg, #0a0d14, #070910);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.icon-box::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 60%);
+}
+
+/* ── Ticker ── */
+.ticker-item { border-right: 1px solid rgba(255,255,255,0.07); }
+.ticker-item:last-child { border-right: none; }
+.ticker-item:first-child { padding-left: 0; }
+
+/* ── Platform option ── */
+.plat-opt { display: flex; align-items: center; gap: 14px; }
+.plat-icon {
+  width: 40px; height: 40px;
+  border-radius: 8px;
+  background: #111520;
+  border: 1px solid rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  color: #a0aab8;
+  flex-shrink: 0;
+  transition: color .2s, border-color .2s;
+}
+.plat-opt:hover .plat-icon { color: #2563eb; border-color: rgba(37,99,235,0.3); }
+
+/* ── Price chip ── */
+.price-chip {
+  position: absolute;
+  background: rgba(8,10,14,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+  padding: 6px 12px;
+  z-index: 30;
+  white-space: nowrap;
+}
+
+/* ── Regulator ── */
+.reg-item {
+  display: flex; align-items: center; gap: 8px;
+  opacity: .45;
+  filter: brightness(0) invert(1);
+  transition: opacity .25s;
+}
+.reg-item:hover { opacity: .85; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #080a0e; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+/* ── Selection ── */
+::selection { background: #2563eb; color: #fff; }
+
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0px); }
+  50%       { transform: translateX(-50%) translateY(-12px); }
+}
+@keyframes pulseGlow {
+  0%, 100% { opacity: .5; }
+  50%       { opacity: 1; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.bull-float {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 6s ease-in-out infinite;
+}
+.glow-pulse { animation: pulseGlow 3s ease-in-out infinite; }
