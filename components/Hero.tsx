@@ -26,7 +26,7 @@ export default function Hero() {
         style={{
           maskImage:
             'radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 100%)',
-          opacity: 0.5,
+          opacity: 0.4,
         }}
       />
 
@@ -106,9 +106,7 @@ export default function Hero() {
             style={{
               width: 520,
               height: 500,
-              background: 'rgba(8,10,20,0.75)',
-              backdropFilter: 'blur(16px)',
-              WebkitBackdropFilter: 'blur(16px)',
+              background: 'rgba(5,7,12,0.88)',
               border: '1px solid rgba(255,255,255,0.09)',
               borderRadius: 24,
               position: 'relative',
@@ -116,7 +114,7 @@ export default function Hero() {
             }}
           >
             {/* Chart overlays in the glass */}
-            <div className="absolute inset-0 pointer-events-none opacity-20" style={{ zIndex: 5 }}>
+            <div className="absolute inset-0 pointer-events-none opacity-10" style={{ zIndex: 5 }}>
               <svg viewBox="0 0 500 400" className="w-full h-full">
                 <path d="M100,300 L150,280 L200,320 L250,250 L300,270 L350,200 L400,210" fill="none" stroke="#2563eb" strokeWidth="1" />
                 <circle cx="400" cy="210" r="2" fill="#2563eb" />
@@ -124,25 +122,25 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Bull */}
-          <div 
-            className="bull-float" 
-            style={{ 
-              position: 'absolute',
-              bottom: '0%',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              width: '420px', 
-              height: '380px',
-              zIndex: 20
-            }}
-          >
-            <img 
-              src="/bull.png" 
-              alt="Bull" 
+          {/* Bull Container */}
+          <div style={{
+            position: 'absolute',
+            bottom: '0',
+            left: '0',
+            right: '0',
+            top: '0',
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            zIndex: 20,
+            paddingBottom: '20px',
+          }}>
+            <img
+              src="/bull.png"
+              alt="Bull"
               style={{
-                width: '100%',
-                height: '100%',
+                width: '85%',
+                height: 'auto',
                 objectFit: 'contain',
                 objectPosition: 'center bottom',
                 filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.9))',
@@ -173,6 +171,7 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
 
     </section>
   )

@@ -57,13 +57,13 @@ export default function Advantages() {
                 height: '100%',
               }}
             >
-              <div className="icon-box w-full">
+              <div className="icon-box">
                 <img 
                   src={ad.icon} 
                   alt={ad.title} 
                   style={{ 
-                    width: 80, 
-                    height: 80, 
+                    width: '90px', 
+                    height: '90px', 
                     objectFit: 'contain',
                     position: 'relative',
                     zIndex: 1

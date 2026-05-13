@@ -48,8 +48,8 @@ body {
 
 /* ── Advantage card ── */
 .adv-card {
-  background: #0d1017;
-  border: 1px solid rgba(255,255,255,0.06);
+  background: #0a0d14 !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
   border-radius: 20px;
   padding: 32px;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -66,7 +66,7 @@ body {
 /* ── Icon box ── */
 .icon-box {
   height: 150px;
-  background: linear-gradient(145deg, #090c14, #060810);
+  background: linear-gradient(145deg, #080b12, #060810) !important;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 12px;
   display: flex;
