@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import CustomCursor from '@/components/CustomCursor'
 
 export const metadata: Metadata = {
   title: 'Vertex Markets - Trade Smarter. Trade Vertex.',
@@ -16,12 +17,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-          rel="stylesheet"
-        />
+        {/* Preload critical images — prevents layout shift */}
+        <link rel="preload" as="image" href="/bull.png" />
+        <link rel="preload" as="image" href="/platforms-mockup.png" />
+        <link rel="preload" as="image" href="/v-logo-3d.png" />
+        <link rel="preload" as="image" href="/icon-liquidity.png" />
+        <link rel="preload" as="image" href="/icon-execution.png" />
+        <link rel="preload" as="image" href="/icon-security.png" />
+        <link rel="preload" as="image" href="/icon-conditions.png" />
       </head>
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   )
 }
