@@ -1,6 +1,6 @@
 'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
 const stats = [
   { icon: 'bolt',          label: 'Tight Spreads',    sub: 'From 0.0 pips' },
@@ -10,177 +10,227 @@ const stats = [
 ]
 
 export default function Hero() {
-  const containerRef = useRef(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20,
+      })
+    }
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [])
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   })
 
-  const bullY = useTransform(scrollYProgress, [0, 1], [0, 100])
-  const glassY = useTransform(scrollYProgress, [0, 1], [0, 50])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  const bullY = useTransform(scrollYProgress, [0, 1], [0, 150])
+  const springBullY = useSpring(bullY, { stiffness: 100, damping: 30 })
 
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ paddingTop: 64, background: '#080a0e' }}
+      style={{ paddingTop: 80, background: '#05070a' }}
     >
-      {/* Grid texture - Premiumized */}
-      <div
-        className="grid-bg absolute inset-0 pointer-events-none"
+      {/* 3D Grid Floor - Volumetric */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none"
         style={{
-          maskImage: 'radial-gradient(ellipse 80% 80% at 50% 50%, black 10%, transparent 100%)',
-          opacity: 0.3,
+          perspective: '1000px',
+          background: 'linear-gradient(to bottom, transparent, rgba(37,99,235,0.05))',
         }}
-      />
-
-      <div
-        className="relative z-10 w-full max-w-[1440px] mx-auto px-12 grid lg:grid-cols-2 gap-16 items-center"
-        style={{ padding: '80px 48px' }}
       >
+        <div 
+          style={{
+            position: 'absolute', inset: 0,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
+            backgroundSize: '100px 100px',
+            transform: 'rotateX(60deg) translateY(-100px)',
+            transformOrigin: 'top',
+            maskImage: 'linear-gradient(to bottom, transparent, black 80%)',
+          }}
+        />
+      </div>
+
+      {/* Atmospheric Caustics / Light Rays */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] width-[40%] height-[60%] bg-blue-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] width-[40%] height-[60%] bg-blue-600/5 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-12 grid lg:grid-cols-2 gap-20 items-center">
         {/* ── LEFT ── */}
         <motion.div 
-          style={{ maxWidth: 580, opacity }}
-          initial={{ opacity: 0, x: -30 }}
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
-            <span className="text-[10px] font-bold text-blue-400 tracking-widest uppercase">Institutional Trading Infrastructure</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]" />
+            <span className="text-[11px] font-black text-blue-400 tracking-[0.2em] uppercase">Institutional Grade</span>
           </div>
 
           <h1
-            className="font-black text-white leading-[1.02] tracking-tight"
-            style={{ fontSize: 'clamp(48px, 6vw, 76px)', marginBottom: 24 }}
+            className="font-black text-white leading-[0.95] tracking-tight"
+            style={{ fontSize: 'clamp(56px, 7vw, 92px)', marginBottom: 32 }}
           >
-            Trade Smarter.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-blue-300">Trade Vertex.</span>
+            THE NEW ERA<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-400 to-white">OF TRADING.</span>
           </h1>
 
-          <p
-            className="text-brand-muted leading-relaxed"
-            style={{ fontSize: 16, marginBottom: 40, maxWidth: 460 }}
-          >
-            Experience institutional-grade execution, deep liquidity, and professional trading conditions on the world's most advanced markets.
+          <p className="text-brand-muted text-lg leading-relaxed mb-10 max-w-lg opacity-80">
+            Precision engineering meets institutional liquidity. Experience the world's most powerful trading environment.
           </p>
 
-          <div className="flex flex-wrap gap-4" style={{ marginBottom: 60 }}>
+          <div className="flex flex-wrap gap-5 mb-16">
             <a
               href="#"
-              className="inline-flex items-center gap-3 text-white bg-blue-600 hover:bg-blue-700 font-bold rounded-[10px] no-underline transition-all duration-300 hover:shadow-[0_10px_30px_rgba(37,99,235,0.4)] hover:-translate-y-0.5"
-              style={{ padding: '16px 36px', fontSize: 15 }}
+              className="group relative px-10 py-5 bg-blue-600 text-white font-black rounded-xl no-underline overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)] hover:-translate-y-1"
             >
-              Get Started Now
-              <svg width="18" height="18" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <span className="relative z-10 flex items-center gap-3">
+                OPEN ACCOUNT
+                <svg width="20" height="20" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="3">
+                  <path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
             </a>
             <a
               href="#"
-              className="inline-flex items-center text-white hover:bg-white/5 font-semibold rounded-[10px] no-underline transition-all duration-300"
-              style={{ padding: '16px 36px', fontSize: 15, border: '1px solid rgba(255,255,255,0.15)' }}
+              className="px-10 py-5 text-white font-bold rounded-xl no-underline border border-white/10 hover:bg-white/5 transition-all duration-300"
             >
-              Try Demo
+              TRY DEMO
             </a>
           </div>
 
-          {/* Stats Bar */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 pt-8 border-t border-white/5">
-            {stats.map(s => (
-              <div key={s.label} className="flex flex-col gap-1">
-                <span className="text-white font-bold text-[13px]">{s.label}</span>
-                <span className="text-brand-muted text-[11px] font-medium">{s.sub}</span>
+          <div className="flex gap-12 pt-10 border-t border-white/5">
+            {stats.slice(0, 3).map(s => (
+              <div key={s.label}>
+                <div className="text-white font-black text-sm mb-1">{s.label}</div>
+                <div className="text-brand-muted text-[11px] font-bold tracking-wider uppercase opacity-60">{s.sub}</div>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* ── RIGHT ── */}
-        <motion.div
+        {/* ── RIGHT — THE 3D CORE ── */}
+        <div 
           className="relative flex items-center justify-center"
-          style={{ height: 680 }}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          style={{ height: 750, perspective: '2000px' }}
         >
-          {/* Glass Panel */}
+          {/* Glass Pillar / Pedestal */}
           <motion.div
             style={{
-              width: 520,
-              height: 520,
-              background: 'rgba(5,7,12,0.9)',
-              border: '1px solid rgba(255,255,255,0.1)',
-              borderRadius: 32,
-              position: 'relative',
-              overflow: 'hidden',
-              y: glassY
+              width: 540, height: 560,
+              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: 40,
+              backdropFilter: 'blur(30px)',
+              WebkitBackdropFilter: 'blur(30px)',
+              rotateY: mousePos.x,
+              rotateX: -mousePos.y,
+              boxShadow: '0 50px 100px -20px rgba(0,0,0,0.8), inset 0 0 50px rgba(255,255,255,0.05)',
+              transformStyle: 'preserve-3d',
             }}
           >
-            {/* Visual Flair in Glass */}
-            <div className="absolute inset-0 opacity-20">
-              <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(37,99,235,0.15),transparent_70%)]" />
-              <svg viewBox="0 0 500 500" className="w-full h-full p-12">
-                <motion.path 
-                  d="M0,400 Q125,350 250,380 T500,320" 
-                  fill="none" stroke="#2563eb" strokeWidth="2"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ duration: 2, ease: "easeInOut" }}
-                />
-              </svg>
+            {/* Inner Refraction / Light Caustics */}
+            <div className="absolute inset-0 overflow-hidden rounded-[40px]">
+              <motion.div 
+                animate={{ 
+                  x: [0, 100, 0],
+                  y: [0, 50, 0],
+                  rotate: [0, 360]
+                }}
+                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(37,99,235,0.1)_0%,transparent_60%)]"
+              />
+            </div>
+
+            {/* Float Depth Elements */}
+            <div className="absolute inset-0 p-12 opacity-30" style={{ transform: 'translateZ(50px)' }}>
+               <svg viewBox="0 0 400 400" className="w-full h-full">
+                  <path d="M0,350 Q100,300 200,330 T400,280" stroke="#2563eb" strokeWidth="4" fill="none" />
+                  <path d="M0,300 Q100,250 200,280 T400,230" stroke="#2563eb" strokeWidth="1" fill="none" opacity="0.3" />
+               </svg>
             </div>
           </motion.div>
 
-          {/* Bull Container */}
-          <motion.div 
+          {/* THE BULL - With extreme shadow depth */}
+          <motion.div
             style={{
               position: 'absolute',
-              bottom: '0', left: '0', right: '0', top: '0',
-              display: 'flex', alignItems: 'flex-end', justifyContent: 'center',
-              zIndex: 20, paddingBottom: '30px',
-              y: bullY
+              bottom: '5%',
+              width: '95%',
+              zIndex: 50,
+              transformStyle: 'preserve-3d',
+              y: springBullY,
+              rotateY: mousePos.x * 0.5,
+              rotateX: -mousePos.y * 0.5,
             }}
           >
-            <motion.img
-              src="/bull.png"
-              alt="Bull"
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            <img 
+              src="/bull.png" 
+              alt="The Bull" 
               style={{
-                width: '88%',
-                height: 'auto',
-                objectFit: 'contain',
-                objectPosition: 'center bottom',
-                filter: 'drop-shadow(0 30px 100px rgba(0,0,0,1)) contrast(1.05)',
+                width: '100%', height: 'auto',
+                filter: 'drop-shadow(0 40px 120px rgba(0,0,0,1)) brightness(1.1) contrast(1.1)',
+                transform: 'translateZ(120px)',
               }}
             />
           </motion.div>
 
-          {/* Price Chips - Enhanced */}
-          <PriceChip top="18%" right="12%" symbol="EURUSD" price="1.0842" change="+0.47%" up={true} delay={0.4} />
-          <PriceChip top="38%" left="8%" symbol="XAUUSD" price="2,384.65" change="+0.62%" up={true} delay={0.5} />
-          <PriceChip top="68%" right="6%" symbol="GBPUSD" price="1.2748" change="-0.30%" up={false} delay={0.6} />
-        </motion.div>
+          {/* 3D Price Chips - With Depth */}
+          <ThreeDPriceChip 
+            top="12%" right="5%" 
+            symbol="EURUSD" price="1.0842" change="+0.47%" up={true} 
+            z={180} mousePos={mousePos}
+          />
+          <ThreeDPriceChip 
+            top="35%" left="0%" 
+            symbol="XAUUSD" price="2,384.65" change="+0.62%" up={true} 
+            z={220} mousePos={mousePos}
+          />
+          <ThreeDPriceChip 
+            top="65%" right="0%" 
+            symbol="GBPUSD" price="1.2748" change="-0.30%" up={false} 
+            z={200} mousePos={mousePos}
+          />
+        </div>
       </div>
     </section>
   )
 }
 
-function PriceChip({ top, left, right, symbol, price, change, up, delay }: any) {
+function ThreeDPriceChip({ top, left, right, symbol, price, change, up, z, mousePos }: any) {
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.9, y: 10 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      className="price-chip"
-      style={{ top, left, right, zIndex: 30, padding: '12px 20px', borderRadius: 14 }}
+      className="price-chip-3d"
+      style={{
+        position: 'absolute',
+        top, left, right,
+        zIndex: 100,
+        background: 'rgba(10,12,18,0.9)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255,255,255,0.15)',
+        borderRadius: 20,
+        padding: '16px 24px',
+        transform: `translateZ(${z}px) rotateY(${mousePos.x * 0.8}deg) rotateX(${-mousePos.y * 0.8}deg)`,
+        boxShadow: '0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05)',
+        transition: 'transform 0.1s ease-out'
+      }}
     >
-      <div style={{ fontSize: 10, fontWeight: 800, color: '#6b7585', letterSpacing: '.12em', textTransform: 'uppercase', marginBottom: 4 }}>{symbol}</div>
-      <div style={{ fontSize: 15, fontWeight: 900, color: '#fff', display: 'flex', alignItems: 'center', gap: 8 }}>
-        {price} <span style={{ fontSize: 11, fontWeight: 800, color: up ? '#22c55e' : '#ef4444' }}>{change}</span>
+      <div style={{ fontSize: 10, fontWeight: 900, color: '#6b7585', letterSpacing: '.15em', textTransform: 'uppercase', marginBottom: 6 }}>{symbol}</div>
+      <div style={{ fontSize: 18, fontWeight: 900, color: '#fff', display: 'flex', alignItems: 'center', gap: 10, letterSpacing: '-0.02em' }}>
+        {price} 
+        <span style={{ fontSize: 12, fontWeight: 900, color: up ? '#22c55e' : '#ef4444', background: up ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)', padding: '2px 8px', borderRadius: 6 }}>
+          {change}
+        </span>
       </div>
     </motion.div>
   )
