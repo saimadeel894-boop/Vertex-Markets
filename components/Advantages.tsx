@@ -65,24 +65,17 @@ export default function Advantages() {
                 height: '100%',
               }}
             >
-              <div
-                className="icon-box"
-                style={{
-                  width: 64,
-                  height: 64,
-                  marginBottom: 32,
-                  background: 'rgba(37,99,235,0.06)',
-                  borderRadius: 16,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  border: '1px solid rgba(37,99,235,0.12)',
-                }}
-              >
+              <div className="icon-box w-full">
                 <img 
                   src={ad.icon} 
                   alt={ad.title} 
-                  style={{ width: 32, height: 32, objectFit: 'contain' }} 
+                  style={{ 
+                    width: 80, 
+                    height: 80, 
+                    objectFit: 'contain',
+                    position: 'relative',
+                    zIndex: 1
+                  }} 
                 />
               </div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: '#fff', marginBottom: 16 }}>

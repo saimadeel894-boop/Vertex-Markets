@@ -20,21 +20,13 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ paddingTop: 64, background: '#080a0e' }}
     >
-      {/* Radial glow */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse 55% 60% at 70% 50%, rgba(25,45,110,0.18) 0%, transparent 70%)',
-        }}
-      />
       {/* Grid texture */}
       <div
         className="grid-bg absolute inset-0 pointer-events-none"
         style={{
           maskImage:
             'radial-gradient(ellipse 90% 90% at 50% 50%, black 20%, transparent 100%)',
-          opacity: 0.7,
+          opacity: 0.5,
         }}
       />
 
@@ -109,31 +101,27 @@ export default function Hero() {
           className="relative flex items-center justify-center"
           style={{ height: 620 }}
         >
-          {/* Base / Floor */}
+          {/* Glass Panel */}
           <div
             style={{
-              position: 'absolute', bottom: '10%', width: 600, height: 200,
-              background: 'radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 80%)',
-              borderRadius: '50%', transform: 'rotateX(75deg)',
-              border: '1px solid rgba(255,255,255,0.05)',
-            }}
-          />
-
-          {/* Curved Glass Display */}
-          <div
-            className="absolute z-0"
-            style={{
-              width: 500, height: 450,
-              bottom: '15%', left: '50%', transform: 'translateX(-50%)',
-              borderRadius: '250px 250px 40px 40px / 120px 120px 40px 40px',
-              border: '1.5px solid rgba(255,255,255,0.12)',
-              background: 'linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
-              backdropFilter: 'blur(10px)',
-              maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+              width: 520,
+              height: 500,
+              background: 'rgba(8,10,20,0.75)',
+              backdropFilter: 'blur(16px)',
+              WebkitBackdropFilter: 'blur(16px)',
+              border: '1px solid rgba(255,255,255,0.09)',
+              borderRadius: 24,
+              position: 'relative',
+              overflow: 'hidden',
             }}
           >
-             {/* Glass reflections */}
-             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(255,255,255,0.02) 100%)' }} />
+            {/* Chart overlays in the glass */}
+            <div className="absolute inset-0 pointer-events-none opacity-20" style={{ zIndex: 5 }}>
+              <svg viewBox="0 0 500 400" className="w-full h-full">
+                <path d="M100,300 L150,280 L200,320 L250,250 L300,270 L350,200 L400,210" fill="none" stroke="#2563eb" strokeWidth="1" />
+                <circle cx="400" cy="210" r="2" fill="#2563eb" />
+              </svg>
+            </div>
           </div>
 
           {/* Bull */}
@@ -141,12 +129,12 @@ export default function Hero() {
             className="bull-float" 
             style={{ 
               position: 'absolute',
-              bottom: '18%',
+              bottom: '0%',
               left: '50%',
               transform: 'translateX(-50%)',
-              width: 420, 
-              height: 380,
-              zIndex: 10
+              width: '420px', 
+              height: '380px',
+              zIndex: 20
             }}
           >
             <img 
@@ -157,50 +145,35 @@ export default function Hero() {
                 height: '100%',
                 objectFit: 'contain',
                 objectPosition: 'center bottom',
-                filter: 'drop-shadow(0 30px 50px rgba(0,0,0,0.9)) brightness(1.1)',
-              }}
-            />
-            {/* Reflection on floor */}
-            <div 
-              style={{
-                position: 'absolute', bottom: '-5%', left: '10%', right: '10%', height: '30%',
-                background: 'linear-gradient(to top, rgba(25,45,110,0.15), transparent)',
-                filter: 'blur(20px)', zIndex: -1
+                filter: 'drop-shadow(0 20px 60px rgba(0,0,0,0.9))',
               }}
             />
           </div>
 
-          {/* Price chips — Exactly like screenshot */}
-          <div className="price-chip" style={{ top: '15%', right: '15%', transform: 'rotate(2deg)' }}>
+          {/* Price chips */}
+          <div className="price-chip" style={{ top: '15%', right: '15%', transform: 'rotate(2deg)', zIndex: 30 }}>
             <div style={{ fontSize: 9, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 2 }}>EURUSD</div>
             <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
               1.0842 <span style={{ fontSize: 10, color: '#22c55e' }}>+0.47%</span>
             </div>
           </div>
 
-          <div className="price-chip" style={{ top: '35%', left: '5%', transform: 'rotate(-3deg)' }}>
+          <div className="price-chip" style={{ top: '35%', left: '5%', transform: 'rotate(-3deg)', zIndex: 30 }}>
             <div style={{ fontSize: 9, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 2 }}>XAUUSD</div>
             <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
               2,384.65 <span style={{ fontSize: 10, color: '#22c55e' }}>+0.62%</span>
             </div>
           </div>
 
-          <div className="price-chip" style={{ top: '65%', right: '5%', transform: 'rotate(-1deg)' }}>
+          <div className="price-chip" style={{ top: '65%', right: '5%', transform: 'rotate(-1deg)', zIndex: 30 }}>
             <div style={{ fontSize: 9, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 2 }}>GBPUSD</div>
             <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
               1.2748 <span style={{ fontSize: 10, color: '#ef4444' }}>-0.30%</span>
             </div>
           </div>
-
-          {/* Chart overlays in the glass */}
-          <div className="absolute inset-0 pointer-events-none opacity-20" style={{ zIndex: 5 }}>
-            <svg viewBox="0 0 500 400" className="w-full h-full">
-              <path d="M100,300 L150,280 L200,320 L250,250 L300,270 L350,200 L400,210" fill="none" stroke="#2563eb" strokeWidth="1" />
-              <circle cx="400" cy="210" r="2" fill="#2563eb" />
-            </svg>
-          </div>
         </motion.div>
       </div>
+
     </section>
   )
 }
