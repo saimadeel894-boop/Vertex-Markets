@@ -1,120 +1,75 @@
 'use client'
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
-type Instrument = {
-  pair: string
-  price: string
-  change: string
-  positive: boolean
-  points: string
-}
-
-const BASE: Instrument[] = [
-  { pair: 'EURUSD',  price: '1.08945',   change: '+0.47%', positive: true,  points: '0,17 15,14 30,18 50,10 68,12 90,3' },
-  { pair: 'GBPUSD',  price: '1.27482',   change: '+0.35%', positive: true,  points: '0,18 20,14 38,17 55,8 72,10 90,5' },
-  { pair: 'XAUUSD',  price: '2,384.65',  change: '+0.62%', positive: true,  points: '0,20 22,14 44,17 60,8 76,5 90,2' },
-  { pair: 'USDJPY',  price: '156.743',   change: '-0.21%', positive: false, points: '0,5 22,9 42,7 60,15 76,12 90,17' },
-  { pair: 'BTCUSD',  price: '67,842.10', change: '+1.08%', positive: true,  points: '0,18 18,14 36,10 54,14 72,6 90,2' },
-  { pair: 'USOIL',   price: '78.245',    change: '-0.15%', positive: false, points: '0,6 20,10 40,14 58,11 76,16 90,19' },
+const pairs = [
+  { symbol: 'EURUSD', price: '1.0842', change: '+0.47%', up: true },
+  { symbol: 'GBPUSD', price: '1.2748', change: '-0.30%', up: false },
+  { symbol: 'XAUUSD', price: '2384.65', change: '+0.62%', up: true },
+  { symbol: 'USDJPY', price: '156.42', change: '+0.12%', up: true },
+  { symbol: 'BTCUSD', price: '66248.50', change: '+1.45%', up: true },
+  { symbol: 'USOIL',  price: '78.42',   change: '-0.85%', up: false },
 ]
 
-function nudgePrice(price: string): string {
-  const raw = parseFloat(price.replace(/,/g, ''))
-  if (isNaN(raw)) return price
-  const delta = raw * 0.00005 * (Math.random() - 0.5)
-  const next = raw + delta
-  const decimals = price.includes(',') ? 2 : (price.split('.')[1]?.length ?? 5)
-  const formatted = next.toFixed(decimals)
-  // reinsert comma if original had one
-  if (raw > 999) {
-    const [int, dec] = formatted.split('.')
-    return parseInt(int).toLocaleString('en-US') + (dec ? '.' + dec : '')
-  }
-  return formatted
-}
-
 export default function Ticker() {
-  const [instruments, setInstruments] = useState<Instrument[]>(BASE)
+  const [offset, setOffset] = useState(0)
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setInstruments(prev =>
-        prev.map(inst => ({ ...inst, price: nudgePrice(inst.price) }))
-      )
-    }, 1800)
-    return () => clearInterval(id)
+    const timer = setInterval(() => {
+      setOffset(prev => (prev + 1) % 100)
+    }, 50)
+    return () => clearInterval(timer)
   }, [])
 
   return (
-    <section
+    <div
       style={{
-        background: '#0a0d14',
+        background: '#080a0e',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
-        padding: '22px 48px',
+        overflow: 'hidden',
+        height: 48,
+        display: 'flex',
+        alignItems: 'center',
       }}
     >
-      <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(6, 1fr)',
-          }}
-        >
-          {instruments.map((inst, i) => (
-            <motion.div
-              key={inst.pair}
-              className="ticker-item"
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              style={{ padding: '0 20px' }}
-            >
-              <div style={{ fontSize: 11.5, fontWeight: 500, color: '#a0aab8', letterSpacing: '.04em' }}>
-                {inst.pair}
-              </div>
-              <div
-                style={{
-                  fontSize: 17,
-                  fontWeight: 700,
-                  color: '#fff',
-                  margin: '3px 0',
-                  fontVariantNumeric: 'tabular-nums',
-                  transition: 'color 0.3s',
-                }}
-              >
-                {inst.price}
-              </div>
-              <div
-                style={{
-                  fontSize: 11,
-                  fontWeight: 600,
-                  color: inst.positive ? '#22c55e' : '#ef4444',
-                }}
-              >
-                {inst.change}
-              </div>
-              {/* Sparkline */}
-              <svg
-                viewBox="0 0 90 22"
-                style={{ width: '100%', height: 22, marginTop: 8 }}
-                preserveAspectRatio="none"
-              >
-                <polyline
-                  points={inst.points}
-                  fill="none"
-                  stroke={inst.positive ? '#22c55e' : '#ef4444'}
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
+      <motion.div
+        animate={{ x: [0, -1200] }}
+        transition={{ 
+          duration: 30, 
+          repeat: Infinity, 
+          ease: "linear" 
+        }}
+        style={{ display: 'flex', gap: 0, whiteSpace: 'nowrap' }}
+      >
+        {[...pairs, ...pairs, ...pairs, ...pairs].map((p, i) => (
+          <div
+            key={i}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 12,
+              padding: '0 32px',
+              height: 48,
+              borderRight: '1px solid rgba(255,255,255,0.06)',
+            }}
+          >
+            <span style={{ fontSize: 11, fontWeight: 800, color: '#6b7585', letterSpacing: '0.05em' }}>{p.symbol}</span>
+            <span style={{ fontSize: 13, fontWeight: 700, color: '#fff' }}>{p.price}</span>
+            <span style={{ fontSize: 11, fontWeight: 700, color: p.up ? '#22c55e' : '#ef4444' }}>{p.change}</span>
+            {/* Small sparkline SVG */}
+            <svg width="40" height="14" viewBox="0 0 40 14" fill="none">
+              <path 
+                d={p.up ? "M0,12 L8,8 L16,10 L24,4 L32,6 L40,2" : "M0,2 L8,6 L16,4 L24,10 L32,8 L40,12"} 
+                stroke={p.up ? "#22c55e" : "#ef4444"} 
+                strokeWidth="1.5" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        ))}
+      </motion.div>
+    </div>
   )
 }

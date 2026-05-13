@@ -103,135 +103,101 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── RIGHT — Bull ── */}
+        {/* ── RIGHT — 3D Scene ── */}
         <motion.div
           {...fade(0.12)}
           className="relative flex items-center justify-center"
-          style={{ height: 560 }}
+          style={{ height: 620 }}
         >
-          {/* Glass panel */}
+          {/* Base / Floor */}
           <div
-            className="glass-panel relative overflow-hidden"
-            style={{ width: 520, height: 500 }}
+            style={{
+              position: 'absolute', bottom: '10%', width: 600, height: 200,
+              background: 'radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 80%)',
+              borderRadius: '50%', transform: 'rotateX(75deg)',
+              border: '1px solid rgba(255,255,255,0.05)',
+            }}
+          />
+
+          {/* Curved Glass Display */}
+          <div
+            className="absolute z-0"
+            style={{
+              width: 500, height: 450,
+              bottom: '15%', left: '50%', transform: 'translateX(-50%)',
+              borderRadius: '250px 250px 40px 40px / 120px 120px 40px 40px',
+              border: '1.5px solid rgba(255,255,255,0.12)',
+              background: 'linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)',
+              backdropFilter: 'blur(10px)',
+              maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+            }}
           >
-            {/* Gradient sheen */}
-            <div
-              className="absolute inset-0 pointer-events-none"
+             {/* Glass reflections */}
+             <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%, rgba(255,255,255,0.02) 100%)' }} />
+          </div>
+
+          {/* Bull */}
+          <div 
+            className="bull-float" 
+            style={{ 
+              position: 'absolute',
+              bottom: '18%',
+              left: '50%',
+              transform: 'translateX(-50%)',
+              width: 420, 
+              height: 380,
+              zIndex: 10
+            }}
+          >
+            <img 
+              src="/bull.png" 
+              alt="Bull" 
               style={{
-                background:
-                  'linear-gradient(135deg,rgba(255,255,255,0.055) 0%,transparent 55%,rgba(255,255,255,0.015) 100%)',
+                width: '100%',
+                height: '100%',
+                objectFit: 'contain',
+                objectPosition: 'center bottom',
+                filter: 'drop-shadow(0 30px 50px rgba(0,0,0,0.9)) brightness(1.1)',
               }}
             />
-
-            {/* Candlestick chart — top right */}
-            <div
-              className="absolute overflow-hidden"
-              style={{ top: 0, right: 0, width: '55%', height: '45%', padding: 16 }}
-            >
-              <svg viewBox="0 0 180 110" style={{ width: '100%', height: '100%', opacity: 0.75 }} preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="cg" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%"   stopColor="#2563eb" stopOpacity=".25"/>
-                    <stop offset="100%" stopColor="#2563eb" stopOpacity="0"/>
-                  </linearGradient>
-                </defs>
-                {/* Grid */}
-                {[28,55,82].map(y => (
-                  <line key={y} x1="0" y1={y} x2="180" y2={y} stroke="rgba(255,255,255,0.05)" strokeWidth=".6"/>
-                ))}
-                {/* Candles */}
-                {[
-                  [6,52,26,'#ef4444',45,82],[16,55,20,'#ef4444',49,79],
-                  [26,42,24,'#22c55e',35,70],[36,36,22,'#22c55e',29,62],
-                  [46,44,26,'#ef4444',37,74],[56,30,28,'#22c55e',23,62],
-                  [66,24,26,'#22c55e',17,54],[76,18,22,'#22c55e',12,44],
-                  [86,22,24,'#ef4444',16,50],[96,14,20,'#22c55e', 8,38],
-                  [106,10,18,'#22c55e', 5,32],
-                ].map(([x,y,h,c,ly1,ly2],i) => (
-                  <g key={i}>
-                    <rect x={x} y={y} width="5" height={h} rx="1" fill={c as string} opacity=".8"/>
-                    <line x1={Number(x)+2.5} y1={ly1 as number} x2={Number(x)+2.5} y2={ly2 as number} stroke={c as string} strokeWidth=".8"/>
-                  </g>
-                ))}
-                {/* Fill */}
-                <path
-                  d="M8.5,70 C18,68 28,54 38.5,48 C48,62 58.5,44 68.5,38 C78.5,30 88.5,36 98.5,22 C108.5,14 120,10 150,8 L150,110 L8.5,110 Z"
-                  fill="url(#cg)"
-                />
-                {/* Trend line */}
-                <polyline
-                  points="8.5,70 18.5,67 28.5,52 38.5,46 48.5,60 58.5,42 68.5,36 78.5,28 88.5,34 98.5,20 108.5,13 130,9 150,6"
-                  fill="none" stroke="#3b82f6" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"
-                />
-                <circle cx="150" cy="6" r="3" fill="#3b82f6"/>
-                <circle cx="150" cy="6" r="6" fill="#3b82f6" opacity=".2"/>
-              </svg>
-            </div>
-
-            {/* Platform glow ring */}
-            <div
-              className="absolute glow-pulse"
-              style={{
-                bottom: '12%', left: '50%', transform: 'translateX(-50%)',
-                width: 260, height: 18, borderRadius: '50%',
-                background: 'radial-gradient(ellipse,rgba(37,99,235,0.5) 0%,transparent 70%)',
-                filter: 'blur(8px)',
-              }}
-            />
-            <div
-              className="absolute"
-              style={{
-                bottom: '13%', left: '50%', transform: 'translateX(-50%)',
-                width: 200, height: 12, borderRadius: '50%',
-                background: 'radial-gradient(ellipse,rgba(37,99,235,0.25) 0%,transparent 70%)',
-                filter: 'blur(4px)',
-              }}
-            />
-
-            {/* Bull */}
+            {/* Reflection on floor */}
             <div 
-              className="bull-float" 
-              style={{ 
-                position: 'absolute',
-                bottom: '5%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                width: 340, 
-                height: 310 
+              style={{
+                position: 'absolute', bottom: '-5%', left: '10%', right: '10%', height: '30%',
+                background: 'linear-gradient(to top, rgba(25,45,110,0.15), transparent)',
+                filter: 'blur(20px)', zIndex: -1
               }}
-            >
-              <img 
-                src="/bull.png" 
-                alt="Bull" 
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                  objectPosition: 'center bottom',
-                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))',
-                }}
-              />
+            />
+          </div>
+
+          {/* Price chips — Exactly like screenshot */}
+          <div className="price-chip" style={{ top: '15%', right: '15%', transform: 'rotate(2deg)' }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 2 }}>EURUSD</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
+              1.0842 <span style={{ fontSize: 10, color: '#22c55e' }}>+0.47%</span>
             </div>
           </div>
 
-          {/* Price chips */}
-          <div className="price-chip" style={{ top: '18%', left: '50%', marginLeft: -10 }}>
-            <div style={{ fontSize: 10, fontWeight: 500, color: '#6b7585', letterSpacing: '.05em', textTransform: 'uppercase' }}>EURUSD</div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
-              1.0842 <span style={{ fontSize: 11, color: '#22c55e' }}>+0.47%</span>
+          <div className="price-chip" style={{ top: '35%', left: '5%', transform: 'rotate(-3deg)' }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 2 }}>XAUUSD</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
+              2,384.65 <span style={{ fontSize: 10, color: '#22c55e' }}>+0.62%</span>
             </div>
           </div>
-          <div className="price-chip" style={{ top: '40%', left: '6%' }}>
-            <div style={{ fontSize: 10, fontWeight: 500, color: '#6b7585', letterSpacing: '.05em', textTransform: 'uppercase' }}>XAUUSD</div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
-              2,384 <span style={{ fontSize: 11, color: '#22c55e' }}>+0.62%</span>
+
+          <div className="price-chip" style={{ top: '65%', right: '5%', transform: 'rotate(-1deg)' }}>
+            <div style={{ fontSize: 9, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 2 }}>GBPUSD</div>
+            <div style={{ fontSize: 13, fontWeight: 800, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
+              1.2748 <span style={{ fontSize: 10, color: '#ef4444' }}>-0.30%</span>
             </div>
           </div>
-          <div className="price-chip" style={{ top: '16%', right: '2%' }}>
-            <div style={{ fontSize: 10, fontWeight: 500, color: '#6b7585', letterSpacing: '.05em', textTransform: 'uppercase' }}>GBPUSD</div>
-            <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 6 }}>
-              1.2748 <span style={{ fontSize: 11, color: '#ef4444' }}>-0.30%</span>
-            </div>
+
+          {/* Chart overlays in the glass */}
+          <div className="absolute inset-0 pointer-events-none opacity-20" style={{ zIndex: 5 }}>
+            <svg viewBox="0 0 500 400" className="w-full h-full">
+              <path d="M100,300 L150,280 L200,320 L250,250 L300,270 L350,200 L400,210" fill="none" stroke="#2563eb" strokeWidth="1" />
+              <circle cx="400" cy="210" r="2" fill="#2563eb" />
+            </svg>
           </div>
         </motion.div>
       </div>

@@ -9,34 +9,45 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="fixed top-0 left-0 right-0 z-[100] h-16 flex items-center"
+      className="fixed top-0 left-0 right-0 z-[100] h-20 flex items-center"
       style={{
-        background: 'rgba(8,10,14,0.92)',
-        backdropFilter: 'blur(14px)',
-        WebkitBackdropFilter: 'blur(14px)',
+        background: 'rgba(8,10,14,0.85)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
       }}
     >
-      <div className="max-w-[1280px] w-full mx-auto px-12 flex items-center justify-between">
+      <div className="max-w-[1440px] w-full mx-auto px-12 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2.5 no-underline">
-          <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-            <path d="M3 3L14 25L25 3" stroke="white" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M8 3L14 17L20 3" stroke="white" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
-          </svg>
-          <div className="leading-none">
-            <div className="text-[15px] font-black tracking-[0.07em] text-white">VERTEX</div>
-            <div className="text-[8px] font-medium tracking-[0.22em] text-brand-subtle uppercase mt-0.5">MARKETS</div>
+        <a href="#" className="flex items-center gap-3 no-underline group">
+          <div 
+            style={{ 
+              width: 36, height: 36, 
+              background: '#2563eb', 
+              borderRadius: 8, 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              boxShadow: '0 4px 12px rgba(37,99,235,0.3)',
+              transition: 'transform 0.3s ease'
+            }}
+            className="group-hover:scale-105"
+          >
+            <span style={{ fontSize: 22, fontWeight: 900, color: '#fff', letterSpacing: '-0.05em' }}>V</span>
+          </div>
+          <div className="leading-tight">
+            <div className="text-[17px] font-black tracking-tight text-white">VERTEX</div>
+            <div className="text-[9px] font-bold tracking-[0.3em] text-brand-muted uppercase">MARKETS</div>
           </div>
         </a>
 
         {/* Nav links */}
-        <ul className="hidden lg:flex items-center gap-8 list-none">
+        <ul className="hidden lg:flex items-center gap-10 list-none">
           {links.map(l => (
             <li key={l}>
               <a
                 href="#"
-                className="text-[13.5px] font-medium text-brand-muted hover:text-white transition-colors duration-200 no-underline"
+                className="text-[14px] font-semibold text-brand-muted hover:text-white transition-colors duration-200 no-underline"
               >
                 {l}
               </a>
@@ -45,17 +56,17 @@ export default function Navbar() {
         </ul>
 
         {/* Buttons */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-4">
           <a
             href="#"
-            className="px-5 py-2 text-[13.5px] font-medium text-white rounded-[6px] no-underline transition-all duration-200 hover:bg-white/5"
-            style={{ border: '1px solid rgba(255,255,255,0.18)' }}
+            className="px-6 py-2.5 text-[14px] font-semibold text-white rounded-[8px] no-underline transition-all duration-200 hover:bg-white/5"
+            style={{ border: '1px solid rgba(255,255,255,0.15)' }}
           >
             Login
           </a>
           <a
             href="#"
-            className="px-5 py-2 text-[13.5px] font-semibold text-white bg-brand-primary rounded-[6px] no-underline transition-all duration-200 hover:bg-blue-700"
+            className="px-6 py-2.5 text-[14px] font-bold text-white bg-brand-primary rounded-[8px] no-underline transition-all duration-200 hover:bg-blue-700 hover:shadow-[0_4px_20px_rgba(37,99,235,0.4)]"
           >
             Get Started
           </a>

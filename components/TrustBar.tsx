@@ -4,47 +4,51 @@ import { motion } from 'framer-motion'
 const regulators = [
   {
     abbr: 'FCA',
-    full: 'Financial Conduct Authority',
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M3 4h4.5L12 18l4.5-14H21M2 20h20" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+    full: 'FINANCIAL CONDUCT AUTHORITY',
+    logo: (
+      <svg width="32" height="32" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="white" strokeWidth="2" opacity=".4"/>
+        <path d="M12 20h16M20 12v16" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
       </svg>
     ),
   },
   {
     abbr: 'ASIC',
     full: 'Australian Securities & Investments Commission',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2L2 12l10 10 10-10z"/>
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 2L4 7v10l8 5 8-5V7l-8-5z" opacity=".5"/>
+        <path d="M12 6l-5 3v6l5 3 5-3V9l-5-3z"/>
       </svg>
     ),
   },
   {
     abbr: 'FSCA',
     full: 'Financial Sector Conduct Authority',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2L2 20h20z"/>
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 3l9 16H3L12 3z" opacity=".5"/>
+        <path d="M12 8l5 9H7l5-9z"/>
       </svg>
     ),
   },
   {
     abbr: 'CySEC',
     full: 'Cyprus Securities and Exchange Commission',
-    icon: (
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <path d="M12 2L2 12l10 10 10-10z" opacity=".8"/>
-        <path d="M12 6L6 12l6 6 6-6z"/>
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 2L2 12l10 10 10-10L12 2z" opacity=".5"/>
+        <path d="M12 7l-5 5 5 5 5-5-5-5z"/>
       </svg>
     ),
   },
   {
     abbr: 'DFSA',
     full: 'Dubai Financial Services Authority',
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 2L2 22h20z"/>
+    logo: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+        <path d="M12 2L2 22h20L12 2z" opacity=".5"/>
+        <rect x="10" y="12" width="4" height="6" fill="white"/>
       </svg>
     ),
   },
@@ -54,60 +58,74 @@ export default function TrustBar() {
   return (
     <section
       style={{
-        borderTop: '1px solid rgba(255,255,255,0.06)',
-        borderBottom: '1px solid rgba(255,255,255,0.06)',
         background: '#080a0e',
-        padding: '26px 48px',
+        padding: '20px 48px 40px',
       }}
     >
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <p
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           style={{
-            textAlign: 'center',
-            fontSize: 9.5,
-            fontWeight: 700,
-            letterSpacing: '.2em',
-            color: '#6b7585',
-            textTransform: 'uppercase',
-            marginBottom: 20,
-          }}
-        >
-          Trusted by Traders. Regulated by Authorities.
-        </p>
-        <div
-          style={{
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+            border: '1px solid rgba(255,255,255,0.06)',
+            borderRadius: 16,
+            padding: '24px 40px',
             display: 'flex',
-            justifyContent: 'center',
+            flexDirection: 'column',
             alignItems: 'center',
-            gap: 52,
-            flexWrap: 'wrap',
           }}
         >
-          {regulators.map((r, i) => (
-            <motion.div
-              key={r.abbr}
-              className="reg-item"
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 0.45, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
-              whileHover={{ opacity: 0.85 }}
-            >
-              {r.icon}
-              <div>
-                <div style={{ fontSize: 17, fontWeight: 900, letterSpacing: '.06em', color: '#fff' }}>
-                  {r.abbr}
+          <p
+            style={{
+              fontSize: 9,
+              fontWeight: 800,
+              letterSpacing: '.25em',
+              color: '#6b7585',
+              textTransform: 'uppercase',
+              marginBottom: 24,
+              opacity: 0.8
+            }}
+          >
+            TRUSTED BY TRADERS. REGULATED BY AUTHORITIES.
+          </p>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: 64,
+              flexWrap: 'wrap',
+            }}
+          >
+            {regulators.map((r, i) => (
+              <motion.div
+                key={r.abbr}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 0.5 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ opacity: 1, scale: 1.05 }}
+                style={{ display: 'flex', alignItems: 'center', gap: 12, cursor: 'default' }}
+              >
+                {r.logo}
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <span style={{ fontSize: 20, fontWeight: 900, color: '#fff', letterSpacing: '0.02em', lineHeight: 1 }}>{r.abbr}</span>
+                  {r.abbr === 'FCA' && (
+                    <span style={{ fontSize: 7, fontWeight: 700, color: '#fff', letterSpacing: '0.05em', opacity: 0.7, maxWidth: 80, marginTop: 2 }}>{r.full}</span>
+                  )}
+                  {r.abbr === 'ASIC' && (
+                    <span style={{ fontSize: 5, color: '#fff', opacity: 0.5, maxWidth: 100, marginTop: 2 }}>Available Securities & Investments Commission</span>
+                  )}
                 </div>
-                {r.abbr === 'FCA' && (
-                  <div style={{ fontSize: 6.5, color: '#fff', letterSpacing: '.06em', maxWidth: 72, lineHeight: 1.3, textTransform: 'uppercase' }}>
-                    {r.full}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )
 }
+
