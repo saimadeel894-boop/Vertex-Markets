@@ -4,47 +4,39 @@ import { motion } from 'framer-motion'
 const ads = [
   {
     icon: '/icon-liquidity.png',
-    title: 'Deep Liquidity',
-    desc: 'Access institutional-grade liquidity from top-tier banks and dark pools for minimal slippage.',
+    title: 'Institutional-Grade Liquidity',
+    desc: 'Deep liquidity from Tier-1 providers ensuring minimal slippage and maximum stability.',
   },
   {
     icon: '/icon-execution.png',
     title: 'Ultra-Fast Execution',
-    desc: 'Execute trades in under 30ms on our high-performance low-latency trading infrastructure.',
+    desc: 'Average execution speed under 30ms with no dealing desk interference.',
   },
   {
     icon: '/icon-security.png',
-    title: 'Secure & Regulated',
-    desc: 'Your funds are kept in segregated accounts with top-tier global banks under strict regulation.',
+    title: 'Security You Can Trust',
+    desc: 'Segregated client funds, advanced encryption, and global regulatory oversight.',
   },
   {
     icon: '/icon-conditions.png',
-    title: 'Institutional Conditions',
-    desc: 'Trade with raw spreads from 0.0 pips and low commissions designed for professional traders.',
+    title: 'Professional Trading Conditions',
+    desc: 'Raw spreads, flexible leverage, and low commissions built for serious performance.',
   },
 ]
 
 export default function Advantages() {
   return (
-    <section style={{ padding: '120px 48px', background: '#080a0e' }}>
+    <section style={{ padding: '100px 48px', background: '#080a0e' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
-        <div style={{ textAlign: 'center', marginBottom: 80 }}>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.25em', color: '#6b7585', textTransform: 'uppercase', marginBottom: 16 }}
-          >
-            WHY CHOOSE VERTEX
-          </motion.p>
+        <div style={{ textAlign: 'center', marginBottom: 70 }}>
           <motion.h2
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            style={{ fontSize: 'clamp(32px,4vw,44px)', fontWeight: 800, color: '#fff', lineHeight: 1.1 }}
+            style={{ fontSize: 'clamp(30px,4.5vw,42px)', lineHeight: 1.15 }}
           >
-            The Vertex Advantage
+            <span style={{ color: '#6b7585', fontWeight: 400 }}>Advantages Built for </span>
+            <span style={{ color: '#fff', fontWeight: 800 }}>Serious Traders</span>
           </motion.h2>
         </div>
 
@@ -78,7 +70,7 @@ export default function Advantages() {
                   }} 
                 />
               </div>
-              <h3 style={{ fontSize: 18, fontWeight: 700, color: '#fff', marginBottom: 16 }}>
+              <h3 style={{ fontSize: 17, fontWeight: 700, color: '#fff', marginBottom: 14, lineHeight: 1.3 }}>
                 {ad.title}
               </h3>
               <p style={{ fontSize: 14, color: '#a0aab8', lineHeight: 1.6, margin: 0 }}>

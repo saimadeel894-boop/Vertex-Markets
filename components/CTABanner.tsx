@@ -3,79 +3,74 @@ import { motion } from 'framer-motion'
 
 export default function CTABanner() {
   return (
-    <section style={{ padding: '80px 48px 120px', background: '#080a0e' }}>
+    <section style={{ padding: '70px 48px 100px', background: '#080a0e' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto' }}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           style={{
-            position: 'relative',
-            background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)',
-            borderRadius: 24,
-            padding: '80px 80px',
-            overflow: 'hidden',
-            display: 'grid',
-            gridTemplateColumns: '1.2fr 0.8fr',
+            background: 'linear-gradient(135deg, #0d1117 0%, #111827 100%)',
+            border: '1px solid rgba(255,255,255,0.07)',
+            borderRadius: 20,
+            padding: '60px 64px',
+            display: 'flex',
+            justifyContent: 'space-between',
             alignItems: 'center',
-            boxShadow: '0 40px 100px -20px rgba(30,58,138,0.4)',
+            gap: 40,
+            position: 'relative',
+            overflow: 'hidden',
+            flexWrap: 'wrap',
           }}
-          className="lg:grid-cols-2 grid-cols-1"
         >
-          {/* Decorative glows */}
-          <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
-          
-          <div style={{ position: 'relative', zIndex: 2 }}>
-            <h2 style={{ fontSize: 'clamp(32px, 4.5vw, 54px)', fontWeight: 900, color: '#fff', lineHeight: 1, marginBottom: 24, letterSpacing: '-0.02em' }}>
-              Ready to Start Your<br />Trading Journey?
+          {/* Glow */}
+          <div
+            style={{
+              position: 'absolute', top: '-30%', right: '-5%',
+              width: 380, height: 380,
+              background: 'radial-gradient(circle, rgba(37,99,235,0.08) 0%, transparent 70%)',
+              pointerEvents: 'none',
+            }}
+          />
+
+          {/* Text */}
+          <div style={{ position: 'relative', zIndex: 1 }}>
+            <h2 style={{ fontSize: 'clamp(24px,3.5vw,36px)', fontWeight: 800, color: '#fff', marginBottom: 12, lineHeight: 1.2 }}>
+              Ready to Elevate Your Trading?
             </h2>
-            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.85)', marginBottom: 44, maxWidth: 460, lineHeight: 1.6 }}>
-              Join thousands of traders who have already chosen Vertex Markets for their institutional trading needs.
+            <p style={{ fontSize: 15, color: '#a0aab8', maxWidth: 460, lineHeight: 1.65 }}>
+              Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16 }}>
-              <a
-                href="#"
-                className="bg-white text-blue-900 font-bold rounded-[8px] no-underline transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
-                style={{ padding: '18px 40px', fontSize: 15 }}
-              >
-                Create Free Account
-              </a>
-              <a
-                href="#"
-                className="bg-transparent text-white font-bold rounded-[8px] no-underline transition-all duration-200 hover:bg-white/10"
-                style={{ padding: '18px 40px', fontSize: 15, border: '1px solid rgba(255,255,255,0.3)' }}
-              >
-                Contact Sales
-              </a>
-            </div>
           </div>
 
-          <div style={{ position: 'relative', height: 400, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <motion.div
-              animate={{ 
-                y: [0, -15, 0],
-                rotateY: [0, 5, 0],
-                rotateX: [0, 5, 0]
+          {/* Actions */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 24, position: 'relative', zIndex: 1 }}>
+            <a
+              href="#"
+              style={{
+                display: 'inline-flex', alignItems: 'center', gap: 8,
+                padding: '15px 32px', fontSize: 14.5, fontWeight: 700,
+                color: '#fff', background: '#2563eb', borderRadius: 8,
+                textDecoration: 'none', whiteSpace: 'nowrap',
+                transition: 'all .2s',
               }}
-              transition={{ 
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              style={{ position: 'relative', zIndex: 1, width: '100%', height: '100%' }}
+              onMouseOver={e => { (e.currentTarget as HTMLElement).style.background = '#1d4ed8'; (e.currentTarget as HTMLElement).style.transform = 'translateY(-1px)' }}
+              onMouseOut={e => { (e.currentTarget as HTMLElement).style.background = '#2563eb'; (e.currentTarget as HTMLElement).style.transform = 'translateY(0)' }}
             >
-              <img 
-                src="/v-logo-3d.png" 
-                alt="Vertex Logo" 
-                style={{ 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 30px 60px rgba(0,0,0,0.5)) brightness(1.1)' 
-                }} 
-              />
-            </motion.div>
+              Get Started
+              <svg width="15" height="15" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </a>
+            <a
+              href="#"
+              style={{ fontSize: 14, fontWeight: 600, color: '#a0aab8', textDecoration: 'none', transition: 'color .2s' }}
+              onMouseOver={e => { (e.currentTarget as HTMLElement).style.color = '#fff' }}
+              onMouseOut={e => { (e.currentTarget as HTMLElement).style.color = '#a0aab8' }}
+            >
+              or Try Demo Account
+            </a>
           </div>
         </motion.div>
       </div>

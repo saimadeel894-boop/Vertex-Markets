@@ -117,7 +117,7 @@ export default function TrustBar() {
                     <span style={{ fontSize: 7, fontWeight: 700, color: '#fff', letterSpacing: '0.05em', opacity: 0.7, maxWidth: 80, marginTop: 2 }}>{r.full}</span>
                   )}
                   {r.abbr === 'ASIC' && (
-                    <span style={{ fontSize: 5, color: '#fff', opacity: 0.5, maxWidth: 100, marginTop: 2 }}>Available Securities & Investments Commission</span>
+                    <span style={{ fontSize: 5, color: '#fff', opacity: 0.5, maxWidth: 100, marginTop: 2 }}>Australian Securities & Investments Commission</span>
                   )}
                 </div>
               </motion.div>
