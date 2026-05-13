@@ -113,12 +113,9 @@ export default function TrustBar() {
                 {r.logo}
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <span style={{ fontSize: 20, fontWeight: 900, color: '#fff', letterSpacing: '0.02em', lineHeight: 1 }}>{r.abbr}</span>
-                  {r.abbr === 'FCA' && (
-                    <span style={{ fontSize: 7, fontWeight: 700, color: '#fff', letterSpacing: '0.05em', opacity: 0.7, maxWidth: 80, marginTop: 2 }}>{r.full}</span>
-                  )}
-                  {r.abbr === 'ASIC' && (
-                    <span style={{ fontSize: 5, color: '#fff', opacity: 0.5, maxWidth: 100, marginTop: 2 }}>Australian Securities & Investments Commission</span>
-                  )}
+                  <span style={{ fontSize: 6, fontWeight: 700, color: '#fff', letterSpacing: '0.04em', opacity: 0.4, maxWidth: 100, marginTop: 3, textTransform: 'uppercase' }}>
+                    {r.full}
+                  </span>
                 </div>
               </motion.div>
             ))}

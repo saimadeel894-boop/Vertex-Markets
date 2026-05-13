@@ -5,6 +5,7 @@ import Advantages from '@/components/Advantages'
 import Ticker from '@/components/Ticker'
 import Platforms from '@/components/Platforms'
 import CTABanner from '@/components/CTABanner'
+import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Ticker />
       <Platforms />
       <CTABanner />
+      <Footer />
     </main>
   )
 }
