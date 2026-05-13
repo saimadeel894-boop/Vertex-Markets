@@ -48,103 +48,33 @@ export default function Platforms() {
         }}
         className="lg:grid-cols-2 grid-cols-1"
       >
-        {/* ── Device mockups ── */}
+        {/* ── 3D Mockup Asset ── */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          style={{ position: 'relative', height: 440 }}
+          style={{ position: 'relative', height: 480, display: 'flex', alignItems: 'center' }}
         >
           {/* Blue glow behind */}
           <div
             style={{
-              position: 'absolute', top: '25%', left: '10%', width: '70%', height: '70%',
-              background: 'radial-gradient(circle, rgba(37,99,235,0.12) 0%, transparent 70%)',
-              filter: 'blur(50px)', pointerEvents: 'none',
+              position: 'absolute', top: '10%', left: '0%', width: '100%', height: '80%',
+              background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)',
+              filter: 'blur(60px)', pointerEvents: 'none',
             }}
           />
-
-          {/* Laptop SVG */}
-          <div
-            style={{
-              position: 'absolute', bottom: 0, left: 0, width: '85%', zIndex: 10,
-              borderRadius: '12px 12px 4px 4px', overflow: 'hidden',
-              border: '1.5px solid rgba(255,255,255,0.12)',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.9)',
-            }}
-          >
-            <div
-              style={{
-                background: 'linear-gradient(135deg, #050810, #0d1422)',
-                aspectRatio: '16/10', padding: 12,
-                position: 'relative', overflow: 'hidden',
-              }}
-            >
-              <svg viewBox="0 0 400 250" style={{ width: '100%', height: '100%' }} preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="lf-grad" x1="0%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#2563eb" stopOpacity=".2"/>
-                    <stop offset="100%" stopColor="#2563eb" stopOpacity="0"/>
-                  </linearGradient>
-                </defs>
-                {/* Grid */}
-                {[50,100,150,200].map(y => (
-                  <line key={y} x1="0" y1={y} x2="400" y2={y} stroke="rgba(255,255,255,0.04)" strokeWidth="1"/>
-                ))}
-                {[80,160,240,320].map(x => (
-                  <line key={x} x1={x} y1="0" x2={x} y2="250" stroke="rgba(255,255,255,0.03)" strokeWidth="1"/>
-                ))}
-                {/* Chart Area */}
-                <path
-                  d="M0,180 C40,170 80,140 120,130 C160,120 200,140 240,110 C280,80 320,60 400,30 L400,250 L0,250 Z"
-                  fill="url(#lf-grad)"
-                />
-                <path
-                  d="M0,180 C40,170 80,140 120,130 C160,120 200,140 240,110 C280,80 320,60 400,30"
-                  fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinecap="round"
-                />
-                {/* Sidebar mock */}
-                <rect x="330" y="15" width="55" height="220" rx="4" fill="rgba(13,18,34,0.9)"/>
-              </svg>
-            </div>
-            {/* Laptop Base */}
-            <div style={{ height: 12, background: '#141824', borderTop: '1.5px solid rgba(255,255,255,0.1)' }}/>
-          </div>
-
-          {/* Mobile SVG - Overlapping */}
-          <div
-            style={{
-              position: 'absolute', bottom: -15, right: '2%', width: '28%', zIndex: 20,
-              background: '#0a0e18', borderRadius: 20, overflow: 'hidden',
-              border: '2px solid rgba(255,255,255,0.15)',
-              boxShadow: '0 50px 100px rgba(0,0,0,0.95)',
-              aspectRatio: '9/19',
-            }}
-          >
-            <div
-              style={{
-                height: '100%',
-                background: 'linear-gradient(180deg, #050810 0%, #0d1422 100%)',
-                padding: '12px 10px',
-                display: 'flex', flexDirection: 'column', gap: 8,
-              }}
-            >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <span style={{ fontSize: 14, fontWeight: 900, color: '#2563eb' }}>V</span>
-                <div style={{ width: 30, height: 4, borderRadius: 2, background: 'rgba(255,255,255,0.1)' }} />
-              </div>
-              <div style={{ flex: 1, marginTop: 10 }}>
-                <svg viewBox="0 0 60 100" style={{ width: '100%', height: '100%' }}>
-                  <path
-                    d="M0,80 C10,75 20,60 30,50 C40,40 50,20 60,10"
-                    fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round"
-                  />
-                </svg>
-              </div>
-              <div style={{ height: 40, background: 'rgba(34,197,94,0.2)', borderRadius: 6 }} />
-            </div>
-          </div>
+          <img 
+            src="/platforms-mockup.png" 
+            alt="Trading Platforms" 
+            style={{ 
+              width: '100%', 
+              height: 'auto', 
+              position: 'relative', 
+              zIndex: 10,
+              filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.6))'
+            }} 
+          />
         </motion.div>
 
         {/* ── Content ── */}
@@ -169,9 +99,9 @@ export default function Platforms() {
               <div
                 key={p.name}
                 className="plat-opt"
-                style={{ cursor: 'pointer' }}
+                style={{ cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 16 }}
               >
-                <div className="plat-icon" style={{ width: 44, height: 44, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)' }}>
+                <div className="plat-icon" style={{ width: 44, height: 44, background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   {p.icon}
                 </div>
                 <div>
