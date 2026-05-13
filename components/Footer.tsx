@@ -5,14 +5,14 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer style={{ background: '#05070a', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '80px 48px 40px' }}>
+    <footer style={{ background: '#000000', borderTop: '1px solid rgba(255,255,255,0.06)', padding: '80px 48px 40px' }}>
       <div style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-60">
           {/* Brand Col */}
           <div className="flex flex-col gap-6">
             <a href="#" className="flex items-center gap-3 no-underline">
-              <div style={{ width: 32, height: 32, background: '#2563eb', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: 20, fontWeight: 900, color: '#fff', letterSpacing: '-0.05em' }}>V</span>
+              <div style={{ width: 32, height: 32, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em' }}>V</span>
               </div>
               <div className="leading-tight">
                 <div className="text-[16px] font-black tracking-tight text-white">VERTEX</div>

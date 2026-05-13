@@ -27,9 +27,8 @@ const ads = [
 
 export default function Advantages() {
   return (
-    <section style={{ padding: '140px 48px', background: '#05070a', position: 'relative', overflow: 'hidden' }}>
-      {/* Background Decorative Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none" />
+    <section style={{ padding: '140px 48px', background: '#000000', position: 'relative', overflow: 'hidden' }}>
+      {/* Background Decorative Glow - Removed per instructions */}
 
       <div style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', marginBottom: 100 }}>
@@ -104,7 +103,7 @@ function AdvCard({ ad, index }: any) {
       className="adv-card group relative"
     >
       <div 
-        className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl" 
+        className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-2xl" 
         style={{ transform: 'translateZ(-50px)' }}
       />
       
@@ -132,7 +131,7 @@ function AdvCard({ ad, index }: any) {
       </div>
 
       <div 
-        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+        className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-white/40 to-white/10 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
         style={{ transform: 'translateZ(20px)' }}
       />
     </motion.div>

@@ -58,7 +58,7 @@ export default function TrustBar() {
   return (
     <section
       style={{
-        background: '#080a0e',
+        background: '#000000',
         padding: '20px 48px 40px',
       }}
     >

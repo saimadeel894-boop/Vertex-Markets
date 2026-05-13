@@ -14,7 +14,7 @@ export default function Ticker() {
   return (
     <div
       style={{
-        background: '#080a0e',
+        background: '#000000',
         borderTop: '1px solid rgba(255,255,255,0.06)',
         borderBottom: '1px solid rgba(255,255,255,0.06)',
         height: 56,

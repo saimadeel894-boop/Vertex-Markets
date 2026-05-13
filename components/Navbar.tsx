@@ -23,7 +23,7 @@ export default function Navbar() {
   const navBg = useTransform(
     scrollY,
     [0, 50],
-    ['rgba(8,10,14,0)', 'rgba(8,10,14,0.92)']
+    ['rgba(0,0,0,0)', 'rgba(0,0,0,0.95)']
   )
 
   const navBorder = useTransform(
@@ -49,16 +49,15 @@ export default function Navbar() {
           <div 
             style={{ 
               width: 38, height: 38, 
-              background: 'linear-gradient(135deg, #2563eb, #1d4ed8)', 
+              background: '#fff', 
               borderRadius: 10, 
               display: 'flex', 
               alignItems: 'center', 
               justifyContent: 'center',
-              boxShadow: '0 4px 20px rgba(37,99,235,0.4)',
             }}
             className="group-hover:scale-105 transition-transform duration-300"
           >
-            <span style={{ fontSize: 24, fontWeight: 900, color: '#fff', letterSpacing: '-0.05em' }}>V</span>
+            <span style={{ fontSize: 24, fontWeight: 900, color: '#000', letterSpacing: '-0.05em' }}>V</span>
           </div>
           <div className="leading-tight">
             <div className="text-[18px] font-black tracking-tight text-white">VERTEX</div>
@@ -75,7 +74,7 @@ export default function Navbar() {
                 className="text-[14px] font-semibold text-brand-muted hover:text-white transition-colors duration-200 no-underline relative group"
               >
                 {l.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-blue-500 transition-all duration-300 group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-[1.5px] bg-white transition-all duration-300 group-hover:w-full" />
               </a>
             </li>
           ))}
@@ -91,7 +90,7 @@ export default function Navbar() {
           </a>
           <a
             href="#"
-            className="px-6 py-2.5 text-[14px] font-bold text-white bg-blue-600 rounded-[8px] no-underline transition-all duration-300 hover:bg-blue-700 hover:shadow-[0_8px_25px_rgba(37,99,235,0.4)] hover:-translate-y-0.5 active:translate-y-0"
+            className="px-6 py-2.5 text-[14px] font-bold text-black bg-white rounded-[8px] no-underline transition-all duration-300 hover:bg-gray-100 hover:shadow-[0_8px_25px_rgba(255,255,255,0.1)] hover:-translate-y-0.5 active:translate-y-0"
           >
             Open Account
           </a>

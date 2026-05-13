@@ -29,41 +29,12 @@ export default function Hero() {
     offset: ["start start", "end start"]
   })
 
-  const bullY = useTransform(scrollYProgress, [0, 1], [0, 150])
-  const springBullY = useSpring(bullY, { stiffness: 100, damping: 30 })
-
   return (
     <section
       ref={containerRef}
       className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ paddingTop: 80, background: '#05070a' }}
+      style={{ paddingTop: 80, background: '#000000', fontFamily: 'Inter, sans-serif' }}
     >
-      {/* 3D Grid Floor - Volumetric */}
-      <div 
-        className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none"
-        style={{
-          perspective: '1000px',
-          background: 'linear-gradient(to bottom, transparent, rgba(37,99,235,0.05))',
-        }}
-      >
-        <div 
-          style={{
-            position: 'absolute', inset: 0,
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`,
-            backgroundSize: '100px 100px',
-            transform: 'rotateX(60deg) translateY(-100px)',
-            transformOrigin: 'top',
-            maskImage: 'linear-gradient(to bottom, transparent, black 80%)',
-          }}
-        />
-      </div>
-
-      {/* Atmospheric Caustics / Light Rays */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] width-[40%] height-[60%] bg-blue-500/10 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] width-[40%] height-[60%] bg-blue-600/5 blur-[120px] rounded-full" />
-      </div>
-
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-12 grid lg:grid-cols-2 gap-20 items-center">
         {/* ── LEFT ── */}
         <motion.div 
@@ -71,29 +42,29 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 mb-8 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_#3b82f6]" />
-            <span className="text-[11px] font-black text-blue-400 tracking-[0.2em] uppercase">Institutional Grade</span>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_#ffffff]" />
+            <span className="text-[11px] font-bold text-white tracking-[0.2em] uppercase">Institutional Grade</span>
           </div>
 
           <h1
-            className="font-black text-white leading-[0.95] tracking-tight"
-            style={{ fontSize: 'clamp(56px, 7vw, 92px)', marginBottom: 32 }}
+            className="font-bold text-white leading-[1.1] tracking-tight"
+            style={{ fontSize: '64px', marginBottom: 24 }}
           >
-            THE NEW ERA<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-400 to-white">OF TRADING.</span>
+            Trade Smarter.<br />
+            Trade Vertex.
           </h1>
 
-          <p className="text-brand-muted text-lg leading-relaxed mb-10 max-w-lg opacity-80">
-            Precision engineering meets institutional liquidity. Experience the world's most powerful trading environment.
+          <p className="text-[#a0aab8] text-lg leading-relaxed mb-10 max-w-lg">
+            Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
           </p>
 
           <div className="flex flex-wrap gap-5 mb-16">
             <a
               href="#"
-              className="group relative px-10 py-5 bg-blue-600 text-white font-black rounded-xl no-underline overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(37,99,235,0.4)] hover:-translate-y-1"
+              className="group relative px-10 py-5 bg-white text-black font-bold rounded-xl no-underline overflow-hidden transition-all duration-300 hover:shadow-[0_20px_40px_rgba(255,255,255,0.2)] hover:-translate-y-1"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/0 via-black/10 to-black/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
               <span className="relative z-10 flex items-center gap-3">
                 OPEN ACCOUNT
                 <svg width="20" height="20" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="3">
@@ -103,132 +74,147 @@ export default function Hero() {
             </a>
             <a
               href="#"
-              className="px-10 py-5 text-white font-bold rounded-xl no-underline border border-white/10 hover:bg-white/5 transition-all duration-300"
+              className="px-10 py-5 text-white font-bold rounded-xl no-underline border border-white/20 hover:bg-white/10 transition-all duration-300"
             >
               TRY DEMO
             </a>
           </div>
 
-          <div className="flex gap-12 pt-10 border-t border-white/5">
+          <div className="flex gap-12 pt-10 border-t border-white/10">
             {stats.slice(0, 3).map(s => (
               <div key={s.label}>
-                <div className="text-white font-black text-sm mb-1">{s.label}</div>
-                <div className="text-brand-muted text-[11px] font-bold tracking-wider uppercase opacity-60">{s.sub}</div>
+                <div className="text-white font-bold text-sm mb-1">{s.label}</div>
+                <div className="text-[#6b7585] text-[11px] font-bold tracking-wider uppercase">{s.sub}</div>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* ── RIGHT — THE 3D CORE ── */}
+        {/* ── RIGHT — THE DISPLAY CASE COMPOSITION ── */}
         <div 
           className="relative flex items-center justify-center"
           style={{ height: 750, perspective: '2000px' }}
         >
-          {/* Glass Pillar / Pedestal */}
           <motion.div
             style={{
-              width: 540, height: 560,
-              background: 'linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: 40,
-              backdropFilter: 'blur(30px)',
-              WebkitBackdropFilter: 'blur(30px)',
-              rotateY: mousePos.x,
-              rotateX: -mousePos.y,
-              boxShadow: '0 50px 100px -20px rgba(0,0,0,0.8), inset 0 0 50px rgba(255,255,255,0.05)',
+              position: 'relative',
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'flex-end',
+              justifyContent: 'center',
               transformStyle: 'preserve-3d',
+              rotateY: mousePos.x * 0.3,
+              rotateX: -mousePos.y * 0.3,
             }}
           >
-            {/* Inner Refraction / Light Caustics */}
-            <div className="absolute inset-0 overflow-hidden rounded-[40px]">
-              <motion.div 
-                animate={{ 
-                  x: [0, 100, 0],
-                  y: [0, 50, 0],
-                  rotate: [0, 360]
-                }}
-                transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                className="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-[radial-gradient(circle,rgba(37,99,235,0.1)_0%,transparent_60%)]"
-              />
-            </div>
-
-            {/* Float Depth Elements */}
-            <div className="absolute inset-0 p-12 opacity-30" style={{ transform: 'translateZ(50px)' }}>
-               <svg viewBox="0 0 400 400" className="w-full h-full">
-                  <path d="M0,350 Q100,300 200,330 T400,280" stroke="#2563eb" strokeWidth="4" fill="none" />
-                  <path d="M0,300 Q100,250 200,280 T400,230" stroke="#2563eb" strokeWidth="1" fill="none" opacity="0.3" />
-               </svg>
-            </div>
-          </motion.div>
-
-          {/* THE BULL - With extreme shadow depth */}
-          <motion.div
-            style={{
-              position: 'absolute',
-              bottom: '5%',
-              width: '95%',
-              zIndex: 50,
-              transformStyle: 'preserve-3d',
-              y: springBullY,
-              rotateY: mousePos.x * 0.5,
-              rotateX: -mousePos.y * 0.5,
-            }}
-          >
-            <img 
-              src="/bull.png" 
-              alt="The Bull" 
+            {/* Curved Glass Panel (Wraps Behind) */}
+            <div 
               style={{
-                width: '100%', height: 'auto',
-                filter: 'drop-shadow(0 40px 120px rgba(0,0,0,1)) brightness(1.1) contrast(1.1)',
-                transform: 'translateZ(120px)',
+                position: 'absolute',
+                bottom: '80px',
+                width: '460px',
+                height: '460px',
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.01) 100%)',
+                border: '1.5px solid rgba(255,255,255,0.15)',
+                borderRadius: '50% 50% 0 0 / 40% 40% 0 0', // Dome-like curve
+                backdropFilter: 'blur(15px)',
+                WebkitBackdropFilter: 'blur(15px)',
+                boxShadow: 'inset 0 20px 60px rgba(255,255,255,0.05)',
+                transform: 'translateZ(-100px)', // Pushed back
+                zIndex: 10,
+              }}
+            >
+               {/* Reflection highlights */}
+               <div className="absolute inset-0 rounded-[inherit] bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none" />
+            </div>
+
+            {/* Circular Chrome Pedestal */}
+            <div 
+              style={{
+                position: 'absolute',
+                bottom: '20px',
+                width: '400px',
+                height: '100px',
+                background: 'linear-gradient(to bottom, #333 0%, #111 50%, #000 100%)',
+                borderTop: '2px solid rgba(255,255,255,0.5)',
+                borderRadius: '50%',
+                boxShadow: '0 40px 100px rgba(0,0,0,0.9), inset 0 5px 15px rgba(255,255,255,0.3)',
+                transform: 'rotateX(70deg) translateZ(0px)',
+                zIndex: 15,
               }}
             />
-          </motion.div>
 
-          {/* 3D Price Chips - With Depth */}
-          <ThreeDPriceChip 
-            top="12%" right="5%" 
-            symbol="EURUSD" price="1.0842" change="+0.47%" up={true} 
-            z={180} mousePos={mousePos}
-          />
-          <ThreeDPriceChip 
-            top="35%" left="0%" 
-            symbol="XAUUSD" price="2,384.65" change="+0.62%" up={true} 
-            z={220} mousePos={mousePos}
-          />
-          <ThreeDPriceChip 
-            top="65%" right="0%" 
-            symbol="GBPUSD" price="1.2748" change="-0.30%" up={false} 
-            z={200} mousePos={mousePos}
-          />
+            {/* THE BULL - Centerpiece */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                bottom: '50px', // Sits on pedestal
+                width: '380px',
+                zIndex: 30, // In front of glass
+                transformStyle: 'preserve-3d',
+                transform: 'translateZ(50px)', // Pulled forward slightly
+              }}
+            >
+              <img 
+                src="/bull.png" 
+                alt="The Bull" 
+                style={{
+                  width: '100%', height: 'auto',
+                  objectFit: 'contain',
+                  objectPosition: 'center bottom',
+                  filter: 'drop-shadow(0 30px 40px rgba(0,0,0,0.8)) drop-shadow(0 0 20px rgba(255,255,255,0.05))',
+                }}
+              />
+            </motion.div>
+
+            {/* 3D Price Chips - Floating on/near the glass panel */}
+            <ThreeDPriceChip 
+              top="10%" left="50%" translateX="-50%"
+              symbol="EURUSD" price="1.08945" change="+0.47%" up={true} 
+              z={20} mousePos={mousePos}
+              zIndex={40}
+            />
+            <ThreeDPriceChip 
+              top="40%" right="-5%" 
+              symbol="GBPUSD" price="1.27482" change="+0.30%" up={true} 
+              z={40} mousePos={mousePos}
+              zIndex={40}
+            />
+            <ThreeDPriceChip 
+              top="45%" left="-5%" 
+              symbol="XAUUSD" price="2,384.65" change="+0.62%" up={true} 
+              z={60} mousePos={mousePos}
+              zIndex={40}
+            />
+          </motion.div>
         </div>
       </div>
     </section>
   )
 }
 
-function ThreeDPriceChip({ top, left, right, symbol, price, change, up, z, mousePos }: any) {
+function ThreeDPriceChip({ top, left, right, bottom, translateX, symbol, price, change, up, z, zIndex, mousePos }: any) {
   return (
     <motion.div
-      className="price-chip-3d"
       style={{
         position: 'absolute',
-        top, left, right,
-        zIndex: 100,
-        background: 'rgba(10,12,18,0.9)',
+        top, left, right, bottom,
+        zIndex,
+        background: 'rgba(5,5,5,0.85)',
         backdropFilter: 'blur(20px)',
-        border: '1px solid rgba(255,255,255,0.15)',
-        borderRadius: 20,
-        padding: '16px 24px',
-        transform: `translateZ(${z}px) rotateY(${mousePos.x * 0.8}deg) rotateX(${-mousePos.y * 0.8}deg)`,
-        boxShadow: '0 30px 60px rgba(0,0,0,0.8), inset 0 0 20px rgba(255,255,255,0.05)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: 16,
+        padding: '12px 20px',
+        transform: `translateX(${translateX || '0px'}) translateZ(${z}px) rotateY(${mousePos.x * 0.4}deg) rotateX(${-mousePos.y * 0.4}deg)`,
+        boxShadow: '0 20px 40px rgba(0,0,0,0.8), inset 0 0 10px rgba(255,255,255,0.05)',
         transition: 'transform 0.1s ease-out'
       }}
     >
-      <div style={{ fontSize: 10, fontWeight: 900, color: '#6b7585', letterSpacing: '.15em', textTransform: 'uppercase', marginBottom: 6 }}>{symbol}</div>
-      <div style={{ fontSize: 18, fontWeight: 900, color: '#fff', display: 'flex', alignItems: 'center', gap: 10, letterSpacing: '-0.02em' }}>
+      <div style={{ fontSize: 10, fontWeight: 700, color: '#6b7585', letterSpacing: '.1em', textTransform: 'uppercase', marginBottom: 4 }}>{symbol}</div>
+      <div style={{ fontSize: 16, fontWeight: 700, color: '#fff', display: 'flex', alignItems: 'center', gap: 10, letterSpacing: '-0.01em', fontFamily: 'Inter, sans-serif' }}>
         {price} 
-        <span style={{ fontSize: 12, fontWeight: 900, color: up ? '#22c55e' : '#ef4444', background: up ? 'rgba(34,197,94,0.1)' : 'rgba(239,68,68,0.1)', padding: '2px 8px', borderRadius: 6 }}>
+        <span style={{ fontSize: 11, fontWeight: 700, color: up ? '#22c55e' : '#ef4444' }}>
           {change}
         </span>
       </div>

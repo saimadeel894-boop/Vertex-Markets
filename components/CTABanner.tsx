@@ -32,7 +32,7 @@ export default function CTABanner() {
   }
 
   return (
-    <section style={{ padding: '100px 48px 140px', background: '#05070a' }}>
+    <section style={{ padding: '100px 48px 140px', background: '#000000' }}>
       <div style={{ maxWidth: 1440, margin: '0 auto' }}>
         <motion.div
           ref={ref}
@@ -44,14 +44,15 @@ export default function CTABanner() {
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%)',
+            background: 'linear-gradient(135deg, #111 0%, #000 100%)',
+            border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: 40,
             padding: '100px 100px',
             overflow: 'hidden',
             display: 'grid',
             gridTemplateColumns: '1.2fr 0.8fr',
             alignItems: 'center',
-            boxShadow: '0 60px 120px -20px rgba(30,58,138,0.5)',
+            boxShadow: '0 60px 120px -20px rgba(0,0,0,0.8)',
             perspective: '1500px',
             rotateX,
             rotateY,
@@ -62,7 +63,7 @@ export default function CTABanner() {
           {/* Volumetric Internal Glows */}
           <div className="absolute inset-0 pointer-events-none">
             <div className="absolute top-[-20%] right-[-10%] width-[60%] height-[140%] bg-white/10 blur-[80px] rounded-full" />
-            <div className="absolute bottom-[-20%] left-[-10%] width-[40%] height-[100%] bg-blue-400/20 blur-[100px] rounded-full" />
+            <div className="absolute bottom-[-20%] left-[-10%] width-[40%] height-[100%] bg-white/5 blur-[100px] rounded-full" />
           </div>
           
           <div style={{ position: 'relative', zIndex: 2, transform: 'translateZ(50px)' }}>
@@ -76,7 +77,7 @@ export default function CTABanner() {
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 20, alignItems: 'center' }}>
               <a
                 href="#"
-                className="group relative bg-white text-blue-950 font-black rounded-xl no-underline transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_20px_40px_rgba(255,255,255,0.3)]"
+                className="group relative bg-white text-black font-black rounded-xl no-underline transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_20px_40px_rgba(255,255,255,0.1)]"
                 style={{ padding: '20px 48px', fontSize: 16 }}
               >
                 START TRADING NOW

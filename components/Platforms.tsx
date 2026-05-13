@@ -36,7 +36,7 @@ const platforms = [
 
 export default function Platforms() {
   return (
-    <section style={{ padding: '120px 48px', background: '#080a0e', overflow: 'hidden' }}>
+    <section style={{ padding: '120px 48px', background: '#000000', overflow: 'hidden' }}>
       <div
         style={{
           maxWidth: 1280,
@@ -60,7 +60,7 @@ export default function Platforms() {
           <div
             style={{
               position: 'absolute', top: '10%', left: '0%', width: '100%', height: '80%',
-              background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)',
               filter: 'blur(60px)', pointerEvents: 'none',
             }}
           />
@@ -114,8 +114,8 @@ export default function Platforms() {
 
           <a
             href="#"
-            className="inline-flex items-center gap-2 text-white bg-brand-primary hover:bg-blue-700 font-bold rounded-[8px] no-underline transition-all duration-200 hover:-translate-y-px"
-            style={{ padding: '15px 32px', fontSize: 14.5, boxShadow: '0 10px 20px -5px rgba(37,99,235,0.4)' }}
+            className="inline-flex items-center gap-2 text-black bg-white hover:bg-gray-100 font-bold rounded-[8px] no-underline transition-all duration-200 hover:-translate-y-px"
+            style={{ padding: '15px 32px', fontSize: 14.5, boxShadow: '0 10px 20px -5px rgba(255,255,255,0.1)' }}
           >
             Explore Platforms
             <svg width="16" height="16" viewBox="0 0 15 15" fill="none" stroke="currentColor" strokeWidth="2.5">
