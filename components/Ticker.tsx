@@ -39,70 +39,58 @@ export default function Ticker() {
   }, [])
 
   return (
-    <div style={{ background: '#000', borderTop: '1px solid rgba(255,255,255,0.06)', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-      {/* Desktop: 6-column grid */}
-      <div className="hidden md:grid" style={{ maxWidth: 1440, margin: '0 auto', padding: '0 48px', height: 62, gridTemplateColumns: 'repeat(6,1fr)', alignItems: 'center' }}>
-        {pairs.map((p, i) => (
-          <TickerCell key={p.symbol} p={p} i={i} flash={flash[p.symbol]} total={6} />
-        ))}
-      </div>
-
-      {/* Tablet: 3-column grid */}
-      <div className="hidden sm:grid md:hidden" style={{ maxWidth: 1440, margin: '0 auto', padding: '0 24px', gridTemplateColumns: 'repeat(3,1fr)', borderTop: 'none' }}>
-        {pairs.map((p, i) => (
-          <TickerCell key={p.symbol} p={p} i={i} flash={flash[p.symbol]} total={3} py={14} />
-        ))}
-      </div>
-
-      {/* Mobile: horizontal scroll */}
-      <div className="flex sm:hidden" style={{ overflowX: 'auto', scrollbarWidth: 'none', padding: '12px 20px', gap: 20, alignItems: 'center' }}>
-        {pairs.map((p) => (
-          <div key={p.symbol} style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: 3 }}>
-            <span style={{ fontSize: 9, fontWeight: 800, color: '#4b5563', letterSpacing: '0.08em', textTransform: 'uppercase' }}>{p.symbol}</span>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
-              <AnimatePresence mode="popLayout">
-                <motion.span key={p.price} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 6 }} transition={{ duration: 0.2 }} style={{ fontSize: 13, fontWeight: 800, color: '#fff', letterSpacing: '-0.01em' }}>
-                  {p.price}
-                </motion.span>
-              </AnimatePresence>
-              <span style={{ fontSize: 10, fontWeight: 700, color: p.up ? '#22c55e' : '#ef4444' }}>{p.change}</span>
-            </div>
-          </div>
-        ))}
+    <div style={{ background: 'var(--bg)', borderTop: '1px solid rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+      {/* Layout: static 6-column grid */}
+      <div style={{ maxWidth: 1440, margin: '0 auto', padding: '0 clamp(20px, 4vw, 48px)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 0, alignItems: 'center' }}>
+          {pairs.map((p, i) => (
+            <TickerCell key={p.symbol} p={p} i={i} flash={flash[p.symbol]} total={pairs.length} />
+          ))}
+        </div>
       </div>
     </div>
   )
 }
 
-function TickerCell({ p, i, flash, total, py = 0 }: any) {
+function TickerCell({ p, i, flash, total }: any) {
   return (
     <div style={{
       display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 12,
-      borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-      padding: `${py}px 12px`,
-      background: flash === 'up' ? 'rgba(34,197,94,0.04)' : flash === 'down' ? 'rgba(239,68,68,0.04)' : 'transparent',
+      borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
+      padding: '16px 12px',
+      background: flash === 'up' ? 'rgba(34,197,94,0.06)' : flash === 'down' ? 'rgba(239,68,68,0.06)' : 'transparent',
       transition: 'background 0.3s ease',
     }}>
       <div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 5, marginBottom: 3 }}>
-          <span style={{ fontSize: 10, fontWeight: 800, color: '#4b5563', letterSpacing: '0.08em' }}>{p.symbol}</span>
-          <span style={{ width: 5, height: 5, borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 5px #22c55e', display: 'inline-block' }} />
+          <span style={{ fontSize: 10, fontWeight: 800, color: '#6b7585', letterSpacing: '0.08em' }}>{p.symbol}</span>
+          <span style={{ width: 5, height: 5, borderRadius: '50%', background: p.up ? '#22c55e' : '#ef4444', boxShadow: `0 0 5px ${p.up ? '#22c55e' : '#ef4444'}`, display: 'inline-block' }} />
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
           <AnimatePresence mode="popLayout">
-            <motion.span key={p.price} initial={{ opacity: 0, y: p.up ? -7 : 7 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.22 }} style={{ fontSize: 14, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', display: 'block' }}>
+            <motion.span key={p.price} initial={{ opacity: 0, y: p.up ? -7 : 7 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} style={{ fontSize: 14, fontWeight: 800, color: '#fff', letterSpacing: '-0.02em', display: 'block' }}>
               {p.price}
             </motion.span>
           </AnimatePresence>
           <AnimatePresence mode="popLayout">
-            <motion.span key={p.change} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.18 }} style={{ fontSize: 10, fontWeight: 800, color: p.up ? '#22c55e' : '#ef4444' }}>
+            <motion.span key={p.change} initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.3 }} style={{ fontSize: 10, fontWeight: 800, color: p.up ? '#22c55e' : '#ef4444' }}>
               {p.change}
             </motion.span>
           </AnimatePresence>
         </div>
       </div>
-      <svg width="36" height="13" viewBox="0 0 36 13" fill="none" style={{ opacity: 0.65, flexShrink: 0 }}>
-        <path d={p.up ? 'M0,11 L7,8 L14,9 L21,4 L28,6 L36,1' : 'M0,1 L7,4 L14,3 L21,8 L28,6 L36,11'} stroke={p.up ? '#22c55e' : '#ef4444'} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+      <svg width="36" height="13" viewBox="0 0 36 13" fill="none" style={{ flexShrink: 0 }}>
+        <motion.path 
+          d={p.up ? 'M0,11 L7,8 L14,9 L21,4 L28,6 L36,1' : 'M0,1 L7,4 L14,3 L21,8 L28,6 L36,11'} 
+          stroke={p.up ? '#22c55e' : '#ef4444'} 
+          strokeWidth="1.8" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 0.8 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: i * 0.1, ease: 'easeOut' }}
+        />
       </svg>
     </div>
   )

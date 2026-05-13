@@ -2,58 +2,50 @@
 import { useEffect, useRef } from 'react'
 
 export default function CustomCursor() {
-  const dotRef = useRef<HTMLDivElement>(null)
+  const dotRef  = useRef<HTMLDivElement>(null)
   const ringRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const dot = dotRef.current
-    const ring = ringRef.current
-    if (!dot || !ring) return
+    // Only activate on desktop pointer devices
+    if (!window.matchMedia('(pointer: fine)').matches) return
 
-    let mouseX = 0, mouseY = 0
-    let ringX = 0, ringY = 0
-    let rafId: number
+    const dot  = dotRef.current!
+    const ring = ringRef.current!
+    let mx = 0, my = 0, rx = 0, ry = 0, raf = 0
 
-    const onMove = (e: MouseEvent) => {
-      mouseX = e.clientX
-      mouseY = e.clientY
+    const onMove = (e: MouseEvent) => { mx = e.clientX; my = e.clientY }
+
+    const tick = () => {
+      dot.style.left  = mx + 'px'
+      dot.style.top   = my + 'px'
+      rx += (mx - rx) * 0.14
+      ry += (my - ry) * 0.14
+      ring.style.left = rx + 'px'
+      ring.style.top  = ry + 'px'
+      raf = requestAnimationFrame(tick)
     }
 
-    const animate = () => {
-      // Dot snaps instantly
-      dot.style.left = mouseX + 'px'
-      dot.style.top  = mouseY + 'px'
-      // Ring follows with lag
-      ringX += (mouseX - ringX) * 0.12
-      ringY += (mouseY - ringY) * 0.12
-      ring.style.left = ringX + 'px'
-      ring.style.top  = ringY + 'px'
-      rafId = requestAnimationFrame(animate)
-    }
-
-    const onEnter = () => ring.classList.add('hovered')
-    const onLeave = () => ring.classList.remove('hovered')
+    const expand   = () => ring.classList.add('expanded')
+    const collapse = () => ring.classList.remove('expanded')
 
     window.addEventListener('mousemove', onMove)
-    rafId = requestAnimationFrame(animate)
+    raf = requestAnimationFrame(tick)
 
-    // Enlarge ring on interactive elements
-    const interactives = document.querySelectorAll('a, button, [role="button"]')
-    interactives.forEach(el => {
-      el.addEventListener('mouseenter', onEnter)
-      el.addEventListener('mouseleave', onLeave)
+    document.querySelectorAll('a, button, [role="button"]').forEach(el => {
+      el.addEventListener('mouseenter', expand)
+      el.addEventListener('mouseleave', collapse)
     })
 
     return () => {
       window.removeEventListener('mousemove', onMove)
-      cancelAnimationFrame(rafId)
+      cancelAnimationFrame(raf)
     }
   }, [])
 
   return (
     <>
-      <div ref={dotRef}  className="cursor-dot"  style={{ position: 'fixed', zIndex: 99999, pointerEvents: 'none', borderRadius: '50%', width: 6, height: 6, background: '#fff', transform: 'translate(-50%,-50%)' }} />
-      <div ref={ringRef} className="cursor-ring" style={{ position: 'fixed', zIndex: 99998, pointerEvents: 'none', borderRadius: '50%', width: 32, height: 32, border: '1.5px solid rgba(255,255,255,0.5)', transform: 'translate(-50%,-50%)', transition: 'width 0.3s, height 0.3s, border-color 0.3s' }} />
+      <div ref={dotRef}  className="cursor-dot"  />
+      <div ref={ringRef} className="cursor-ring" />
     </>
   )
 }

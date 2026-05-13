@@ -3,16 +3,18 @@ import { motion } from 'framer-motion'
 
 export default function CTABanner() {
   return (
-    <section style={{ padding: 'clamp(60px, 8vw, 100px) 0 clamp(80px, 10vw, 140px)', background: '#000' }}>
+    <section style={{ padding: 'clamp(60px, 8vw, 100px) 0 clamp(80px, 10vw, 140px)', background: 'var(--bg)' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #111 0%, #000 100%)',
+            background: 'linear-gradient(135deg, #0f172a 0%, #020617 100%)',
+            backgroundSize: '200% 200%',
+            animation: 'bgShift 10s ease infinite',
             border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: 'clamp(20px, 3vw, 36px)',
             padding: 'clamp(40px, 6vw, 90px) clamp(28px, 6vw, 90px)',
@@ -24,19 +26,32 @@ export default function CTABanner() {
             boxShadow: '0 60px 120px -20px rgba(0,0,0,0.8)',
           }}
         >
-          {/* Decorative glow */}
-          <div style={{ position: 'absolute', top: '-20%', right: '-10%', width: '50%', height: '140%', background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} />
+          {/* Subtle animated gradient shift definition */}
+          <style dangerouslySetInnerHTML={{__html: `
+            @keyframes bgShift {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+          `}} />
+
+          {/* Decorative blue glow pulse */}
+          <motion.div 
+            animate={{ opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} 
+          />
 
           {/* Text Content */}
           <div style={{ position: 'relative', zIndex: 2 }}>
-            <h2 style={{ fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 700, color: '#fff', lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.03em', fontFamily: 'Inter, sans-serif' }}>
+            <h2 style={{ fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 700, color: '#fff', lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.025em', fontFamily: 'Inter, sans-serif' }}>
               Elevate Your<br />Trading Potential.
             </h2>
-            <p style={{ fontSize: 'clamp(14px, 1.5vw, 17px)', color: 'rgba(255,255,255,0.55)', marginBottom: 40, maxWidth: 460, lineHeight: 1.65, fontWeight: 400 }}>
+            <p style={{ fontSize: 'clamp(14px, 1.5vw, 17px)', color: 'rgba(255,255,255,0.6)', marginBottom: 40, maxWidth: 460, lineHeight: 1.65, fontWeight: 400 }}>
               Join Vertex Markets today and access institutional infrastructure designed for high-performance trading.
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
-              <a href="#" className="btn-shimmer" style={{ display: 'inline-flex', alignItems: 'center', padding: 'clamp(14px,1.5vw,18px) clamp(28px,3vw,44px)', background: '#fff', color: '#000', fontWeight: 800, fontSize: 'clamp(13px,1.2vw,15px)', borderRadius: 12, textDecoration: 'none', transition: 'all 0.3s ease' }}>
+              <a href="#" className="btn-shimmer btn-primary" style={{ display: 'inline-flex', alignItems: 'center', padding: 'clamp(14px,1.5vw,18px) clamp(28px,3vw,44px)', background: '#2563eb', color: '#fff', fontWeight: 800, fontSize: 'clamp(13px,1.2vw,15px)', borderRadius: 12, textDecoration: 'none', transition: 'all 0.3s ease' }}>
                 START TRADING NOW
               </a>
               <a href="#" style={{ fontSize: 'clamp(13px,1.2vw,15px)', color: 'rgba(255,255,255,0.45)', textDecoration: 'none', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: 6, transition: 'color 0.2s' }}
@@ -49,7 +64,7 @@ export default function CTABanner() {
             </div>
           </div>
 
-          {/* 3D V Logo — hidden on very small screens */}
+          {/* 3D V Logo */}
           <div style={{ position: 'relative', height: 'clamp(200px, 30vw, 400px)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <motion.div
               animate={{ y: [0, -18, 0], rotateZ: [0, 4, 0] }}

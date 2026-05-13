@@ -11,15 +11,10 @@ const regulators = [
 
 export default function TrustBar() {
   return (
-    <section style={{ background: '#000', padding: '32px 0' }}>
-      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          style={{ background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: 16, padding: '24px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-        >
+    <section style={{ background: '#080a0e', padding: '32px 0', position: 'relative' }}>
+      <div className="shimmer-line" />
+      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto', position: 'relative', zIndex: 2 }}>
+        <div style={{ background: 'var(--card)', border: '1px solid var(--border)', borderRadius: 16, padding: '24px 32px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <p style={{ fontSize: 9, fontWeight: 800, letterSpacing: '.25em', color: '#4b5563', textTransform: 'uppercase', marginBottom: 24 }}>
             Trusted by Traders — Regulated by Authorities
           </p>
@@ -31,7 +26,7 @@ export default function TrustBar() {
                 whileInView={{ opacity: 0.45 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                whileHover={{ opacity: 1, scale: 1.06 }}
+                whileHover={{ opacity: 0.9, scale: 1.05 }}
                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4, cursor: 'default' }}
               >
                 <span style={{ fontSize: 'clamp(14px, 2.5vw, 20px)', fontWeight: 900, color: '#fff', letterSpacing: '0.02em', fontFamily: 'Inter, sans-serif' }}>{r.abbr}</span>
@@ -39,7 +34,7 @@ export default function TrustBar() {
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   )

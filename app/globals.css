@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,112 +6,236 @@
 
 /* ── Design Tokens ── */
 :root {
-  --bg:      #000000;
-  --card:    #0a0a0a;
-  --border:  rgba(255,255,255,0.08);
-  --muted:   #9ca3af;
-  --subtle:  #6b7585;
-  --green:   #22c55e;
-  --red:     #ef4444;
+  --bg:       #080a0e;
+  --card:     #0a0d14;
+  --section:  #0d1017;
+  --blue:     #2563eb;
+  --muted:    #9ca3af;
+  --subtle:   #6b7585;
+  --green:    #22c55e;
+  --red:      #ef4444;
+  --border:   rgba(255,255,255,0.07);
 }
 
 /* ── Reset ── */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  animation: pageFadeIn 0.4s ease forwards;
 }
 
-/* ── Custom Cursor (desktop only) ── */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 {
+  letter-spacing: -0.025em;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Selection ── */
+::selection { background: #2563eb; color: #fff; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #080a0e; }
+::-webkit-scrollbar-thumb { background: rgba(37,99,235,0.4); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(37,99,235,0.7); }
+
+/* ── Custom Cursor (desktop pointer devices only) ── */
 @media (pointer: fine) {
   body { cursor: none; }
-  .cursor-dot, .cursor-ring {
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 99999;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-  }
-  .cursor-dot  { width: 6px; height: 6px; background: #fff; }
-  .cursor-ring { width: 32px; height: 32px; border: 1.5px solid rgba(255,255,255,0.5); transition: width 0.3s, height 0.3s, border-color 0.3s; }
-  .cursor-ring.hovered { width: 48px; height: 48px; border-color: rgba(255,255,255,0.8); }
+}
+.cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: #2563eb;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 24px; height: 24px;
+  border: 1px solid rgba(37,99,235,0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+.cursor-ring.expanded {
+  width: 40px; height: 40px;
+  border-color: rgba(37,99,235,0.5);
 }
 
-/* ── Bull Float + Glow ── */
-@keyframes bull-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-16px); }
+/* ── Hero Background Elements ── */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 100%);
 }
-@keyframes bull-glow {
-  0%, 100% { filter: drop-shadow(0 30px 60px rgba(0,0,0,0.9)) drop-shadow(0 0 15px rgba(255,255,255,0.03)); }
-  50%       { filter: drop-shadow(0 30px 80px rgba(0,0,0,0.9)) drop-shadow(0 0 35px rgba(255,255,255,0.08)); }
-}
-.bull-float { animation: bull-float 6s ease-in-out infinite, bull-glow 4s ease-in-out infinite; }
 
-/* ── Shimmer Button ── */
-.btn-shimmer { position: relative; overflow: hidden; }
-.btn-shimmer::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.18) 50%, transparent 60%);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+/* ── Animated gradient line (TrustBar) ── */
+@keyframes shimmerLine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
 }
-.btn-shimmer:hover::after  { transform: translateX(100%); }
-.btn-shimmer:hover { transform: translateY(-2px); box-shadow: 0 14px 36px rgba(255,255,255,0.08); }
+.shimmer-line {
+  position: absolute;
+  top: 0; left: 0;
+  width: 25%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.6), transparent);
+  animation: shimmerLine 4s ease-in-out infinite;
+}
 
 /* ── Advantage Card ── */
 .adv-card {
-  background: #0a0a0a !important;
-  border: 1px solid rgba(255,255,255,0.08) !important;
+  background: #0a0d14 !important;
+  border: 1px solid rgba(255,255,255,0.07) !important;
   border-radius: 20px;
-  padding: 32px;
+  padding: clamp(24px, 3vw, 36px);
   position: relative;
   overflow: hidden;
-  transition: transform 0.15s ease-out, box-shadow 0.4s ease, border-color 0.4s ease;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .adv-card::before {
   content: '';
-  position: absolute; inset: 0; border-radius: inherit;
-  background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.06) 0%, transparent 60%);
-  opacity: 0; transition: opacity 0.4s ease; pointer-events: none;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.8), transparent);
+  transform: translateX(-100%);
+  transition: transform 0s;
 }
-.adv-card:hover::before  { opacity: 1; }
-.adv-card:hover { border-color: rgba(255,255,255,0.15) !important; box-shadow: 0 30px 60px -10px rgba(0,0,0,0.8); }
+.adv-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(37,99,235,0.4) !important;
+  box-shadow: 0 -6px 30px rgba(37,99,235,0.15), 0 30px 60px rgba(0,0,0,0.6) !important;
+}
+.adv-card:hover::before {
+  transform: translateX(200%);
+  transition: transform 0.8s ease;
+}
+.adv-card .card-inner-glow {
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 120px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
 
 /* ── Icon Box ── */
 .icon-box {
-  height: 130px;
-  background: linear-gradient(145deg, #0a0a0a, #050505) !important;
-  border: 1px solid rgba(255,255,255,0.07);
+  height: 140px;
+  background: linear-gradient(145deg, #0d1017, #080a0e) !important;
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px; position: relative; overflow: hidden;
-  transition: transform 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
 }
-.adv-card:hover .icon-box { transform: scale(1.02); }
+.adv-card:hover .icon-box {
+  transform: scale(1.02);
+}
+.adv-card:hover .icon-box img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6)) brightness(1.15);
+}
+.icon-box img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+}
 
-/* ── Chip Flash ── */
-@keyframes chip-flash-up   { 0% { background: rgba(34,197,94,0.2); } 100% { background: transparent; } }
-@keyframes chip-flash-down { 0% { background: rgba(239,68,68,0.2); } 100% { background: transparent; } }
-.chip-flash-up   { animation: chip-flash-up   0.6s ease forwards; }
-.chip-flash-down { animation: chip-flash-down 0.6s ease forwards; }
+/* ── Shimmer Button ── */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%);
+  transform: translateX(-150%);
+  transition: transform 0.55s ease;
+}
+.btn-shimmer:hover::after   { transform: translateX(150%); }
+.btn-shimmer.btn-primary:hover {
+  transform: scale(1.03) translateY(-1px);
+  box-shadow: 0 0 30px rgba(37,99,235,0.5), 0 12px 40px rgba(37,99,235,0.3) !important;
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.7) !important;
+}
 
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 3px; }
+/* ── Bull Float ── */
+@keyframes bullFloat {
+  0%, 100% { transform: translateY(0px); filter: drop-shadow(0 40px 80px rgba(0,0,0,0.9)); }
+  50%       { transform: translateY(-14px); filter: drop-shadow(0 55px 100px rgba(0,0,0,0.95)) drop-shadow(0 0 30px rgba(255,255,255,0.05)); }
+}
+.bull-float { animation: bullFloat 6s ease-in-out infinite; }
 
-::selection { background: rgba(255,255,255,0.15); color: #fff; }
+/* ── Platform glow disc pulse ── */
+@keyframes discPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+.pedestal-glow { animation: discPulse 3s ease-in-out infinite; }
 
-/* ── Responsive Helpers ── */
-.container-padded { padding: 0 48px; }
-@media (max-width: 1024px) { .container-padded { padding: 0 32px; } }
-@media (max-width: 640px)  { .container-padded { padding: 0 20px; } }
+/* ── Logo glow pulse ── */
+@keyframes logoPulse {
+  0%, 100% { box-shadow: 0 0 0px rgba(37,99,235,0); }
+  50%       { box-shadow: 0 0 20px rgba(37,99,235,0.6); }
+}
+.logo-glow { animation: logoPulse 3s ease-in-out infinite; }
+
+/* ── Chip float ── */
+@keyframes chipFloat1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+@keyframes chipFloat2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+@keyframes chipFloat3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.chip-f1 { animation: chipFloat1 5s ease-in-out infinite; }
+.chip-f2 { animation: chipFloat2 7s ease-in-out infinite 0.5s; }
+.chip-f3 { animation: chipFloat3 6s ease-in-out infinite 1s; }
+
+/* ── Container ── */
+.container-padded { padding: 0 clamp(20px, 4vw, 48px); }
+
+/* ── Nav link hover underline ── */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: #6b7585;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px; left: 0;
+  width: 0; height: 2px;
+  background: #2563eb;
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+.nav-link:hover { color: #fff; }
+.nav-link:hover::after { width: 100%; }
