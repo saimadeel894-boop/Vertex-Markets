@@ -27,9 +27,9 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
           <div style={{ position: 'relative' }}>
-            <div className="animate-slow-pulse" style={{ position: 'absolute', inset: -4, background: '#2563eb', borderRadius: 8, filter: 'blur(8px)', opacity: 0.6 }} />
-            <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
-              <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em' }}>V</span>
+            <div className="animate-slow-pulse" style={{ position: 'absolute', inset: -4, background: '#2563eb', borderRadius: '50%', filter: 'blur(8px)', opacity: 0.6 }} />
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
+              <span style={{ fontSize: 24, fontWeight: 900, color: '#fff', letterSpacing: '-0.05em' }}>V</span>
             </div>
           </div>
           <div>
@@ -39,10 +39,10 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Links */}
-        <ul style={{ display: 'none', alignItems: 'center', gap: 32, listStyle: 'none', margin: 0, padding: 0 }} className="lg:flex">
+        <ul style={{ display: 'flex', alignItems: 'center', gap: 32, listStyle: 'none', margin: 0, padding: 0 }} className="hidden lg:flex">
           {links.map(l => (
             <li key={l}>
-              <a href="#" className="nav-link">{l}</a>
+              <a href="#" className="nav-link" style={{ fontSize: 14, color: '#fff', fontFamily: 'Inter', fontWeight: 400 }}>{l}</a>
             </li>
           ))}
         </ul>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import CustomCursor from '@/components/CustomCursor'
+import GlobalSpotlight from '@/components/GlobalSpotlight'
 
 export const metadata: Metadata = {
   title: 'Vertex Markets - Trade Smarter. Trade Vertex.',
@@ -28,6 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <CustomCursor />
+        <GlobalSpotlight />
         {children}
       </body>
     </html>
