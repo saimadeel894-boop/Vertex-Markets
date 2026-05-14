@@ -1,5 +1,5 @@
 'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const links = [
@@ -8,103 +8,67 @@ const links = [
   { name: 'Markets',   href: '#' },
   { name: 'Resources', href: '#' },
   { name: 'Company',   href: '#' },
+  { name: 'Partners',  href: '#' },
 ]
 
 export default function Navbar() {
-  const { scrollY } = useScroll()
   const [isScrolled, setIsScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-
-  useEffect(() => scrollY.onChange(v => setIsScrolled(v > 40)), [scrollY])
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) setMenuOpen(false) }
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const blurVal    = useTransform(scrollY, [0, 80], [14, 24])
-  const bgOpacity  = useTransform(scrollY, [0, 80], [0,  0.95])
-  const borderAlpha = useTransform(scrollY, [0, 80], [0.0, 0.12])
-
   return (
-    <>
-      <motion.nav
-        style={{
-          backdropFilter:       blurVal.get() > 14 ? `blur(${blurVal.get()}px)` : 'none',
-          WebkitBackdropFilter: blurVal.get() > 14 ? `blur(${blurVal.get()}px)` : 'none',
-          background:  menuOpen ? 'rgba(8,10,14,0.98)' : `rgba(8,10,14,${isScrolled ? 0.92 : 0})`,
-          borderBottom: `1px solid rgba(255,255,255,${isScrolled ? 0.1 : 0})`,
-          height:  isScrolled ? 68 : 84,
-          position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
-          display: 'flex', alignItems: 'center',
-          transition: 'height 0.3s ease, background 0.3s ease, border-color 0.3s ease',
-        }}
-      >
-        <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-
-          {/* Logo */}
-          <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
-            <div className="logo-glow" style={{ width: 36, height: 36, background: 'linear-gradient(135deg,#2563eb,#1d4ed8)', borderRadius: 9, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, transition: 'transform 0.2s' }}>
-              <span style={{ fontSize: 22, fontWeight: 900, color: '#fff', letterSpacing: '-0.05em' }}>V</span>
-            </div>
-            <div>
-              <div style={{ fontSize: 17, fontWeight: 900, color: '#fff', letterSpacing: '-0.02em' }}>VERTEX</div>
-              <div style={{ fontSize: 7.5, fontWeight: 700, color: '#4b5563', letterSpacing: '0.35em', textTransform: 'uppercase' }}>MARKETS</div>
-            </div>
-          </a>
-
-          {/* Desktop links */}
-          <ul style={{ display: 'none', alignItems: 'center', gap: 36, listStyle: 'none', margin: 0, padding: 0 }} className="hidden lg:flex">
-            {links.map(l => (
-              <li key={l.name}>
-                <a href={l.href} className="nav-link">{l.name}</a>
-              </li>
-            ))}
-          </ul>
-
-          {/* Desktop actions */}
-          <div className="hidden lg:flex" style={{ alignItems: 'center', gap: 20 }}>
-            <a href="#" className="nav-link" style={{ fontSize: 14 }}>Log In</a>
-            <a href="#" className="btn-shimmer btn-primary" style={{ padding: '10px 24px', fontSize: 14, fontWeight: 700, color: '#fff', background: '#2563eb', borderRadius: 10, textDecoration: 'none', transition: 'all 0.3s ease' }}>
-              Open Account
-            </a>
+    <nav 
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-black'}`}
+      style={{ height: '72px', display: 'flex', alignItems: 'center' }}
+    >
+      <div className="container mx-auto px-6 flex items-center justify-between max-w-7xl">
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+            <span className="font-black text-xl text-white">V</span>
           </div>
-
-          {/* Hamburger */}
-          <button
-            onClick={() => setMenuOpen(o => !o)}
-            className="lg:hidden"
-            style={{ background: 'none', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8, padding: '8px 10px', cursor: 'pointer', display: 'flex', flexDirection: 'column', gap: 5, lineHeight: 0 }}
-            aria-label="Toggle menu"
-          >
-            <span style={{ display: 'block', width: 22, height: 2, background: '#fff', borderRadius: 2, transition: 'transform 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px,5px)' : 'none' }} />
-            <span style={{ display: 'block', width: 22, height: 2, background: '#fff', borderRadius: 2, transition: 'opacity 0.3s', opacity: menuOpen ? 0 : 1 }} />
-            <span style={{ display: 'block', width: 22, height: 2, background: '#fff', borderRadius: 2, transition: 'transform 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px,-5px)' : 'none' }} />
-          </button>
+          <span className="font-bold text-xl tracking-tighter text-white">VERTEX</span>
         </div>
-      </motion.nav>
 
-      {/* Mobile menu */}
-      <motion.div
-        initial={false}
-        animate={{ opacity: menuOpen ? 1 : 0, y: menuOpen ? 0 : -12, pointerEvents: menuOpen ? 'auto' : 'none' }}
-        transition={{ duration: 0.22 }}
-        className="lg:hidden"
-        style={{ position: 'fixed', top: isScrolled ? 68 : 84, left: 0, right: 0, zIndex: 99, background: 'rgba(8,10,14,0.98)', backdropFilter: 'blur(24px)', borderBottom: '1px solid rgba(255,255,255,0.08)', padding: '20px 20px 28px' }}
-      >
-        <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'flex', flexDirection: 'column' }}>
-          {links.map(l => (
-            <li key={l.name}>
-              <a href={l.href} onClick={() => setMenuOpen(false)} style={{ display: 'block', padding: '13px 0', fontSize: 18, fontWeight: 600, color: '#fff', textDecoration: 'none', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>{l.name}</a>
+        {/* Desktop Links - Horizontal only */}
+        <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
+          {links.map((link) => (
+            <li key={link.name}>
+              <a 
+                href={link.href} 
+                className="text-gray-400 hover:text-white text-sm font-medium transition-colors"
+              >
+                {link.name}
+              </a>
             </li>
           ))}
         </ul>
-        <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
-          <a href="#" style={{ textAlign: 'center', padding: '14px', fontSize: 15, fontWeight: 700, color: '#fff', background: '#2563eb', borderRadius: 10, textDecoration: 'none' }}>Open Account</a>
-          <a href="#" style={{ textAlign: 'center', padding: '14px', fontSize: 15, fontWeight: 600, color: '#fff', border: '1px solid rgba(255,255,255,0.12)', borderRadius: 10, textDecoration: 'none' }}>Log In</a>
+
+        {/* Desktop Actions */}
+        <div className="hidden lg:flex items-center gap-4">
+          <button className="text-white text-sm font-medium px-4 py-2 hover:opacity-80 transition-opacity">
+            Login
+          </button>
+          <button className="bg-[#2563EB] text-white text-sm font-bold px-6 py-2.5 rounded hover:bg-blue-700 transition-colors">
+            Get Started
+          </button>
         </div>
-      </motion.div>
-    </>
+
+        {/* Mobile Toggle Placeholder (Hidden on Desktop) */}
+        <div className="lg:hidden">
+          {/* Simple mobile menu could go here, but focusing on desktop horizontal nav as requested */}
+          <button className="text-white p-2">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
   )
 }
+

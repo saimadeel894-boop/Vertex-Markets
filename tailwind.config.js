@@ -11,11 +11,11 @@ module.exports = {
       },
       colors: {
         brand: {
-          bg:      '#080a0e',
-          section: '#0d1017',
-          card:    '#111520',
+          bg:      '#000000',
+          section: '#000000',
+          card:    '#0d0d0d',
           primary: '#2563eb',
-          muted:   '#a0aab8',
+          muted:   '#9ca3af',
           subtle:  '#6b7585',
         },
         positive: '#22c55e',

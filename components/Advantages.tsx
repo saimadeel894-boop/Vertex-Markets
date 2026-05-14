@@ -1,72 +1,109 @@
 'use client'
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { useRef } from 'react'
-import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 const ads = [
-  { icon: '/icon-liquidity.png',   title: 'Institutional-Grade Liquidity',     desc: 'Deep liquidity from Tier-1 providers ensuring minimal slippage and maximum stability across all market conditions.' },
-  { icon: '/icon-execution.png',   title: 'Ultra-Fast Execution',              desc: 'Average execution speed under 30ms with no dealing desk interference and zero conflict of interest.' },
-  { icon: '/icon-security.png',    title: 'Security You Can Trust',            desc: 'Segregated client funds, advanced end-to-end encryption, and multi-jurisdictional regulatory oversight.' },
-  { icon: '/icon-conditions.png',  title: 'Professional Trading Conditions',   desc: 'Raw spreads from 0.0 pips, flexible institutional leverage, and low commissions built for performance.' },
+  { 
+    title: 'Advanced Analytics', 
+    desc: 'Deep liquidity from Tier-1 providers ensuring minimal slippage and maximum stability.',
+    icon: (
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="silver1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#C0C0C0" />
+            <stop offset="50%" stopColor="#888888" />
+            <stop offset="100%" stopColor="#C0C0C0" />
+          </linearGradient>
+        </defs>
+        <rect x="3" y="10" width="4" height="11" rx="1" fill="url(#silver1)" />
+        <rect x="10" y="5" width="4" height="16" rx="1" fill="url(#silver1)" />
+        <rect x="17" y="13" width="4" height="8" rx="1" fill="url(#silver1)" />
+      </svg>
+    )
+  },
+  { 
+    title: 'Ultra-Fast Speed', 
+    desc: 'Average execution speed under 30ms with no dealing desk interference.',
+    icon: (
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="silver2" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#C0C0C0" />
+            <stop offset="50%" stopColor="#888888" />
+            <stop offset="100%" stopColor="#C0C0C0" />
+          </linearGradient>
+        </defs>
+        <circle cx="12" cy="12" r="10" stroke="url(#silver2)" strokeWidth="2" />
+        <path d="M12 12L16 8" stroke="url(#silver2)" strokeWidth="2" strokeLinecap="round" />
+        <circle cx="12" cy="12" r="1.5" fill="url(#silver2)" />
+      </svg>
+    )
+  },
+  { 
+    title: 'Institutional Security', 
+    desc: 'Segregated client funds, advanced encryption, and multi-jurisdictional oversight.',
+    icon: (
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="silver3" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#C0C0C0" />
+            <stop offset="50%" stopColor="#888888" />
+            <stop offset="100%" stopColor="#C0C0C0" />
+          </linearGradient>
+        </defs>
+        <path d="M12 2L4 5V11C4 16.5 7.5 21.5 12 23C16.5 21.5 20 16.5 20 11V5L12 2Z" fill="url(#silver3)" />
+      </svg>
+    )
+  },
+  { 
+    title: 'Robust Infrastructure', 
+    desc: 'Raw spreads from 0.0 pips and low commissions built for high performance.',
+    icon: (
+      <svg width="120" height="120" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="silver4" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#C0C0C0" />
+            <stop offset="50%" stopColor="#888888" />
+            <stop offset="100%" stopColor="#C0C0C0" />
+          </linearGradient>
+        </defs>
+        <rect x="4" y="4" width="16" height="4" rx="1" fill="url(#silver4)" />
+        <rect x="4" y="10" width="16" height="4" rx="1" fill="url(#silver4)" />
+        <rect x="4" y="16" width="16" height="4" rx="1" fill="url(#silver4)" />
+        <circle cx="7" cy="6" r="0.5" fill="black" />
+        <circle cx="7" cy="12" r="0.5" fill="black" />
+        <circle cx="7" cy="18" r="0.5" fill="black" />
+      </svg>
+    )
+  },
 ]
 
-const container = { hidden: {}, show: { transition: { staggerChildren: 0.1 } } }
-const cardVariant = { hidden: { opacity: 0, y: 40, scale: 0.96 }, show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } } }
 
 export default function Advantages() {
   return (
-    <section style={{ padding: 'clamp(80px, 10vw, 140px) 0', background: 'var(--bg)' }}>
-      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          style={{ textAlign: 'center', marginBottom: 'clamp(48px, 8vw, 90px)' }}
-        >
-          <h2 style={{ fontSize: 'clamp(32px, 5vw, 52px)', fontWeight: 700, lineHeight: 1.08, letterSpacing: '-0.025em', fontFamily: 'Inter, sans-serif' }}>
-            <span style={{ color: '#4b5563' }}>Advantages Built for </span>
-            <span style={{ color: '#fff' }}>Serious Traders</span>
-          </h2>
-        </motion.div>
+    <section className="bg-black py-24">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <h2 className="text-white text-4xl lg:text-5xl font-normal text-center mb-20">
+          Advantages Built for <span className="font-bold">Serious Traders</span>
+        </h2>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: '-60px' }}
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 20 }}
-        >
-          {ads.map((ad, i) => <TiltCard key={ad.title} ad={ad} index={i} />)}
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ads.map((ad, i) => (
+            <div 
+              key={i} 
+              className="bg-[#0d0d0d] border border-white/10 rounded-xl p-8 flex flex-col min-h-[300px] hover:border-white/20 transition-all group"
+            >
+              <div className="mb-8 flex justify-center lg:justify-start">
+                <div className="group-hover:scale-110 transition-transform duration-500">
+                  {ad.icon}
+                </div>
+              </div>
+              <h3 className="text-white text-lg font-bold mb-4">{ad.title}</h3>
+              <p className="text-[#9ca3af] text-sm leading-relaxed">{ad.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
 }
 
-function TiltCard({ ad, index }: { ad: typeof ads[0]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-  
-  return (
-    <motion.div
-      ref={ref}
-      variants={cardVariant}
-      className="adv-card group"
-    >
-      <div className="card-inner-glow" />
-      <motion.div 
-        className="icon-box"
-        initial={{ scale: 0.8, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-      >
-        <Image src={ad.icon} alt={ad.title} width={90} height={90} style={{ objectFit: 'contain' }} />
-      </motion.div>
-      <div>
-        <h3 style={{ fontSize: 18, fontWeight: 800, color: '#fff', marginBottom: 12, lineHeight: 1.25, letterSpacing: '-0.025em', fontFamily: 'Inter, sans-serif' }}>{ad.title}</h3>
-        <p style={{ fontSize: 14, color: '#6b7585', lineHeight: 1.7 }}>{ad.desc}</p>
-      </div>
-    </motion.div>
-  )
-}

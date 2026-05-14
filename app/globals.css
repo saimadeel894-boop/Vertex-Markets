@@ -6,15 +6,12 @@
 
 /* ── Design Tokens ── */
 :root {
-  --bg:       #080a0e;
-  --card:     #0a0d14;
-  --section:  #0d1017;
-  --blue:     #2563eb;
-  --muted:    #9ca3af;
-  --subtle:   #6b7585;
-  --green:    #22c55e;
-  --red:      #ef4444;
-  --border:   rgba(255,255,255,0.07);
+  --bg: #000000;
+  --card: #0d0d0d;
+  --blue: #2563eb;
+  --grey: #9ca3af;
+  --border: rgba(255,255,255,0.08);
+  --border-strong: rgba(255,255,255,0.15);
 }
 
 /* ── Reset ── */
@@ -28,214 +25,56 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  animation: pageFadeIn 0.4s ease forwards;
-}
-
-@keyframes pageFadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
 }
 
 /* ── Typography ── */
 h1, h2, h3, h4 {
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   font-family: 'Inter', sans-serif;
 }
 
-/* ── Selection ── */
-::selection { background: #2563eb; color: #fff; }
-
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #080a0e; }
-::-webkit-scrollbar-thumb { background: rgba(37,99,235,0.4); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(37,99,235,0.7); }
-
-/* ── Custom Cursor (desktop pointer devices only) ── */
-@media (pointer: fine) {
-  body { cursor: none; }
+/* ── Custom Utilities ── */
+.luxury-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: border-color 0.3s ease;
 }
-.cursor-dot {
-  position: fixed;
-  width: 8px; height: 8px;
-  background: #2563eb;
+
+.luxury-card:hover {
+  border-color: var(--border-strong);
+}
+
+/* ── Bull Pedestal & Effects ── */
+.pedestal {
+  width: 400px;
+  height: 40px;
   border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.05s ease;
-}
-.cursor-ring {
-  position: fixed;
-  width: 24px; height: 24px;
-  border: 1px solid rgba(37,99,235,0.8);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
-}
-.cursor-ring.expanded {
-  width: 40px; height: 40px;
-  border-color: rgba(37,99,235,0.5);
-}
-
-/* ── Hero Background Elements ── */
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 100%);
-}
-
-/* ── Animated gradient line (TrustBar) ── */
-@keyframes shimmerLine {
-  0%   { transform: translateX(-100%); }
-  100% { transform: translateX(400%); }
-}
-.shimmer-line {
-  position: absolute;
-  top: 0; left: 0;
-  width: 25%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.6), transparent);
-  animation: shimmerLine 4s ease-in-out infinite;
-}
-
-/* ── Advantage Card ── */
-.adv-card {
-  background: #0a0d14 !important;
-  border: 1px solid rgba(255,255,255,0.07) !important;
-  border-radius: 20px;
-  padding: clamp(24px, 3vw, 36px);
+  background: radial-gradient(ellipse, #555 0%, #111 100%);
+  box-shadow: 0 0 60px rgba(100,100,100,0.4);
   position: relative;
-  overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
-}
-.adv-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.8), transparent);
-  transform: translateX(-100%);
-  transition: transform 0s;
-}
-.adv-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(37,99,235,0.4) !important;
-  box-shadow: 0 -6px 30px rgba(37,99,235,0.15), 0 30px 60px rgba(0,0,0,0.6) !important;
-}
-.adv-card:hover::before {
-  transform: translateX(200%);
-  transition: transform 0.8s ease;
-}
-.adv-card .card-inner-glow {
-  position: absolute;
-  top: 0; left: 0; right: 0; height: 120px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(37,99,235,0.06) 0%, transparent 70%);
-  pointer-events: none;
 }
 
-/* ── Icon Box ── */
-.icon-box {
-  height: 140px;
-  background: linear-gradient(145deg, #0d1017, #080a0e) !important;
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-.adv-card:hover .icon-box {
-  transform: scale(1.02);
-}
-.adv-card:hover .icon-box img {
-  transform: scale(1.08);
-  filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6)) brightness(1.15);
-}
-.icon-box img {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4));
+.glass-panel {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100% 100% 0 0 / 100% 100% 0 0; /* Arc shape approximation */
 }
 
-/* ── Shimmer Button ── */
-.btn-shimmer {
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease !important;
-}
-.btn-shimmer::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.25) 50%, transparent 65%);
-  transform: translateX(-150%);
-  transition: transform 0.55s ease;
-}
-.btn-shimmer:hover::after   { transform: translateX(150%); }
-.btn-shimmer.btn-primary:hover {
-  transform: scale(1.03) translateY(-1px);
-  box-shadow: 0 0 30px rgba(37,99,235,0.5), 0 12px 40px rgba(37,99,235,0.3) !important;
-}
-.btn-ghost:hover {
-  border-color: rgba(255,255,255,0.7) !important;
+/* ── Animations ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-/* ── Bull Float ── */
-@keyframes bullFloat {
-  0%, 100% { transform: translateY(0px); filter: drop-shadow(0 40px 80px rgba(0,0,0,0.9)); }
-  50%       { transform: translateY(-14px); filter: drop-shadow(0 55px 100px rgba(0,0,0,0.95)) drop-shadow(0 0 30px rgba(255,255,255,0.05)); }
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }
-.bull-float { animation: bullFloat 6s ease-in-out infinite; }
 
-/* ── Platform glow disc pulse ── */
-@keyframes discPulse {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 1; }
-}
-.pedestal-glow { animation: discPulse 3s ease-in-out infinite; }
+/* ── Hide scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
 
-/* ── Logo glow pulse ── */
-@keyframes logoPulse {
-  0%, 100% { box-shadow: 0 0 0px rgba(37,99,235,0); }
-  50%       { box-shadow: 0 0 20px rgba(37,99,235,0.6); }
-}
-.logo-glow { animation: logoPulse 3s ease-in-out infinite; }
-
-/* ── Chip float ── */
-@keyframes chipFloat1 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-@keyframes chipFloat2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-@keyframes chipFloat3 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-.chip-f1 { animation: chipFloat1 5s ease-in-out infinite; }
-.chip-f2 { animation: chipFloat2 7s ease-in-out infinite 0.5s; }
-.chip-f3 { animation: chipFloat3 6s ease-in-out infinite 1s; }
-
-/* ── Container ── */
-.container-padded { padding: 0 clamp(20px, 4vw, 48px); }
-
-/* ── Nav link hover underline ── */
-.nav-link {
-  position: relative;
-  text-decoration: none;
-  color: #6b7585;
-  font-size: 14px;
-  font-weight: 600;
-  transition: color 0.2s;
-}
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -3px; left: 0;
-  width: 0; height: 2px;
-  background: #2563eb;
-  border-radius: 1px;
-  transition: width 0.3s ease;
-}
-.nav-link:hover { color: #fff; }
-.nav-link:hover::after { width: 100%; }
