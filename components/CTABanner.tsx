@@ -36,7 +36,9 @@ export default function CTABanner() {
           transition={{ duration: 0.9, ease }}
           onMouseMove={handleMouseMove}
           style={{
-            background: '#0d0d0d',
+            background: 'linear-gradient(135deg, #0f172a 0%, #020617 100%)',
+            backgroundSize: '200% 200%',
+            animation: 'ctaBgShift 10s ease infinite',
             border: '1px solid rgba(255,255,255,0.10)',
             borderRadius: 16,
             margin: '0 40px',
@@ -47,7 +49,8 @@ export default function CTABanner() {
             alignItems: 'center',
             position: 'relative',
             overflow: 'hidden',
-            perspective: 1200
+            perspective: 1200,
+            boxShadow: '0 60px 120px -20px rgba(0,0,0,0.8)'
           }}
         >
           {/* Subtle animated gradient shift inside */}
@@ -58,20 +61,20 @@ export default function CTABanner() {
               100% { background-position: 0% 50%; }
             }
           `}} />
-          <div style={{
-            position: 'absolute', inset: 0,
-            background: 'linear-gradient(135deg, rgba(37,99,235,0.03) 0%, rgba(255,255,255,0.01) 100%)',
-            backgroundSize: '200% 200%',
-            animation: 'ctaBgShift 15s ease infinite',
-            pointerEvents: 'none', zIndex: 0
-          }} />
+
+          {/* Decorative blue glow pulse */}
+          <motion.div 
+            animate={{ opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none', zIndex: 0 }} 
+          />
 
           {/* LEFT SIDE */}
           <div style={{ position: 'relative', zIndex: 10 }}>
             <h2 style={{ fontSize: 40, fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: 20 }}>
               Ready to Elevate Your Trading?
             </h2>
-            <p style={{ fontSize: 16, color: '#9ca3af', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
@@ -85,27 +88,16 @@ export default function CTABanner() {
             </div>
           </div>
 
-          {/* RIGHT SIDE: 3D Tracking Phone Mockup */}
-          <div style={{ position: 'relative', height: 360, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          {/* RIGHT SIDE: 3D Tracking V Logo */}
+          <div style={{ position: 'relative', height: 360, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
             
-            <motion.div style={{
-              width: 180, height: 360,
-              background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)',
-              borderRadius: 24, padding: 4,
-              boxShadow: '-20px 40px 60px rgba(0,0,0,0.6), inset 2px 2px 5px rgba(255,255,255,0.8)',
-              rotateX, rotateY, transformStyle: 'preserve-3d'
-            }}>
-              {/* Phone Screen */}
-              <div style={{ width: '100%', height: '100%', background: '#0d0d0d', borderRadius: 20, padding: 12, display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
-                <div style={{ width: '40%', height: 4, background: '#333', margin: '0 auto 8px auto', borderRadius: 2 }} />
-                <div style={{ width: '100%', height: 60, background: '#1a1a1a', borderRadius: 6 }} />
-                <div style={{ width: '100%', height: 120, background: '#1a1a1a', borderRadius: 6, position: 'relative' }}>
-                  <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" style={{ position: 'absolute', inset: 0 }}>
-                    <path d="M0 80 L20 60 L40 70 L60 40 L80 50 L100 20" stroke="#2563eb" strokeWidth="2" fill="none" />
-                  </svg>
-                </div>
-                <div style={{ width: '100%', height: 40, background: '#2563eb', borderRadius: 6, marginTop: 'auto' }} />
-              </div>
+            <motion.div style={{ rotateX, rotateY, transformStyle: 'preserve-3d', width: '100%', maxWidth: 320 }}>
+              <motion.div
+                animate={{ y: [0, -18, 0], rotateZ: [0, 4, 0] }}
+                transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                <img src="/v-logo-3d.png" alt="Vertex 3D" style={{ width: '100%', height: 'auto', filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.6)) brightness(1.15)' }} />
+              </motion.div>
             </motion.div>
 
           </div>
