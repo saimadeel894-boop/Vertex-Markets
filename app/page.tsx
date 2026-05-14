@@ -4,6 +4,8 @@ import TrustBar from '@/components/TrustBar'
 import Advantages from '@/components/Advantages'
 import Ticker from '@/components/Ticker'
 import Footer from '@/components/Footer'
+import Platforms from '@/components/Platforms'
+import CTABanner from '@/components/CTABanner'
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <TrustBar />
       <Advantages />
       <Ticker />
+      <Platforms />
+      <CTABanner />
       <Footer />
     </main>
   )

@@ -7,13 +7,13 @@ const ads = [
     icon: (
       <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
         <defs>
-          <linearGradient id="silver-grad" x1="0" y1="0" x2="0" y2="100%">
-            <stop offset="0%" stopColor="#E0E0E0" />
-            <stop offset="50%" stopColor="#A0A0A0" />
-            <stop offset="100%" stopColor="#606060" />
+          <linearGradient id="silver-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#e8e8e8" />
+            <stop offset="50%" stopColor="#a0a0a0" />
+            <stop offset="100%" stopColor="#c8c8c8" />
           </linearGradient>
           <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="10" stdDeviation="10" floodColor="#000" floodOpacity="0.8"/>
+            <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000" floodOpacity="0.5"/>
           </filter>
         </defs>
         <g filter="url(#shadow)">
