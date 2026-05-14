@@ -62,8 +62,10 @@ export default function CTABanner() {
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
-              <a href="#" className="btn-solid">Get Started <span>→</span></a>
-              <a href="#" style={{ fontSize: 14, color: '#9ca3af', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s' }}
+              <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
+                <a href="#" className="btn-solid">Get Started <span>→</span></a>
+              </div>
+              <a href="#" style={{ fontSize: 14, color: '#9ca3af', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s', marginLeft: 4 }}
                 onMouseOver={e => e.currentTarget.style.color = '#fff'}
                 onMouseOut={e => e.currentTarget.style.color = '#9ca3af'}
               >
@@ -72,35 +74,22 @@ export default function CTABanner() {
             </div>
           </div>
 
-          {/* RIGHT SIDE: CSS Phone Mockup */}
-          <div style={{ position: 'relative', height: 360, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10, perspective: 1200 }}>
-            
+          {/* RIGHT SIDE: Large 3D Chrome V Logo (Matching Reference Image) */}
+          <div style={{ position: 'relative', height: 360, display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
             <motion.div 
-              style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+              style={{ rotateX, rotateY, transformStyle: 'preserve-3d', width: '100%', maxWidth: 380 }}
+              animate={{ y: [0, -15, 0], rotateZ: [0, 2, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <div style={{
-                width: 180, height: 360,
-                background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)',
-                borderRadius: 24, padding: 4,
-                boxShadow: '-20px 40px 60px rgba(0,0,0,0.6), inset 2px 2px 5px rgba(255,255,255,0.8)',
-                transform: 'rotateY(-15deg) rotateX(5deg)'
-              }}>
-                {/* Phone Screen */}
-                <div style={{ width: '100%', height: '100%', background: '#0d0d0d', borderRadius: 20, padding: 12, display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
-                  <div style={{ width: '40%', height: 4, background: '#333', margin: '0 auto 8px auto', borderRadius: 2 }} />
-                  <div style={{ width: '100%', height: 60, background: '#1a1a1a', borderRadius: 6 }} />
-                  <div style={{ width: '100%', height: 120, background: '#1a1a1a', borderRadius: 6, position: 'relative' }}>
-                    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" style={{ position: 'absolute', inset: 0 }}>
-                      <path d="M0 80 L20 60 L40 70 L60 40 L80 50 L100 20" stroke="#555" strokeWidth="2" fill="none" />
-                    </svg>
-                  </div>
-                  <div style={{ width: '100%', height: 40, background: '#1a1a1a', borderRadius: 6, marginTop: 'auto' }} />
-                </div>
-              </div>
+              <img 
+                src="/v-logo-3d.png" 
+                alt="Vertex 3D Chrome Logo" 
+                style={{ 
+                  width: '100%', height: 'auto', 
+                  filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.7)) brightness(1.1) contrast(1.1)' 
+                }} 
+              />
             </motion.div>
-
           </div>
 
         </motion.div>
