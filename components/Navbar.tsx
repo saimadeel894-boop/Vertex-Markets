@@ -1,33 +1,36 @@
 'use client'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const links = ['Trading', 'Platforms', 'Markets', 'Resources', 'Company', 'Partners']
 
 export default function Navbar() {
   const { scrollY } = useScroll()
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
-  useEffect(() => scrollY.onChange(v => setIsScrolled(v > 40)), [scrollY])
+  useEffect(() => scrollY.onChange(v => setScrolled(v > 40)), [scrollY])
 
   return (
     <nav
       style={{
-        background: isScrolled ? 'rgba(0,0,0,0.95)' : '#000000',
-        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+        background: scrolled ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.4)',
+        backdropFilter: scrolled ? 'blur(24px)' : 'blur(14px)',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.12)' : '1px solid transparent',
         height: 84,
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center',
-        transition: 'all 0.3s ease',
+        transition: 'all 0.4s ease',
       }}
     >
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         
         {/* Logo */}
         <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
-          <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em' }}>V</span>
+          <div style={{ position: 'relative' }}>
+            <div className="animate-slow-pulse" style={{ position: 'absolute', inset: -4, background: '#2563eb', borderRadius: 8, filter: 'blur(8px)', opacity: 0.6 }} />
+            <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
+              <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em' }}>V</span>
+            </div>
           </div>
           <div>
             <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '0.02em' }}>VERTEX</div>
@@ -39,20 +42,17 @@ export default function Navbar() {
         <ul style={{ display: 'none', alignItems: 'center', gap: 32, listStyle: 'none', margin: 0, padding: 0 }} className="lg:flex">
           {links.map(l => (
             <li key={l}>
-              <a href="#" style={{ color: '#fff', fontSize: 14, fontWeight: 400, textDecoration: 'none', transition: 'color 0.2s' }}
-                onMouseOver={e => e.currentTarget.style.color = '#9ca3af'}
-                onMouseOut={e => e.currentTarget.style.color = '#fff'}
-              >{l}</a>
+              <a href="#" className="nav-link">{l}</a>
             </li>
           ))}
         </ul>
 
         {/* Actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="#" style={{ padding: '10px 24px', fontSize: 14, fontWeight: 500, color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, textDecoration: 'none', transition: 'all 0.2s' }} className="hidden sm:block">
+          <a href="#" className="btn-ghost hidden sm:inline-flex" style={{ padding: '10px 24px', fontSize: 14 }}>
             Login
           </a>
-          <a href="#" style={{ padding: '10px 24px', fontSize: 14, fontWeight: 500, color: '#fff', background: '#2563eb', borderRadius: 4, textDecoration: 'none', transition: 'all 0.2s' }}>
+          <a href="#" className="btn-solid" style={{ padding: '10px 24px', fontSize: 14 }}>
             Get Started
           </a>
         </div>
