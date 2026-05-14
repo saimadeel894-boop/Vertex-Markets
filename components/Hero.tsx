@@ -215,8 +215,8 @@ export default function Hero() {
                   maxWidth: 540,
                   height: 480,
                   backdropFilter: 'blur(10px)',
-                  background: 'rgba(255,255,255,0.012)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  background: 'rgba(255,255,255,0.03)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   borderRadius: '50% 50% 0 0',
                   overflow: 'hidden',
                   zIndex: 1,
@@ -248,9 +248,9 @@ export default function Hero() {
                   maxWidth: 420,
                   height: 60,
                   borderRadius: '50%',
-                  background: 'radial-gradient(ellipse at center, #777 0%, #111 70%, #000 100%)',
+                  background: 'radial-gradient(#555, #111)',
                   border: '1px solid rgba(255,255,255,0.15)',
-                  boxShadow: '0 0 60px rgba(255,255,255,0.08), 0 0 120px rgba(37,99,235,0.04)',
+                  boxShadow: '0 0 60px rgba(255,255,255,0.08), 0 0 120px rgba(255,255,255,0.02)',
                   zIndex: 2,
                   transform: 'translateZ(0px)',
                 }}
@@ -361,7 +361,7 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
       style={{
         position: 'absolute',
         top, left, right,
-        background: 'rgba(10,10,10,0.85)',
+        background: 'rgba(8,8,8,0.90)',
         backdropFilter: 'blur(14px)',
         border: '1px solid rgba(255,255,255,0.12)',
         padding: '10px 16px',
@@ -378,7 +378,7 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
     >
       <div style={{ fontSize: 10, color: '#9ca3af', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
       <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{display}</div>
-      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#2563eb' : '#9ca3af', display: 'flex', alignItems: 'center', gap: 4 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#22c55e' : '#ef4444', display: 'flex', alignItems: 'center', gap: 4 }}>
         <span style={{ fontSize: 8 }}>{up ? '▲' : '▼'}</span> {change}
       </div>
     </motion.div>

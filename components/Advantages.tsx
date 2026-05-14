@@ -132,7 +132,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
                 width: 'auto',
                 height: 140,
                 objectFit: 'contain',
-                filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.9))',
+                filter: 'drop-shadow(0 12px 24px rgba(0,0,0,0.8))',
               }}
             />
           </div>

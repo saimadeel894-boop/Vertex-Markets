@@ -148,12 +148,12 @@ function PlatformRow({ icon, title, sub }: { icon: React.ReactNode; title: strin
         width: 40,
         height: 40,
         borderRadius: 8,
-        background: 'rgba(255,255,255,0.04)',
+        background: 'rgba(255,255,255,0.05)',
         border: '1px solid rgba(255,255,255,0.08)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#9ca3af',
+        color: '#ffffff',
         flexShrink: 0,
       }}>
         {icon}

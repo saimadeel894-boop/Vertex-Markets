@@ -33,7 +33,7 @@ export default function GlobalSpotlight() {
         height: '100vh',
         pointerEvents: 'none',
         zIndex: 9999, // Render on top but pointer-events: none lets clicks pass through
-        background: 'radial-gradient(600px circle at var(--x) var(--y), rgba(37, 99, 235, 0.05), transparent 40%)'
+        background: 'radial-gradient(600px circle at var(--x) var(--y), rgba(255, 255, 255, 0.03), transparent 40%)'
       }}
       animate={{
         '--x': `${smoothX.get()}px`,

@@ -60,10 +60,10 @@ const regulators = [
 export default function TrustBar() {
   return (
     <section style={{
-      background: '#0a0a0a',
+      background: '#0d0d0d',
       padding: '40px 0',
-      borderTop: '1px solid rgba(255,255,255,0.07)',
-      borderBottom: '1px solid rgba(255,255,255,0.07)',
+      borderTop: '1px solid rgba(255,255,255,0.08)',
+      borderBottom: '1px solid rgba(255,255,255,0.08)',
       position: 'relative',
     }}>
       <div className="shimmer-line" />
@@ -72,8 +72,8 @@ export default function TrustBar() {
         <div style={{
           fontSize: 10,
           fontWeight: 700,
-          color: '#6b7280',
-          letterSpacing: '0.18em',
+          color: '#9ca3af',
+          letterSpacing: '0.15em',
           textTransform: 'uppercase',
           textAlign: 'center',
         }}>
@@ -108,17 +108,17 @@ export default function TrustBar() {
                 alignItems: 'center',
                 gap: 10,
                 cursor: 'default',
-                color: '#fff',
+                color: '#9ca3af',
                 flexShrink: 0,
               }}
             >
               {/* Icon */}
-              <div style={{ color: '#fff', flexShrink: 0 }}>
+              <div style={{ color: '#9ca3af', flexShrink: 0 }}>
                 {r.icon}
               </div>
               {/* Text stack */}
               <div>
-                <div style={{ fontSize: 17, fontWeight: 800, color: '#fff', letterSpacing: '0.04em', lineHeight: 1 }}>
+                <div style={{ fontSize: 17, fontWeight: 800, color: '#9ca3af', letterSpacing: '0.04em', lineHeight: 1 }}>
                   {r.abbr}
                 </div>
                 <div style={{

@@ -5,7 +5,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer style={{ background: '#000000', borderTop: '1px solid rgba(255,255,255,0.08)', padding: 'clamp(48px, 8vw, 80px) 0 36px' }}>
+    <footer style={{ background: '#000000', borderTop: '1px solid rgba(255,255,255,0.06)', padding: 'clamp(48px, 8vw, 80px) 0 36px' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
 
         {/* Top Grid */}
@@ -41,12 +41,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: 28 }}>
-          <p style={{ fontSize: 11, color: '#6b7280', lineHeight: 1.8, marginBottom: 24 }}>
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 28 }}>
+          <p style={{ fontSize: 11, color: '#4b5563', lineHeight: 1.8, marginBottom: 24 }}>
             <strong style={{ color: '#9ca3af' }}>Risk Warning:</strong> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure you fully understand the risks involved before trading. Past performance is not indicative of future results.
           </p>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
-            <p style={{ fontSize: 12, color: '#6b7280' }}>
+            <p style={{ fontSize: 12, color: '#4b5563' }}>
               © {year} Vertex Markets Ltd. All rights reserved.
             </p>
             <div style={{ display: 'flex', gap: 20 }}>
@@ -54,7 +54,7 @@ export default function Footer() {
                 <motion.a 
                   key={s} href="#" 
                   whileHover={{ scale: 1.1, color: '#fff', textShadow: '0 0 10px rgba(37,99,235,0.8)' }}
-                  style={{ fontSize: 13, color: '#9ca3af', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
+                  style={{ fontSize: 13, color: '#6b7280', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
                 >{s}</motion.a>
               ))}
             </div>
@@ -72,9 +72,9 @@ function FooterCol({ title, links }: { title: string; links: string[] }) {
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {links.map(l => (
           <li key={l}>
-            <a href="#" style={{ fontSize: 14, color: '#9ca3af', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
+            <a href="#" style={{ fontSize: 14, color: '#6b7280', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
               onMouseOver={e => e.currentTarget.style.color = '#fff'}
-              onMouseOut={e => e.currentTarget.style.color = '#9ca3af'}
+              onMouseOut={e => e.currentTarget.style.color = '#6b7280'}
             >{l}</a>
           </li>
         ))}

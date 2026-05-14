@@ -51,7 +51,7 @@ export default function CTABanner() {
           }}
         >
           {/* Subtle inner glow */}
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 50%, rgba(37,99,235,0.05) 0%, transparent 60%)', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 50%, rgba(255,255,255,0.03) 0%, transparent 60%)', pointerEvents: 'none' }} />
 
           {/* LEFT SIDE */}
           <div style={{ position: 'relative', zIndex: 10 }}>

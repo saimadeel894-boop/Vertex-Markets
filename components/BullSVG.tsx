@@ -4,25 +4,25 @@ export default function BullSVG() {
       <defs>
         <radialGradient id="bBody" cx="50%" cy="30%" r="55%">
           <stop offset="0%"   stopColor="#8a9098"/>
-          <stop offset="45%"  stopColor="#555f6d"/>
-          <stop offset="100%" stopColor="#1a2030"/>
+          <stop offset="45%"  stopColor="#333333"/>
+          <stop offset="100%" stopColor="#0d0d0d"/>
         </radialGradient>
         <radialGradient id="bHi" cx="38%" cy="20%" r="45%">
           <stop offset="0%"   stopColor="#d4d8e0" stopOpacity=".85"/>
           <stop offset="55%"  stopColor="#8a9098" stopOpacity=".35"/>
-          <stop offset="100%" stopColor="#3a4455" stopOpacity="0"/>
+          <stop offset="100%" stopColor="#222222" stopOpacity="0"/>
         </radialGradient>
         <radialGradient id="bDark" cx="50%" cy="85%" r="55%">
-          <stop offset="0%"   stopColor="#0d1117"/>
-          <stop offset="100%" stopColor="#1a2030"/>
+          <stop offset="0%"   stopColor="#000000"/>
+          <stop offset="100%" stopColor="#0d0d0d"/>
         </radialGradient>
         <linearGradient id="legG" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stopColor="#606878"/>
-          <stop offset="100%" stopColor="#0d1117"/>
+          <stop offset="0%"   stopColor="#333333"/>
+          <stop offset="100%" stopColor="#000000"/>
         </linearGradient>
         <linearGradient id="hornG" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%"   stopColor="#c8cdd6"/>
-          <stop offset="100%" stopColor="#2e3848"/>
+          <stop offset="100%" stopColor="#333333"/>
         </linearGradient>
         <filter id="bullDrop" x="-20%" y="-20%" width="140%" height="140%">
           <feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#000" floodOpacity=".75"/>
@@ -52,25 +52,25 @@ export default function BullSVG() {
       <ellipse cx="162" cy="86" rx="50" ry="44" fill="url(#bHi)" opacity=".52"/>
 
       {/* Snout */}
-      <ellipse cx="160" cy="112" rx="28" ry="17" fill="#2e3848"/>
-      <circle cx="152" cy="112" r="5.5" fill="#141920"/>
-      <circle cx="168" cy="112" r="5.5" fill="#141920"/>
+      <ellipse cx="160" cy="112" rx="28" ry="17" fill="#333333"/>
+      <circle cx="152" cy="112" r="5.5" fill="#000000"/>
+      <circle cx="168" cy="112" r="5.5" fill="#000000"/>
       <circle cx="150" cy="110" r="1.8" fill="#4a5568" opacity=".7"/>
       <circle cx="166" cy="110" r="1.8" fill="#4a5568" opacity=".7"/>
 
       {/* Eyes */}
-      <ellipse cx="138" cy="77" rx="9" ry="8" fill="#1a2030"/>
-      <circle cx="138" cy="77" r="4.5" fill="#0d1117"/>
+      <ellipse cx="138" cy="77" rx="9" ry="8" fill="#111111"/>
+      <circle cx="138" cy="77" r="4.5" fill="#000000"/>
       <circle cx="136" cy="75" r="1.8" fill="rgba(255,255,255,0.55)"/>
-      <ellipse cx="186" cy="77" rx="9" ry="8" fill="#1a2030"/>
-      <circle cx="186" cy="77" r="4.5" fill="#0d1117"/>
+      <ellipse cx="186" cy="77" rx="9" ry="8" fill="#111111"/>
+      <circle cx="186" cy="77" r="4.5" fill="#000000"/>
       <circle cx="184" cy="75" r="1.8" fill="rgba(255,255,255,0.55)"/>
 
       {/* Ears */}
       <ellipse cx="116" cy="70" rx="15" ry="11" fill="url(#bBody)" transform="rotate(-30 116 70)"/>
-      <ellipse cx="116" cy="70" rx="8"  ry="5"  fill="#2a3545" transform="rotate(-30 116 70)" opacity=".65"/>
+      <ellipse cx="116" cy="70" rx="8"  ry="5"  fill="#222222" transform="rotate(-30 116 70)" opacity=".65"/>
       <ellipse cx="208" cy="70" rx="15" ry="11" fill="url(#bBody)" transform="rotate(30 208 70)"/>
-      <ellipse cx="208" cy="70" rx="8"  ry="5"  fill="#2a3545" transform="rotate(30 208 70)" opacity=".65"/>
+      <ellipse cx="208" cy="70" rx="8"  ry="5"  fill="#222222" transform="rotate(30 208 70)" opacity=".65"/>
 
       {/* Left horn */}
       <path d="M120 55 C100 26 68 12 56 2 C70 5 86 18 103 36 C113 47 118 52 120 55Z" fill="url(#hornG)"/>
