@@ -68,7 +68,7 @@ export default function Platforms() {
             viewport={{ once: true }}
           >
             <motion.p variants={slideRight} style={{ fontSize: 10, fontWeight: 800, letterSpacing: '.25em', color: '#6b7585', textTransform: 'uppercase', marginBottom: 16 }}>POWERFUL. FLEXIBLE. ADVANCED.</motion.p>
-            <motion.h2 variants={slideRight} style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: 18, letterSpacing: '-0.025em', fontFamily: 'Inter, sans-serif' }}>
+            <motion.h2 variants={slideRight} style={{ fontSize: 'clamp(28px,4vw,44px)', fontWeight: 700, color: '#fff', lineHeight: 1.12, marginBottom: 18, letterSpacing: '-0.025em', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Trading Platforms<br />Built for Performance
             </motion.h2>
             <motion.p variants={slideRight} style={{ fontSize: 15, lineHeight: 1.7, color: '#9ca3af', marginBottom: 36, maxWidth: 420 }}>

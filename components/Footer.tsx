@@ -14,7 +14,7 @@ export default function Footer() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
             <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
               <div style={{ width: 32, height: 32, background: '#fff', borderRadius: 8, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em', fontFamily: 'Inter, sans-serif' }}>V</span>
+                <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>V</span>
               </div>
               <div>
                 <div style={{ fontSize: 15, fontWeight: 900, color: '#fff', letterSpacing: '-0.02em' }}>VERTEX</div>

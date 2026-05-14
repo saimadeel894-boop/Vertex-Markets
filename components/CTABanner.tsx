@@ -44,7 +44,7 @@ export default function CTABanner() {
 
           {/* Text Content */}
           <div style={{ position: 'relative', zIndex: 2 }}>
-            <h2 style={{ fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 700, color: '#fff', lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.025em', fontFamily: 'Inter, sans-serif' }}>
+            <h2 style={{ fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 700, color: '#fff', lineHeight: 1.05, marginBottom: 24, letterSpacing: '-0.025em', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Elevate Your<br />Trading Potential.
             </h2>
             <p style={{ fontSize: 'clamp(14px, 1.5vw, 17px)', color: 'rgba(255,255,255,0.6)', marginBottom: 40, maxWidth: 460, lineHeight: 1.65, fontWeight: 400 }}>
