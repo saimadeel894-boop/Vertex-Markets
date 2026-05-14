@@ -14,8 +14,8 @@ export default function Home() {
       <Hero />
       <TrustBar />
       <Advantages />
-      <Ticker />
       <Platforms />
+      <Ticker />
       <CTABanner />
       <Footer />
     </main>

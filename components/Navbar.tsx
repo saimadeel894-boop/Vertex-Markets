@@ -8,54 +8,100 @@ export default function Navbar() {
   const { scrollY } = useScroll()
   const [scrolled, setScrolled] = useState(false)
 
-  useEffect(() => scrollY.onChange(v => setScrolled(v > 40)), [scrollY])
+  useEffect(() => {
+    const unsub = scrollY.on('change', v => setScrolled(v > 40))
+    return unsub
+  }, [scrollY])
 
   return (
     <nav
       style={{
-        background: scrolled ? 'rgba(0,0,0,0.85)' : 'rgba(0,0,0,0.4)',
+        background: scrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.5)',
         backdropFilter: scrolled ? 'blur(24px)' : 'blur(14px)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.12)' : '1px solid transparent',
-        height: 84,
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.10)' : '1px solid transparent',
+        height: 68,
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center',
         transition: 'all 0.4s ease',
       }}
     >
-      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        
+      <div
+        className="container-padded"
+        style={{ maxWidth: 1440, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+      >
+
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
-          <div style={{ position: 'relative' }}>
-            <div className="animate-slow-pulse" style={{ position: 'absolute', inset: -4, background: '#2563eb', borderRadius: '50%', filter: 'blur(8px)', opacity: 0.6 }} />
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 2 }}>
-              <span style={{ fontSize: 24, fontWeight: 900, color: '#fff', letterSpacing: '-0.05em' }}>V</span>
-            </div>
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+          {/* Clean geometric V mark — no glow */}
+          <div style={{
+            width: 36,
+            height: 36,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }}>
+            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+              {/* Outer diamond/chevron shape */}
+              <path
+                d="M18 4 L32 18 L18 32 L4 18 Z"
+                stroke="rgba(255,255,255,0.15)"
+                strokeWidth="1"
+                fill="none"
+              />
+              {/* Bold V chevron */}
+              <path
+                d="M9 12 L18 26 L27 12"
+                stroke="#ffffff"
+                strokeWidth="3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                fill="none"
+              />
+            </svg>
           </div>
           <div>
-            <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '0.02em' }}>VERTEX</div>
-            <div style={{ fontSize: 8, fontWeight: 500, color: '#9ca3af', letterSpacing: '0.2em', textTransform: 'uppercase' }}>MARKETS</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
+            <div style={{ fontSize: 7.5, fontWeight: 500, color: '#6b7280', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
           </div>
         </a>
 
-        {/* Desktop Links */}
-        <ul style={{ display: 'flex', alignItems: 'center', gap: 32, listStyle: 'none', margin: 0, padding: 0 }} className="hidden lg:flex">
+        {/* Desktop nav links */}
+        <ul
+          style={{ display: 'flex', alignItems: 'center', gap: 36, listStyle: 'none', margin: 0, padding: 0 }}
+          className="hidden lg:flex"
+        >
           {links.map(l => (
             <li key={l}>
-              <a href="#" className="nav-link" style={{ fontSize: 14, color: '#fff', fontFamily: 'Inter', fontWeight: 400 }}>{l}</a>
+              <a
+                href="#"
+                className="nav-link"
+                style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)', fontFamily: 'Inter', fontWeight: 400 }}
+              >
+                {l}
+              </a>
             </li>
           ))}
         </ul>
 
-        {/* Actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-          <a href="#" className="btn-ghost hidden sm:inline-flex" style={{ padding: '10px 24px', fontSize: 14 }}>
+        {/* Action buttons */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <a
+            href="#"
+            className="btn-ghost hidden sm:inline-flex"
+            style={{ padding: '9px 22px', fontSize: 14, borderColor: 'rgba(255,255,255,0.25)' }}
+          >
             Login
           </a>
-          <a href="#" className="btn-solid" style={{ padding: '10px 24px', fontSize: 14 }}>
+          <a
+            href="#"
+            className="btn-solid"
+            style={{ padding: '9px 22px', fontSize: 14 }}
+          >
             Get Started
           </a>
         </div>
+
       </div>
     </nav>
   )

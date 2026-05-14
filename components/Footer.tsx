@@ -13,13 +13,16 @@ export default function Footer() {
 
           {/* Brand */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
-              <div style={{ width: 32, height: 32, background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)', borderRadius: 6, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: 20, fontWeight: 900, color: '#000', letterSpacing: '-0.05em' }}>V</span>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
+              <div style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
+                  <path d="M18 4 L32 18 L18 32 L4 18 Z" stroke="rgba(255,255,255,0.15)" strokeWidth="1" fill="none" />
+                  <path d="M9 12 L18 26 L27 12" stroke="#ffffff" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                </svg>
               </div>
               <div>
-                <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '0.02em' }}>VERTEX</div>
-                <div style={{ fontSize: 8, fontWeight: 500, color: '#9ca3af', letterSpacing: '0.2em', textTransform: 'uppercase' }}>MARKETS</div>
+                <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
+                <div style={{ fontSize: 7.5, fontWeight: 500, color: '#6b7280', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
               </div>
             </a>
             <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.65, maxWidth: 260 }}>
