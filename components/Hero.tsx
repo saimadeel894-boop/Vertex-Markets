@@ -286,7 +286,7 @@ export default function Hero() {
                 <>
                   <PriceChip top="18%" left="8%"   symbol="XAUUSD" price="2,384.65" change="+0.62%" up delay={0.6} tz={100} />
                   <PriceChip top="8%"  right="8%"  symbol="EURUSD" price="1.08945"  change="+0.47%" up delay={0.7} tz={80} />
-                  <PriceChip top="46%" right="-4%" symbol="GBPUSD" price="1.27482"  change="-0.30%" up={false} delay={0.8} tz={120} />
+                  <PriceChip top="46%" right="-4%" symbol="GBPUSD" price="1.27482"  change="+0.36%" up delay={0.8} tz={120} />
                 </>
               )}
             </motion.div>
@@ -378,7 +378,7 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
     >
       <div style={{ fontSize: 10, color: '#9ca3af', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
       <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{display}</div>
-      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#22c55e' : '#ef4444', display: 'flex', alignItems: 'center', gap: 4 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#2563eb' : '#9ca3af', display: 'flex', alignItems: 'center', gap: 4 }}>
         <span style={{ fontSize: 8 }}>{up ? '▲' : '▼'}</span> {change}
       </div>
     </motion.div>

@@ -12,19 +12,19 @@ const ads = [
   },
   {
     title: 'Ultra-Fast\nExecution',
-    desc: 'Average execution speed under 30ms with no dealing desk interference and zero conflict of interest.',
+    desc: 'Average execution speed under 30ms with no dealing desk interference.',
     img: '/icon-execution.png',
     alt: 'Ultra-Fast Execution',
   },
   {
     title: 'Security You\nCan Trust',
-    desc: 'Segregated client funds, advanced end-to-end encryption, and global regulatory oversight.',
+    desc: 'Segregated client funds, advanced encryption, and global regulatory oversight.',
     img: '/icon-security.png',
     alt: 'Security You Can Trust',
   },
   {
     title: 'Professional\nTrading Conditions',
-    desc: 'Raw spreads from 0.0 pips, flexible institutional leverage, and low commissions built for serious performance.',
+    desc: 'Raw spreads, flexible leverage, and low commissions built for serious performance.',
     img: '/icon-conditions.png',
     alt: 'Professional Trading Conditions',
   },
