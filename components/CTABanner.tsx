@@ -1,80 +1,80 @@
 'use client'
+import { motion } from 'framer-motion'
 
 export default function CTABanner() {
   return (
-    <section style={{ background: '#000000', paddingBottom: 40 }}>
+    <section style={{ padding: '0 0 clamp(80px, 10vw, 140px)', background: '#000000' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
-        <div style={{
-          background: '#0d0d0d',
-          border: '1px solid rgba(255,255,255,0.10)',
-          borderRadius: 16,
-          margin: '0 40px 80px 40px',
-          padding: 60,
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 60,
-          alignItems: 'center',
-          position: 'relative',
-          overflow: 'hidden'
-        }}>
-          
-          {/* LEFT SIDE */}
-          <div style={{ position: 'relative', zIndex: 10 }}>
-            <h2 style={{ fontSize: 40, fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: 20 }}>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+          style={{
+            position: 'relative',
+            background: 'linear-gradient(135deg, #0f172a 0%, #020617 100%)',
+            backgroundSize: '200% 200%',
+            animation: 'bgShift 10s ease infinite',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '16px',
+            margin: '0 40px 80px 40px',
+            padding: '60px',
+            overflow: 'hidden',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: 48,
+            alignItems: 'center',
+            boxShadow: '0 60px 120px -20px rgba(0,0,0,0.8)',
+          }}
+        >
+          {/* Subtle animated gradient shift definition */}
+          <style dangerouslySetInnerHTML={{__html: `
+            @keyframes bgShift {
+              0% { background-position: 0% 50%; }
+              50% { background-position: 100% 50%; }
+              100% { background-position: 0% 50%; }
+            }
+          `}} />
+
+          {/* Decorative blue glow pulse */}
+          <motion.div 
+            animate={{ opacity: [0.3, 0.6, 0.3] }}
+            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+            style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} 
+          />
+
+          {/* Text Content */}
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h2 style={{ fontSize: 'clamp(30px, 5vw, 56px)', fontWeight: 700, color: '#fff', lineHeight: 1.05, marginBottom: 24 }}>
               Ready to Elevate Your Trading?
             </h2>
-            <p style={{ fontSize: 16, color: '#9ca3af', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
+            <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', marginBottom: 40, maxWidth: 460, lineHeight: 1.65 }}>
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
-              <a href="#" style={{ padding: '16px 32px', background: '#2563eb', color: '#fff', borderRadius: 6, fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'center' }}>
+              <a href="#" style={{ display: 'inline-flex', alignItems: 'center', padding: '16px 32px', background: '#2563eb', color: '#fff', fontWeight: 600, borderRadius: 6, textDecoration: 'none', transition: 'all 0.3s ease' }}>
                 Get Started <span>→</span>
               </a>
-              <a href="#" style={{ fontSize: 14, color: '#9ca3af', textDecoration: 'none', fontWeight: 500 }}>
+              <a href="#" style={{ fontSize: 14, color: '#9ca3af', textDecoration: 'none', fontWeight: 500, display: 'inline-flex', alignItems: 'center', gap: 6, transition: 'color 0.2s' }}
+                onMouseOver={e => (e.currentTarget.style.color = '#fff')}
+                onMouseOut={e  => (e.currentTarget.style.color = '#9ca3af')}
+              >
                 or Try Demo Account
               </a>
             </div>
           </div>
 
-          {/* RIGHT SIDE */}
-          <div style={{ position: 'relative', height: 320, display: 'flex', justifyContent: 'center', alignItems: 'center', perspective: 1200 }}>
-            <div style={{
-              width: 200,
-              height: 400,
-              background: '#0a0a0a',
-              border: '6px solid',
-              borderImage: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%) 1',
-              borderRadius: 24, /* Note: border-image doesn't play well with border-radius, will use a wrapper trick below instead */
-              display: 'none'
-            }} />
-
-            {/* Silver Phone Mockup */}
-            <div style={{
-              width: 180,
-              height: 360,
-              background: 'linear-gradient(135deg, #e8e8e8 0%, #a0a0a0 50%, #c8c8c8 100%)',
-              borderRadius: 24,
-              padding: 4,
-              transform: 'rotateY(-25deg) rotateX(15deg) rotateZ(5deg)',
-              boxShadow: '-20px 40px 60px rgba(0,0,0,0.8), inset 2px 2px 5px rgba(255,255,255,0.8)',
-            }}>
-              <div style={{ width: '100%', height: '100%', background: '#0d0d0d', borderRadius: 20, padding: 12, display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
-                <div style={{ width: '40%', height: 4, background: '#333', margin: '0 auto 8px auto', borderRadius: 2 }} />
-                
-                {/* Fake trading UI */}
-                <div style={{ width: '100%', height: 60, background: '#1a1a1a', borderRadius: 6 }} />
-                <div style={{ width: '100%', height: 120, background: '#1a1a1a', borderRadius: 6, position: 'relative' }}>
-                  <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100" style={{ position: 'absolute', inset: 0 }}>
-                    <path d="M0 80 L20 60 L40 70 L60 40 L80 50 L100 20" stroke="#2563eb" strokeWidth="2" fill="none" />
-                  </svg>
-                </div>
-                <div style={{ width: '100%', height: 40, background: '#2563eb', borderRadius: 6, marginTop: 'auto' }} />
-              </div>
-            </div>
-
+          {/* 3D V Logo */}
+          <div style={{ position: 'relative', height: 320, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <motion.div
+              animate={{ y: [0, -18, 0], rotateZ: [0, 4, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+              style={{ width: '100%', maxWidth: 320 }}
+            >
+              <img src="/v-logo-3d.png" alt="Vertex 3D" style={{ width: '100%', height: 'auto', filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.6)) brightness(1.15)' }} />
+            </motion.div>
           </div>
-
-        </div>
+        </motion.div>
       </div>
     </section>
   )
