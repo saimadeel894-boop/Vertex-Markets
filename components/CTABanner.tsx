@@ -12,9 +12,7 @@ export default function CTABanner() {
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           style={{
             position: 'relative',
-            background: 'linear-gradient(135deg, #0f172a 0%, #020617 100%)',
-            backgroundSize: '200% 200%',
-            animation: 'bgShift 10s ease infinite',
+            background: '#0d0d0d',
             border: '1px solid rgba(255,255,255,0.1)',
             borderRadius: 'clamp(20px, 3vw, 36px)',
             padding: 'clamp(40px, 6vw, 90px) clamp(28px, 6vw, 90px)',
@@ -26,21 +24,9 @@ export default function CTABanner() {
             boxShadow: '0 60px 120px -20px rgba(0,0,0,0.8)',
           }}
         >
-          {/* Subtle animated gradient shift definition */}
-          <style dangerouslySetInnerHTML={{__html: `
-            @keyframes bgShift {
-              0% { background-position: 0% 50%; }
-              50% { background-position: 100% 50%; }
-              100% { background-position: 0% 50%; }
-            }
-          `}} />
 
-          {/* Decorative blue glow pulse */}
-          <motion.div 
-            animate={{ opacity: [0.3, 0.6, 0.3] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-            style={{ position: 'absolute', top: '-20%', right: '-10%', width: '60%', height: '140%', background: 'radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%)', filter: 'blur(60px)', pointerEvents: 'none' }} 
-          />
+
+
 
           {/* Text Content */}
           <div style={{ position: 'relative', zIndex: 2 }}>

@@ -40,7 +40,7 @@ export default function Platforms() {
             style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center', perspective: 1000 }}
           >
             <motion.div style={{ position: 'relative', rotateX, rotateY, transformStyle: 'preserve-3d' }}>
-              <div style={{ position: 'absolute', top: '10%', left: '5%', width: '90%', height: '80%', background: 'radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none', transform: 'translateZ(-50px)' }} />
+              <div style={{ position: 'absolute', top: '10%', left: '5%', width: '90%', height: '80%', background: 'radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%)', filter: 'blur(50px)', pointerEvents: 'none', transform: 'translateZ(-50px)' }} />
               <img
                 src="/platforms-mockup.png"
                 alt="Trading Platforms"

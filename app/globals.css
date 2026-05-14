@@ -1,25 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design Tokens ── */
 :root {
   --bg: #000000;
   --card: #0d0d0d;
-  --blue: #2563eb;
-  --grey: #9ca3af;
   --border: rgba(255,255,255,0.08);
-  --border-strong: rgba(255,255,255,0.15);
+  --blue: #2563eb;
+  --green: #22c55e;
+  --red: #ef4444;
 }
 
-/* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: var(--bg);
   color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -27,54 +25,45 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Typography ── */
 h1, h2, h3, h4 {
   letter-spacing: -0.02em;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
-/* ── Custom Utilities ── */
-.luxury-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: border-color 0.3s ease;
-}
+::selection { background: #2563eb; color: #fff; }
 
-.luxury-card:hover {
-  border-color: var(--border-strong);
-}
-
-/* ── Bull Pedestal & Effects ── */
-.pedestal {
-  width: 400px;
-  height: 40px;
-  border-radius: 50%;
-  background: radial-gradient(ellipse, #555 0%, #111 100%);
-  box-shadow: 0 0 60px rgba(100,100,100,0.4);
-  position: relative;
-}
-
-.glass-panel {
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 100% 100% 0 0 / 100% 100% 0 0; /* Arc shape approximation */
-}
-
-/* ── Animations ── */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 5s ease-in-out infinite;
-}
-
-/* ── Hide scrollbar ── */
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #444; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
 
+/* ── Container ── */
+.container-padded { padding: 0 clamp(20px, 4vw, 48px); }
+
+/* ── Custom Cursor ── */
+@media (pointer: fine) {
+  body { cursor: none; }
+}
+.cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 32px; height: 32px;
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+}
+.cursor-ring.expanded {
+  width: 48px; height: 48px;
+  border-color: rgba(255,255,255,0.8);
+}

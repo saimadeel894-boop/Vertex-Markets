@@ -1,74 +1,62 @@
 'use client'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
-const links = [
-  { name: 'Trading',   href: '#' },
-  { name: 'Platforms', href: '#' },
-  { name: 'Markets',   href: '#' },
-  { name: 'Resources', href: '#' },
-  { name: 'Company',   href: '#' },
-  { name: 'Partners',  href: '#' },
-]
+const links = ['Trading', 'Platforms', 'Markets', 'Resources', 'Company', 'Partners']
 
 export default function Navbar() {
+  const { scrollY } = useScroll()
   const [isScrolled, setIsScrolled] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  useEffect(() => scrollY.onChange(v => setIsScrolled(v > 40)), [scrollY])
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md border-b border-white/10' : 'bg-black'}`}
-      style={{ height: '72px', display: 'flex', alignItems: 'center' }}
+    <nav
+      style={{
+        background: isScrolled ? 'rgba(0,0,0,0.95)' : '#000000',
+        backdropFilter: isScrolled ? 'blur(10px)' : 'none',
+        borderBottom: isScrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
+        height: 84,
+        position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
+        display: 'flex', alignItems: 'center',
+        transition: 'all 0.3s ease',
+      }}
     >
-      <div className="container mx-auto px-6 flex items-center justify-between max-w-7xl">
+      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-            <span className="font-black text-xl text-white">V</span>
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+          <div style={{ width: 32, height: 32, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21L2 3h20L12 21z" fill="#000"/></svg>
           </div>
-          <span className="font-bold text-xl tracking-tighter text-white">VERTEX</span>
-        </div>
+          <div>
+            <div style={{ fontSize: 18, fontWeight: 700, color: '#fff', letterSpacing: '0.02em' }}>VERTEX</div>
+            <div style={{ fontSize: 8, fontWeight: 500, color: '#9ca3af', letterSpacing: '0.2em', textTransform: 'uppercase' }}>MARKETS</div>
+          </div>
+        </a>
 
-        {/* Desktop Links - Horizontal only */}
-        <ul className="hidden lg:flex items-center gap-8 list-none m-0 p-0">
-          {links.map((link) => (
-            <li key={link.name}>
-              <a 
-                href={link.href} 
-                className="text-gray-400 hover:text-white text-sm font-medium transition-colors"
-              >
-                {link.name}
-              </a>
+        {/* Desktop Links */}
+        <ul style={{ display: 'none', alignItems: 'center', gap: 32, listStyle: 'none', margin: 0, padding: 0 }} className="lg:flex">
+          {links.map(l => (
+            <li key={l}>
+              <a href="#" style={{ color: '#fff', fontSize: 14, fontWeight: 400, textDecoration: 'none', transition: 'color 0.2s' }}
+                onMouseOver={e => e.currentTarget.style.color = '#9ca3af'}
+                onMouseOut={e => e.currentTarget.style.color = '#fff'}
+              >{l}</a>
             </li>
           ))}
         </ul>
 
-        {/* Desktop Actions */}
-        <div className="hidden lg:flex items-center gap-4">
-          <button className="text-white text-sm font-medium px-4 py-2 hover:opacity-80 transition-opacity">
+        {/* Actions */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+          <a href="#" style={{ padding: '10px 24px', fontSize: 14, fontWeight: 500, color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: 4, textDecoration: 'none', transition: 'all 0.2s' }} className="hidden sm:block">
             Login
-          </button>
-          <button className="bg-[#2563EB] text-white text-sm font-bold px-6 py-2.5 rounded hover:bg-blue-700 transition-colors">
+          </a>
+          <a href="#" style={{ padding: '10px 24px', fontSize: 14, fontWeight: 500, color: '#fff', background: '#2563eb', borderRadius: 4, textDecoration: 'none', transition: 'all 0.2s' }}>
             Get Started
-          </button>
-        </div>
-
-        {/* Mobile Toggle Placeholder (Hidden on Desktop) */}
-        <div className="lg:hidden">
-          {/* Simple mobile menu could go here, but focusing on desktop horizontal nav as requested */}
-          <button className="text-white p-2">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
-            </svg>
-          </button>
+          </a>
         </div>
       </div>
     </nav>
   )
 }
-
