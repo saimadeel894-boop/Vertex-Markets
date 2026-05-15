@@ -96,9 +96,11 @@ export default function CTABanner() {
               animate={{ y: [0, -15, 0], rotateZ: [0, 2, 0] }}
               transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             >
-              <img 
+              <Image 
                 src="/v-logo-3d.png" 
                 alt="Vertex 3D Chrome Logo" 
+                width={460}
+                height={460}
                 style={{ 
                   width: '100%', height: 'auto', 
                   filter: 'drop-shadow(0 60px 100px rgba(0,0,0,0.85)) brightness(1.15) contrast(1.1)' 
