@@ -248,7 +248,7 @@ export default function Hero() {
                   maxWidth: 420,
                   height: 60,
                   borderRadius: '50%',
-                  background: 'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)',
+                  background: 'radial-gradient(circle at center, var(--card-elevated) 0%, var(--background) 100%)',
                   border: '1px solid var(--border)',
                   boxShadow: '0 0 40px rgba(30,111,255,0.18)',
                   zIndex: 2,

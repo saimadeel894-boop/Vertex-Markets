@@ -9,7 +9,7 @@ import CTABanner from '@/components/CTABanner'
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
+    <main className="min-h-screen" style={{ background: 'var(--background)' }}>
       <Navbar />
       <Hero />
       <TrustBar />

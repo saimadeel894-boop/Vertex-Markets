@@ -184,7 +184,7 @@ export default function Advantages() {
             <span
               style={{
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, #ffffff 0%, #c0c0c0 40%, #ffffff 70%, #808080 100%)',
+                background: 'linear-gradient(135deg, var(--text-primary) 0%, var(--text-silver) 40%, var(--text-primary) 70%, var(--text-muted) 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',

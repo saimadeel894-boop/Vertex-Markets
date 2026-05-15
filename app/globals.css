@@ -8,28 +8,28 @@
   --background: #000000;
   --background-elevated: #050505;
   --card: #0A0A0A;
-  --card-elevated: #111111;
-  --pill: #0F0F12;
-  --border: #1A1A1A;
-  --border-strong: #2A2A2D;
+  --card-elevated: #111114;
+  --pill: #0E0E10;
+  --border: #1A1A1D;
+  --border-strong: #26262A;
   --border-hover: #3A3A3F;
   --text-primary: #FFFFFF;
-  --text-secondary: #8A9099;
-  --text-muted: #7A7F87;
-  --text-silver: #C8CDD3;
+  --text-secondary: #A8A8AD;
+  --text-muted: #6E6E73;
+  --text-silver: #C8C8CC;
   --primary: #1E6FFF;
   --primary-hover: #2F7BFF;
   --primary-pressed: #1357D6;
   --primary-foreground: #FFFFFF;
   --primary-glow: rgba(30,111,255,0.35);
   --positive: #1E6FFF;
-  --negative: #A8A8AD;
-  --chart-up: #2F7BFF;
-  --chart-down: #6A6A6E;
-  --glass-bg: rgba(10,10,12,0.6);
-  --glass-border: rgba(255,255,255,0.06);
+  --negative: #E0454A;
+  --chart-up: #3B82F6;
+  --chart-down: #7A7A80;
+  --glass-bg: rgba(255,255,255,0.04);
+  --glass-border: rgba(255,255,255,0.08);
   --ring-subtle: rgba(255,255,255,0.12);
-  --shadow-card: 0 8px 24px rgba(0,0,0,0.6);
+  --shadow-card: 0 20px 40px rgba(0,0,0,0.6);
   --shadow-glow-primary: 0 0 20px rgba(30,111,255,0.35);
 }
 
@@ -38,8 +38,8 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: #fff;
+  background: var(--background);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -56,11 +56,11 @@ h1, h2, h3, h4 {
   font-family: 'Inter', sans-serif;
 }
 
-::selection { background: #1456ff; color: #fff; }
+::selection { background: var(--primary); color: var(--primary-foreground); }
 
 ::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb { background: var(--ring-subtle); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
 
 /* ── Container ── */
@@ -73,7 +73,7 @@ h1, h2, h3, h4 {
 .cursor-dot {
   position: fixed;
   width: 8px; height: 8px;
-  background: #fff;
+  background: var(--text-primary);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
@@ -83,7 +83,7 @@ h1, h2, h3, h4 {
 .cursor-ring {
   position: fixed;
   width: 32px; height: 32px;
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid var(--ring-subtle);
   border-radius: 50%;
   pointer-events: none;
   z-index: 99998;

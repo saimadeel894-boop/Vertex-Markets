@@ -68,7 +68,7 @@ export default function Footer() {
 function FooterCol({ title, links }: { title: string; links: string[] }) {
   return (
     <div>
-      <h4 style={{ fontSize: 12, fontWeight: 700, color: '#fff', marginBottom: 20, letterSpacing: '0.05em' }}>{title}</h4>
+      <h4 style={{ fontSize: 12, fontWeight: 700, color: 'var(--text-primary)', marginBottom: 20, letterSpacing: '0.05em' }}>{title}</h4>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {links.map(l => (
           <li key={l}>
