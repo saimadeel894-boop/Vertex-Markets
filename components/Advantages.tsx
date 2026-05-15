@@ -42,8 +42,10 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect()
-    x.set((e.clientX - rect.left) / rect.width - 0.5)
-    y.set((e.clientY - rect.top) / rect.height - 0.5)
+    const px = (e.clientX - rect.left) / rect.width
+    const py = (e.clientY - rect.top) / rect.height
+    x.set(px - 0.5)
+    y.set(py - 0.5)
   }
 
   const handleMouseLeave = () => {
@@ -58,7 +60,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
         hidden: { opacity: 0, y: 40, scale: 0.96 },
         show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
       }}
-      style={{ perspective: 1200 }}
+      style={{ perspective: 1500 }}
     >
       <motion.div
         onMouseMove={handleMouseMove}
@@ -84,12 +86,15 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
         }}
         animate={{ y: isHovered ? -10 : 0 }}
       >
-        {/* Glow overlay on hover */}
-        <div
+        {/* dynamic spotlight hover */}
+        <motion.div
           style={{
             position: 'absolute',
             top: 0, left: 0, right: 0, bottom: 0,
-            background: 'radial-gradient(circle at 50% 0%, var(--glass-bg) 0%, transparent 70%)',
+            background: useTransform(
+              [mouseXSpring, mouseYSpring],
+              ([xVal, yVal]) => `radial-gradient(circle at ${(Number(xVal) + 0.5) * 100}% ${(Number(yVal) + 0.5) * 100}%, rgba(255,255,255,0.08) 0%, transparent 50%)`
+            ),
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.3s',
             pointerEvents: 'none',

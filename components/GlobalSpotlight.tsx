@@ -24,22 +24,23 @@ export default function GlobalSpotlight() {
   if (!isMounted) return null
 
   return (
-    <motion.div
+    <div
       style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
+        inset: 0,
         pointerEvents: 'none',
-        zIndex: 9999, // Render on top but pointer-events: none lets clicks pass through
-        background: 'radial-gradient(600px circle at var(--x) var(--y), rgba(255, 255, 255, 0.03), transparent 40%)'
+        zIndex: 9999,
+        background: `
+          radial-gradient(400px circle at var(--x) var(--y), rgba(30, 111, 255, 0.05), transparent 80%),
+          radial-gradient(800px circle at var(--x) var(--y), rgba(255, 255, 255, 0.015), transparent 60%)
+        `
       }}
-      animate={{
-        '--x': `${smoothX.get()}px`,
-        '--y': `${smoothY.get()}px`,
-      } as any}
-      transition={{ type: 'tween', ease: 'linear', duration: 0 }}
+      ref={(el) => {
+        if (!el) return;
+        const unsubX = smoothX.on("change", (v) => el.style.setProperty("--x", `${v}px`));
+        const unsubY = smoothY.on("change", (v) => el.style.setProperty("--y", `${v}px`));
+        return () => { unsubX(); unsubY(); };
+      }}
     />
   )
 }

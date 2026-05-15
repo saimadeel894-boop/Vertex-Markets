@@ -14,8 +14,10 @@ export default function Hero() {
   const mouseY = useMotionValue(0)
   const smoothX = useSpring(mouseX, { stiffness: 50, damping: 20 })
   const smoothY = useSpring(mouseY, { stiffness: 50, damping: 20 })
-  const rotateX = useTransform(smoothY, [-1, 1], ['8deg', '-8deg'])
-  const rotateY = useTransform(smoothX, [-1, 1], ['-8deg', '8deg'])
+  const rotateX = useTransform(smoothY, [-1, 1], ['12deg', '-12deg'])
+  const rotateY = useTransform(smoothX, [-1, 1], ['-12deg', '12deg'])
+  const translateX = useTransform(smoothX, [-1, 1], [-20, 20])
+  const translateY = useTransform(smoothY, [-1, 1], [-20, 20])
 
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 1024)
@@ -85,9 +87,9 @@ export default function Hero() {
           <div style={{ flex: '1 1 45%', minWidth: 300, paddingRight: 'clamp(0px, 4vw, 60px)', zIndex: 10 }}>
 
             <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease }}
+              initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease, delay: 0.2 }}
               style={{
                 fontSize: 'clamp(40px, 5vw, 60px)',
                 fontWeight: 700,
@@ -101,9 +103,9 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.12 }}
+              initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease, delay: 0.35 }}
               style={{ fontSize: 16, color: '#A3A3A3', lineHeight: 1.6, maxWidth: 440, marginBottom: 40 }}
             >
               Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
@@ -111,9 +113,9 @@ export default function Hero() {
 
             {/* Buttons */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.22 }}
+              initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease, delay: 0.5 }}
               style={{ display: 'flex', gap: 14, marginBottom: 48, flexWrap: 'wrap' }}
             >
               <a href="#" className="btn-solid" style={{ padding: '12px 24px', fontSize: 14, borderRadius: 6 }}>
@@ -129,9 +131,9 @@ export default function Hero() {
 
             {/* Stats row */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.32 }}
+              initial={{ opacity: 0, y: 40, filter: 'blur(10px)' }}
+              animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease, delay: 0.65 }}
               style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}
             >
               <Stat
@@ -181,6 +183,8 @@ export default function Hero() {
                 alignItems: 'flex-end',
                 rotateX,
                 rotateY,
+                x: translateX,
+                y: translateY,
                 transformStyle: 'preserve-3d',
               }}
             >

@@ -17,10 +17,10 @@ export default function Platforms() {
 
           {/* LEFT: Real platforms mockup image */}
           <motion.div
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.9, ease }}
+            initial={{ opacity: 0, x: -60, filter: 'blur(15px)', rotateY: -15 }}
+            whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)', rotateY: 0 }}
+            viewport={{ once: true, margin: '-100px' }}
+            transition={{ duration: 1.2, ease }}
             style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             <Image
@@ -47,7 +47,7 @@ export default function Platforms() {
           >
             {/* Eyebrow label */}
             <motion.div
-              variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
+            variants={{ hidden: { opacity: 0, x: 40, filter: 'blur(8px)' }, show: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease } } }}
               style={{
                 color: '#737373',
                 fontSize: 10,
@@ -62,7 +62,7 @@ export default function Platforms() {
 
             {/* Heading */}
             <motion.h2
-              variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
+            variants={{ hidden: { opacity: 0, x: 40, filter: 'blur(8px)' }, show: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease } } }}
               style={{
                 fontSize: 'clamp(32px, 3.5vw, 44px)',
                 fontWeight: 700,
@@ -84,7 +84,7 @@ export default function Platforms() {
 
             {/* Description */}
             <motion.p
-              variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
+            variants={{ hidden: { opacity: 0, x: 40, filter: 'blur(8px)' }, show: { opacity: 1, x: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease } } }}
               style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 40, maxWidth: 480 }}
             >
               Experience next-level trading on our advanced platforms. Available on web, desktop, and mobile.

@@ -31,7 +31,12 @@ export default function Navbar() {
       >
 
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+        <motion.a 
+          href="#" 
+          whileHover={{ scale: 1.02 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}
+        >
           <div style={{
             width: 32,
             height: 32,
@@ -64,7 +69,7 @@ export default function Navbar() {
             <div style={{ fontSize: 17, fontWeight: 500, color: '#FFF', letterSpacing: '0.15em', lineHeight: 1 }}>VERTEX</div>
             <div style={{ fontSize: 8, fontWeight: 500, color: 'var(--text-secondary)', letterSpacing: '0.25em', textTransform: 'uppercase', marginTop: 3 }}>MARKETS</div>
           </div>
-        </a>
+        </motion.a>
 
         {/* Desktop nav links */}
         <ul
@@ -73,13 +78,15 @@ export default function Navbar() {
         >
           {links.map(l => (
             <li key={l}>
-              <a
+              <motion.a
                 href="#"
                 className="nav-link"
-                style={{ fontSize: 14, color: '#D4D4D4', fontWeight: 400 }}
+                whileHover={{ y: -1, color: '#FFF' }}
+                transition={{ duration: 0.2 }}
+                style={{ fontSize: 14, color: '#D4D4D4', fontWeight: 400, position: 'relative' }}
               >
                 {l}
-              </a>
+              </motion.a>
             </li>
           ))}
         </ul>

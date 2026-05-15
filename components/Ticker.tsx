@@ -65,17 +65,27 @@ export default function Ticker() {
 
 function TickerCell({ p, i, flash, total }: any) {
   return (
-    <div style={{
-      display: 'flex', flexDirection: 'column', gap: 10,
-      borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
-      padding: '24px 28px',
-      background: flash ? 'var(--glass-bg)' : 'transparent',
-      transition: 'background 0.4s ease',
-      position: 'relative',
-      minWidth: 180,
-      flexShrink: 0,
-      scrollSnapAlign: 'start',
-    }}>
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: i * 0.05 }}
+      style={{
+        display: 'flex', flexDirection: 'column', gap: 10,
+        borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
+        padding: '24px 28px',
+        background: flash ? 'rgba(255,255,255,0.03)' : 'transparent',
+        transition: 'all 0.4s cubic-bezier(0.22, 1, 0.36, 1)',
+        position: 'relative',
+        minWidth: 180,
+        flexShrink: 0,
+        scrollSnapAlign: 'start',
+        cursor: 'default',
+      }}
+      whileHover={{ y: -4, background: 'rgba(255,255,255,0.02)' }}
+    >
+      {/* soft glow hover */}
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at center, rgba(30,111,255,0.05) 0%, transparent 70%)', opacity: 0, transition: 'opacity 0.4s' }} className="hover-glow" />
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '0.02em' }}>{p.symbol}</span>
         <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? 'var(--positive)' : 'var(--negative)' }}>{p.change}</span>

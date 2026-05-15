@@ -10,8 +10,10 @@ export default function CTABanner() {
   const mouseY = useMotionValue(0)
   const smoothX = useSpring(mouseX, { stiffness: 50, damping: 20 })
   const smoothY = useSpring(mouseY, { stiffness: 50, damping: 20 })
-  const rotateX = useTransform(smoothY, [-1, 1], ['5deg', '-5deg'])
-  const rotateY = useTransform(smoothX, [-1, 1], ['-5deg', '5deg'])
+  const rotateX = useTransform(smoothY, [-1, 1], ['10deg', '-10deg'])
+  const rotateY = useTransform(smoothX, [-1, 1], ['-10deg', '10deg'])
+  const translateX = useTransform(smoothX, [-1, 1], [-15, 15])
+  const translateY = useTransform(smoothY, [-1, 1], [-15, 15])
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 1024)
@@ -45,9 +47,12 @@ export default function CTABanner() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: 60,
             alignItems: 'center',
-            position: 'relative',
-            overflow: 'hidden',
-            perspective: 1200
+            rotateX,
+            rotateY,
+            x: translateX,
+            y: translateY,
+            transformStyle: 'preserve-3d',
+            perspective: 1500
           }}
         >
           {/* Subtle inner glow */}
@@ -55,12 +60,22 @@ export default function CTABanner() {
 
           {/* LEFT SIDE */}
           <div style={{ position: 'relative', zIndex: 10 }}>
-            <h2 style={{ fontSize: 40, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 20 }}>
+            <motion.h2
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease }}
+              style={{ fontSize: 40, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 20 }}
+            >
               Ready to Elevate Your Trading?
-            </h2>
-            <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              transition={{ duration: 1, ease, delay: 0.1 }}
+              style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}
+            >
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
-            </p>
+            </motion.p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
               <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
                 <a href="#" className="btn-solid" style={{ padding: '12px 28px', fontSize: 14 }}>Get Started <span style={{ marginLeft: 8 }}>→</span></a>

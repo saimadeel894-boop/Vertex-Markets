@@ -60,19 +60,25 @@ const regulators = [
 export default function TrustBar() {
   return (
     <section style={{ padding: '0 clamp(20px, 4vw, 48px)', marginTop: 80, marginBottom: 80, display: 'flex', justifyContent: 'center' }}>
-      <div style={{
-        background: 'linear-gradient(180deg, #111111, #080808)',
-        border: '1px solid rgba(255,255,255,0.05)',
-        borderRadius: 24,
-        padding: '32px 40px',
-        width: '100%',
-        maxWidth: 1200,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 32,
-        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
-      }}>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.98, filter: 'blur(10px)' }}
+        whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        viewport={{ once: true, margin: '-60px' }}
+        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          background: 'linear-gradient(180deg, #111111, #080808)',
+          border: '1px solid rgba(255,255,255,0.05)',
+          borderRadius: 24,
+          padding: '32px 40px',
+          width: '100%',
+          maxWidth: 1200,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 32,
+          boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+        }}
+      >
         {/* Label */}
         <div style={{
           fontSize: 10,
@@ -104,8 +110,8 @@ export default function TrustBar() {
             <motion.div
               key={r.abbr}
               variants={{
-                hidden: { opacity: 0, y: 10 },
-                show: { opacity: 0.65, y: 0, transition: { duration: 0.5 } }
+                hidden: { opacity: 0, y: 20, filter: 'blur(4px)' },
+                show: { opacity: 0.65, y: 0, filter: 'blur(0px)', transition: { duration: 0.7 } }
               }}
               whileHover={{ opacity: 1, scale: 1.04 }}
               style={{
@@ -142,7 +148,7 @@ export default function TrustBar() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   )
 }
