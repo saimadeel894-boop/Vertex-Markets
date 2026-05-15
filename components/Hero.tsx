@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.12 }}
-              style={{ fontSize: 17, color: '#a1a1aa', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
+              style={{ fontSize: 17, color: '#a8a8ad', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
             >
               Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
             </motion.p>
@@ -216,7 +216,7 @@ export default function Hero() {
                   height: 480,
                   backdropFilter: 'blur(10px)',
                   background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   borderRadius: '50% 50% 0 0',
                   overflow: 'hidden',
                   zIndex: 1,
@@ -249,7 +249,7 @@ export default function Hero() {
                   height: 60,
                   borderRadius: '50%',
                   background: 'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)',
-                  border: '1px solid rgba(255,255,255,0.06)',
+                  border: '1px solid #1a1a1d',
                   boxShadow: '0 0 60px rgba(20,86,255,0.15), 0 0 120px rgba(20,86,255,0.1)',
                   zIndex: 2,
                   transform: 'translateZ(0px)',
@@ -311,14 +311,14 @@ function Stat({ icon, title, sub }: { icon: React.ReactNode; title: string; sub:
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#a1a1aa',
+        color: '#a8a8ad',
         flexShrink: 0,
       }}>
         {icon}
       </div>
       <div>
         <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 11, color: '#666666', whiteSpace: 'nowrap', marginTop: 2 }}
+        <div style={{ fontSize: 11, color: '#6e6e73', whiteSpace: 'nowrap', marginTop: 2 }}
           dangerouslySetInnerHTML={{ __html: sub }}
         />
       </div>
@@ -361,9 +361,9 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
       style={{
         position: 'absolute',
         top, left, right,
-        background: 'rgba(5,5,5,0.95)',
+        background: '#050505',
         backdropFilter: 'blur(14px)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        border: '1px solid #1a1a1d',
         padding: '10px 16px',
         borderRadius: 8,
         transform: `translateZ(${tz}px)`,
@@ -376,9 +376,9 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
         minWidth: 110,
       }}
     >
-      <div style={{ fontSize: 10, color: '#a1a1aa', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
+      <div style={{ fontSize: 10, color: '#a8a8ad', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
       <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{display}</div>
-      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#00c087' : '#ff3333', display: 'flex', alignItems: 'center', gap: 4 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#1e6fff' : '#e0454a', display: 'flex', alignItems: 'center', gap: 4 }}>
         <span style={{ fontSize: 8 }}>{up ? '▲' : '▼'}</span> {change}
       </div>
     </motion.div>

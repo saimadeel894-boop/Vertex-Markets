@@ -3,26 +3,26 @@ export default function BullSVG() {
     <svg viewBox="0 0 340 310" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:'100%',height:'100%'}}>
       <defs>
         <radialGradient id="bBody" cx="50%" cy="30%" r="55%">
-          <stop offset="0%"   stopColor="#8a9098"/>
-          <stop offset="45%"  stopColor="#333333"/>
-          <stop offset="100%" stopColor="#0d0d0d"/>
+          <stop offset="0%"   stopColor="#8a8a90"/>
+          <stop offset="45%"  stopColor="#2a2a2e"/>
+          <stop offset="100%" stopColor="#0a0a0a"/>
         </radialGradient>
         <radialGradient id="bHi" cx="38%" cy="20%" r="45%">
-          <stop offset="0%"   stopColor="#d4d8e0" stopOpacity=".85"/>
-          <stop offset="55%"  stopColor="#8a9098" stopOpacity=".35"/>
-          <stop offset="100%" stopColor="#222222" stopOpacity="0"/>
+          <stop offset="0%"   stopColor="#f2f2f4" stopOpacity=".85"/>
+          <stop offset="55%"  stopColor="#8a8a90" stopOpacity=".35"/>
+          <stop offset="100%" stopColor="#2a2a2e" stopOpacity="0"/>
         </radialGradient>
         <radialGradient id="bDark" cx="50%" cy="85%" r="55%">
           <stop offset="0%"   stopColor="#000000"/>
-          <stop offset="100%" stopColor="#0d0d0d"/>
+          <stop offset="100%" stopColor="#0a0a0a"/>
         </radialGradient>
         <linearGradient id="legG" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%"   stopColor="#333333"/>
           <stop offset="100%" stopColor="#000000"/>
         </linearGradient>
         <linearGradient id="hornG" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%"   stopColor="#c8cdd6"/>
-          <stop offset="100%" stopColor="#333333"/>
+          <stop offset="0%"   stopColor="#c8c8cc"/>
+          <stop offset="100%" stopColor="#2a2a2e"/>
         </linearGradient>
         <filter id="bullDrop" x="-20%" y="-20%" width="140%" height="140%">
           <feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#000" floodOpacity=".75"/>

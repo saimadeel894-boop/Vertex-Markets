@@ -6,12 +6,18 @@
 
 :root {
   --bg: #000000;
-  --card: #0d0d0d;
-  --border: rgba(255,255,255,0.06);
-  --blue: #1456ff;
-  --green: #00c087;
-  --red: #ff3333;
-  --muted: #a1a1aa;
+  --near-black: #050505;
+  --card: #0a0a0a;
+  --card-elevated: #111114;
+  --border: #1a1a1d;
+  --border-mid: #26262a;
+  --pill: #0e0e10;
+  --blue: #1e6fff;
+  --blue-hover: #2f7bff;
+  --blue-deep: #1357d6;
+  --red: #e0454a;
+  --muted: #a8a8ad;
+  --subtle: #6e6e73;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -80,14 +86,14 @@ h1, h2, h3, h4 {
 .btn-solid {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px;
-  background: #1456ff; color: #fff;
+  background: var(--blue); color: #fff;
   border-radius: 6px; font-weight: 600; text-decoration: none;
   transition: all 0.3s ease;
   position: relative; overflow: hidden;
 }
 .btn-solid:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(20,86,255,0.25);
+  box-shadow: 0 0 30px rgba(30,111,255,0.35);
 }
 .btn-solid::after {
   content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
@@ -105,7 +111,7 @@ h1, h2, h3, h4 {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px;
   background: transparent; color: #fff;
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid var(--border-mid);
   border-radius: 6px; font-weight: 500; text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -124,7 +130,7 @@ h1, h2, h3, h4 {
 .nav-link:hover { color: #fff; }
 .nav-link::after {
   content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0%; height: 2px; background: #1456ff;
+  width: 0%; height: 2px; background: var(--blue);
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }

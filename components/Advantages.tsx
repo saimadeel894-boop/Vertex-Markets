@@ -69,9 +69,9 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
-          background: '#0d0d0d',
+          background: '#0a0a0a',
           border: '1px solid',
-          borderColor: isHovered ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.06)',
+          borderColor: isHovered ? 'rgba(255,255,255,0.25)' : '#1a1a1d',
           boxShadow: isHovered ? '0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(255,255,255,0.03)' : 'none',
           borderRadius: 12,
           padding: '32px 28px',
@@ -155,7 +155,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
         <p
           style={{
             fontSize: 14.5,
-            color: '#a1a1aa',
+            color: '#a8a8ad',
             lineHeight: 1.6,
             transform: 'translateZ(20px)',
           }}
@@ -180,7 +180,7 @@ export default function Advantages() {
           style={{ textAlign: 'center', marginBottom: 72 }}
         >
           <h2 style={{ fontSize: 'clamp(32px, 4vw, 46px)', fontWeight: 400, color: '#fff', letterSpacing: '-0.01em' }}>
-            <span style={{ color: '#a1a1aa', fontWeight: 400 }}>Advantages Built for </span>
+            <span style={{ color: '#a8a8ad', fontWeight: 400 }}>Advantages Built for </span>
             <span
               style={{
                 fontWeight: 700,
