@@ -41,7 +41,7 @@ export default function Ticker() {
   }, [])
 
   return (
-    <div style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+    <div style={{ background: '#050505', borderTop: '1px solid rgba(255,255,255,0.04)', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 0 }}>
           {pairs.map((p, i) => (
@@ -57,14 +57,14 @@ function TickerCell({ p, i, flash, total }: any) {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', gap: 10,
-      borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
+      borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.03)' : 'none',
       padding: '24px 28px',
       background: flash ? 'rgba(255,255,255,0.03)' : 'transparent',
       transition: 'background 0.4s ease',
       position: 'relative'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: 11, fontWeight: 700, color: '#a1a1aa', letterSpacing: '0.02em' }}>{p.symbol}</span>
+        <span style={{ fontSize: 11, fontWeight: 700, color: '#e5e7eb', letterSpacing: '0.02em' }}>{p.symbol}</span>
         <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? '#10b981' : '#ef4444' }}>{p.change}</span>
       </div>
       
