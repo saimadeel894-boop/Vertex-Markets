@@ -64,7 +64,7 @@ function TickerCell({ p, i, flash, total }: any) {
       position: 'relative'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-secondary)', letterSpacing: '0.02em' }}>{p.symbol}</span>
+        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '0.02em' }}>{p.symbol}</span>
         <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? 'var(--positive)' : 'var(--negative)' }}>{p.change}</span>
       </div>
       

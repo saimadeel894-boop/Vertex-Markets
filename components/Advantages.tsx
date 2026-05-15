@@ -179,12 +179,12 @@ export default function Advantages() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           style={{ textAlign: 'center', marginBottom: 72 }}
         >
-          <h2 style={{ fontSize: 'clamp(32px, 4vw, 46px)', fontWeight: 400, color: '#fff', letterSpacing: '-0.01em' }}>
+          <h2 style={{ fontSize: 'clamp(32px, 4vw, 46px)', fontWeight: 400, color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
             <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>Advantages Built for </span>
             <span
               style={{
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, #ffffff 0%, #c8c8c8 40%, #ffffff 70%, #a0a0a0 100%)',
+                background: 'linear-gradient(135deg, #ffffff 0%, #c0c0c0 40%, #ffffff 70%, #808080 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',

@@ -250,7 +250,7 @@ export default function Hero() {
                   borderRadius: '50%',
                   background: 'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)',
                   border: '1px solid var(--border)',
-                  boxShadow: 'var(--shadow-glow-primary)',
+                  boxShadow: '0 0 40px rgba(30,111,255,0.18)',
                   zIndex: 2,
                   transform: 'translateZ(0px)',
                 }}
@@ -357,7 +357,7 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
         scale: { duration: 0.6, delay },
         y: { duration: 5, repeat: Infinity, ease: 'easeInOut', delay },
       }}
-      whileHover={{ scale: 1.05, borderColor: 'rgba(255,255,255,0.3)', background: 'rgba(15,15,15,0.95)' }}
+      whileHover={{ scale: 1.05, borderColor: 'var(--border-hover)', background: 'var(--card)' }}
       style={{
         position: 'absolute',
         top, left, right,

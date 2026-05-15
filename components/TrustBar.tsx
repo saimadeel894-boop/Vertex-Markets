@@ -108,17 +108,17 @@ export default function TrustBar() {
                 alignItems: 'center',
                 gap: 10,
                 cursor: 'default',
-                color: 'var(--text-secondary)',
+                color: 'var(--text-silver)',
                 flexShrink: 0,
               }}
             >
               {/* Icon */}
-              <div style={{ color: 'var(--text-secondary)', flexShrink: 0 }}>
+              <div style={{ color: 'var(--text-silver)', flexShrink: 0 }}>
                 {r.icon}
               </div>
               {/* Text stack */}
               <div>
-                <div style={{ fontSize: 17, fontWeight: 800, color: 'var(--text-secondary)', letterSpacing: '0.04em', lineHeight: 1 }}>
+                <div style={{ fontSize: 17, fontWeight: 800, color: 'var(--text-silver)', letterSpacing: '0.04em', lineHeight: 1 }}>
                   {r.abbr}
                 </div>
                 <div style={{
