@@ -119,6 +119,6 @@ function TickerCell({ p, i, flash, total }: any) {
           transition={{ duration: 1.5, delay: i * 0.1, ease: 'easeOut' }}
         />
       </svg>
-    </div>
+    </motion.div>
   )
 }
