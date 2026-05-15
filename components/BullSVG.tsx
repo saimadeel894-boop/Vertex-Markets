@@ -5,7 +5,7 @@ export default function BullSVG() {
         <radialGradient id="bBody" cx="50%" cy="30%" r="55%">
           <stop offset="0%"   stopColor="#8a9098"/>
           <stop offset="45%"  stopColor="#333333"/>
-          <stop offset="100%" stopColor="#0a0a0a"/>
+          <stop offset="100%" stopColor="#0d0d0d"/>
         </radialGradient>
         <radialGradient id="bHi" cx="38%" cy="20%" r="45%">
           <stop offset="0%"   stopColor="#d4d8e0" stopOpacity=".85"/>
@@ -14,7 +14,7 @@ export default function BullSVG() {
         </radialGradient>
         <radialGradient id="bDark" cx="50%" cy="85%" r="55%">
           <stop offset="0%"   stopColor="#000000"/>
-          <stop offset="100%" stopColor="#0a0a0a"/>
+          <stop offset="100%" stopColor="#0d0d0d"/>
         </radialGradient>
         <linearGradient id="legG" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%"   stopColor="#333333"/>

@@ -60,7 +60,7 @@ const regulators = [
 export default function TrustBar() {
   return (
     <section style={{
-      background: '#0a0a0a',
+      background: '#0d0d0d',
       padding: '40px 0',
       borderTop: '1px solid rgba(255,255,255,0.06)',
       borderBottom: '1px solid rgba(255,255,255,0.06)',

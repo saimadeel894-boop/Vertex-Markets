@@ -18,7 +18,7 @@ export default function Navbar() {
       style={{
         background: scrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.5)',
         backdropFilter: scrolled ? 'blur(24px)' : 'blur(14px)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.10)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
         height: 68,
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center',

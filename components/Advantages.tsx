@@ -69,7 +69,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
-          background: '#0a0a0a',
+          background: '#0d0d0d',
           border: '1px solid',
           borderColor: isHovered ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.06)',
           boxShadow: isHovered ? '0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(255,255,255,0.03)' : 'none',

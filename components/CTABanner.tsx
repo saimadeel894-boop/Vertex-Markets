@@ -36,7 +36,7 @@ export default function CTABanner() {
           transition={{ duration: 0.9, ease }}
           onMouseMove={handleMouseMove}
           style={{
-            background: '#0a0a0a',
+            background: '#0d0d0d',
             border: '1px solid rgba(255,255,255,0.06)',
             borderRadius: 16,
             margin: '0 clamp(16px, 4vw, 40px)',

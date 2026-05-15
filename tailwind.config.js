@@ -13,7 +13,7 @@ module.exports = {
         brand: {
           bg:      '#000000',
           section: '#000000',
-          card:    '#0a0a0a',
+          card:    '#0d0d0d',
           primary: '#1456ff',
           muted:   '#a1a1aa',
           subtle:  '#666666',
