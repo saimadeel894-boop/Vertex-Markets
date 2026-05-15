@@ -41,7 +41,7 @@ export default function Ticker() {
   }, [])
 
   return (
-    <div style={{ background: '#0a0a0a', borderTop: '1px solid #1a1a1d', borderBottom: '1px solid #1a1a1d' }}>
+    <div style={{ background: 'var(--card)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 0 }}>
           {pairs.map((p, i) => (
@@ -57,15 +57,15 @@ function TickerCell({ p, i, flash, total }: any) {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', gap: 10,
-      borderRight: i < total - 1 ? '1px solid #1a1a1d' : 'none',
+      borderRight: i < total - 1 ? '1px solid var(--border)' : 'none',
       padding: '24px 28px',
-      background: flash ? 'rgba(255,255,255,0.03)' : 'transparent',
+      background: flash ? 'var(--glass-bg)' : 'transparent',
       transition: 'background 0.4s ease',
       position: 'relative'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: 11, fontWeight: 700, color: '#a8a8ad', letterSpacing: '0.02em' }}>{p.symbol}</span>
-        <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? '#1e6fff' : '#e0454a' }}>{p.change}</span>
+        <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-secondary)', letterSpacing: '0.02em' }}>{p.symbol}</span>
+        <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? 'var(--positive)' : 'var(--negative)' }}>{p.change}</span>
       </div>
       
       <div style={{ height: 24, display: 'flex', alignItems: 'center' }}>
@@ -75,7 +75,7 @@ function TickerCell({ p, i, flash, total }: any) {
             initial={{ opacity: 0, y: p.up ? -4 : 4 }} 
             animate={{ opacity: 1, y: 0 }} 
             exit={{ opacity: 0, transition: { duration: 0.15 } }} 
-            style={{ fontSize: 18, fontWeight: 700, color: '#fff' }}
+            style={{ fontSize: 18, fontWeight: 700, color: 'var(--text-primary)' }}
           >
             {p.price}
           </motion.span>
@@ -85,7 +85,7 @@ function TickerCell({ p, i, flash, total }: any) {
       <svg width="100%" height="24" viewBox="0 0 100 24" preserveAspectRatio="none">
         <motion.path 
           d={p.up ? 'M0,18 L15,12 L30,15 L45,8 L60,10 L75,4 L90,6 L100,0' : 'M0,0 L15,8 L30,6 L45,14 L60,12 L75,20 L90,18 L100,24'} 
-          stroke={p.up ? '#3b82f6' : '#7a7a80'} 
+          stroke={p.up ? 'var(--chart-up)' : 'var(--chart-down)'} 
           strokeWidth="1.2" 
           fill="none" 
           strokeLinecap="round" 

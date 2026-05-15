@@ -69,10 +69,10 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
-          background: '#0a0a0a',
+          background: 'var(--card)',
           border: '1px solid',
-          borderColor: isHovered ? 'rgba(255,255,255,0.25)' : '#1a1a1d',
-          boxShadow: isHovered ? '0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(255,255,255,0.03)' : 'none',
+          borderColor: isHovered ? 'var(--border-hover)' : 'var(--border)',
+          boxShadow: isHovered ? 'var(--shadow-card)' : 'none',
           borderRadius: 12,
           padding: '32px 28px',
           minHeight: 340,
@@ -89,7 +89,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           style={{
             position: 'absolute',
             top: 0, left: 0, right: 0, bottom: 0,
-            background: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%)',
+            background: 'radial-gradient(circle at 50% 0%, var(--glass-bg) 0%, transparent 70%)',
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.3s',
             pointerEvents: 'none',
@@ -101,7 +101,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           style={{
             position: 'absolute',
             top: 0, left: 0, right: 0, height: 1,
-            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
+            background: 'linear-gradient(90deg, transparent, var(--glass-border), transparent)',
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.4s',
             pointerEvents: 'none',
@@ -142,7 +142,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           style={{
             fontSize: 19,
             fontWeight: 700,
-            color: '#fff',
+            color: 'var(--text-primary)',
             marginBottom: 14,
             transform: 'translateZ(30px)',
             letterSpacing: '0.01em',
@@ -155,7 +155,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
         <p
           style={{
             fontSize: 14.5,
-            color: '#a8a8ad',
+            color: 'var(--text-secondary)',
             lineHeight: 1.6,
             transform: 'translateZ(20px)',
           }}
@@ -169,7 +169,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
 
 export default function Advantages() {
   return (
-    <section style={{ padding: '120px 0 100px', background: '#000000' }}>
+    <section style={{ padding: '120px 0 100px', background: 'var(--background)' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
 
         <motion.div
@@ -180,7 +180,7 @@ export default function Advantages() {
           style={{ textAlign: 'center', marginBottom: 72 }}
         >
           <h2 style={{ fontSize: 'clamp(32px, 4vw, 46px)', fontWeight: 400, color: '#fff', letterSpacing: '-0.01em' }}>
-            <span style={{ color: '#a8a8ad', fontWeight: 400 }}>Advantages Built for </span>
+            <span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>Advantages Built for </span>
             <span
               style={{
                 fontWeight: 700,

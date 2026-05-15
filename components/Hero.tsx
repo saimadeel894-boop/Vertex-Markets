@@ -44,7 +44,7 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       style={{
         minHeight: '100vh',
-        background: '#000000',
+        background: 'var(--background)',
         display: 'flex',
         alignItems: 'center',
         paddingTop: 68,
@@ -69,7 +69,7 @@ export default function Hero() {
             width: p.d,
             height: p.d,
             borderRadius: '50%',
-            background: '#fff',
+            background: 'var(--text-primary)',
             pointerEvents: 'none',
           }}
         />
@@ -91,7 +91,7 @@ export default function Hero() {
               style={{
                 fontSize: 'clamp(48px, 6vw, 72px)',
                 fontWeight: 700,
-                color: '#ffffff',
+                color: 'var(--text-primary)',
                 lineHeight: 1.05,
                 marginBottom: 24,
                 letterSpacing: '-0.02em',
@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.12 }}
-              style={{ fontSize: 17, color: '#a8a8ad', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
+              style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
             >
               Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
             </motion.p>
@@ -142,7 +142,7 @@ export default function Hero() {
                 title="Tight Spreads"
                 sub="From 0.0 pips"
               />
-              <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.12)' }} className="hidden md:block" />
+              <div style={{ width: 1, height: 28, background: 'var(--glass-border)' }} className="hidden md:block" />
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -153,7 +153,7 @@ export default function Hero() {
                 title="Fast Execution"
                 sub="&lt; 30ms Average"
               />
-              <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.12)' }} className="hidden lg:block" />
+              <div style={{ width: 1, height: 28, background: 'var(--glass-border)' }} className="hidden lg:block" />
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -163,7 +163,7 @@ export default function Hero() {
                 title="Secure & Regulated"
                 sub="Global Compliance"
               />
-              <div style={{ width: 1, height: 28, background: 'rgba(255,255,255,0.12)' }} className="hidden md:block" />
+              <div style={{ width: 1, height: 28, background: 'var(--glass-border)' }} className="hidden md:block" />
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -215,23 +215,23 @@ export default function Hero() {
                   maxWidth: 540,
                   height: 480,
                   backdropFilter: 'blur(10px)',
-                  background: 'rgba(255,255,255,0.03)',
-                  border: '1px solid rgba(255,255,255,0.08)',
+                  background: 'var(--glass-bg)',
+                  border: '1px solid var(--glass-border)',
                   borderRadius: '50% 50% 0 0',
                   overflow: 'hidden',
                   zIndex: 1,
                 }}
               >
                 <svg width="100%" height="100%" opacity="0.1" preserveAspectRatio="none" viewBox="0 0 100 100">
-                  <path d="M5 85 L15 65 L25 75 L35 45 L45 55 L55 25 L65 45 L75 35 L85 65 L95 55" stroke="#fff" strokeWidth="0.5" fill="none" />
-                  <rect x="10" y="70" width="2" height="15" fill="#fff" opacity="0.4" />
-                  <rect x="20" y="60" width="2" height="25" fill="#fff" opacity="0.4" />
-                  <rect x="30" y="50" width="2" height="35" fill="#fff" opacity="0.4" />
-                  <rect x="40" y="40" width="2" height="45" fill="#fff" opacity="0.4" />
-                  <rect x="50" y="30" width="2" height="55" fill="#fff" opacity="0.4" />
-                  <rect x="60" y="40" width="2" height="45" fill="#fff" opacity="0.4" />
-                  <rect x="70" y="35" width="2" height="50" fill="#fff" opacity="0.4" />
-                  <rect x="80" y="60" width="2" height="25" fill="#fff" opacity="0.4" />
+                  <path d="M5 85 L15 65 L25 75 L35 45 L45 55 L55 25 L65 45 L75 35 L85 65 L95 55" stroke="var(--text-primary)" strokeWidth="0.5" fill="none" />
+                  <rect x="10" y="70" width="2" height="15" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="20" y="60" width="2" height="25" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="30" y="50" width="2" height="35" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="40" y="40" width="2" height="45" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="50" y="30" width="2" height="55" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="60" y="40" width="2" height="45" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="70" y="35" width="2" height="50" fill="var(--text-primary)" opacity="0.4" />
+                  <rect x="80" y="60" width="2" height="25" fill="var(--text-primary)" opacity="0.4" />
                 </svg>
               </div>
 
@@ -249,8 +249,8 @@ export default function Hero() {
                   height: 60,
                   borderRadius: '50%',
                   background: 'radial-gradient(circle at center, #1a1a1a 0%, #000000 100%)',
-                  border: '1px solid #1a1a1d',
-                  boxShadow: '0 0 60px rgba(20,86,255,0.15), 0 0 120px rgba(20,86,255,0.1)',
+                  border: '1px solid var(--border)',
+                  boxShadow: 'var(--shadow-glow-primary)',
                   zIndex: 2,
                   transform: 'translateZ(0px)',
                 }}
@@ -306,19 +306,19 @@ function Stat({ icon, title, sub }: { icon: React.ReactNode; title: string; sub:
         width: 30,
         height: 30,
         borderRadius: '50%',
-        background: 'rgba(255,255,255,0.06)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        background: 'var(--glass-bg)',
+        border: '1px solid var(--glass-border)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#a8a8ad',
+        color: 'var(--text-secondary)',
         flexShrink: 0,
       }}>
         {icon}
       </div>
       <div>
-        <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 11, color: '#6e6e73', whiteSpace: 'nowrap', marginTop: 2 }}
+        <div style={{ fontSize: 13, fontWeight: 700, color: 'var(--text-primary)', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{title}</div>
+        <div style={{ fontSize: 11, color: 'var(--text-muted)', whiteSpace: 'nowrap', marginTop: 2 }}
           dangerouslySetInnerHTML={{ __html: sub }}
         />
       </div>
@@ -361,9 +361,9 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
       style={{
         position: 'absolute',
         top, left, right,
-        background: '#050505',
+        background: 'var(--background-elevated)',
         backdropFilter: 'blur(14px)',
-        border: '1px solid #1a1a1d',
+        border: '1px solid var(--border)',
         padding: '10px 16px',
         borderRadius: 8,
         transform: `translateZ(${tz}px)`,
@@ -371,14 +371,14 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
         display: 'flex',
         flexDirection: 'column',
         gap: 4,
-        boxShadow: '0 10px 30px rgba(0,0,0,0.5)',
+        boxShadow: 'var(--shadow-card)',
         zIndex: 10,
         minWidth: 110,
       }}
     >
-      <div style={{ fontSize: 10, color: '#a8a8ad', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
-      <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{display}</div>
-      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#1e6fff' : '#e0454a', display: 'flex', alignItems: 'center', gap: 4 }}>
+      <div style={{ fontSize: 10, color: 'var(--text-secondary)', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
+      <div style={{ fontSize: 15, fontWeight: 700, color: 'var(--text-primary)' }}>{display}</div>
+      <div style={{ fontSize: 11, fontWeight: 600, color: up ? 'var(--positive)' : 'var(--negative)', display: 'flex', alignItems: 'center', gap: 4 }}>
         <span style={{ fontSize: 8 }}>{up ? '▲' : '▼'}</span> {change}
       </div>
     </motion.div>

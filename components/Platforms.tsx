@@ -6,7 +6,7 @@ const ease = [0.22, 1, 0.36, 1]
 
 export default function Platforms() {
   return (
-    <section style={{ padding: '120px 0', background: '#000000', overflow: 'hidden' }}>
+    <section style={{ padding: '120px 0', background: 'var(--background)', overflow: 'hidden' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div style={{
           display: 'grid',
@@ -49,7 +49,7 @@ export default function Platforms() {
             <motion.div
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
               style={{
-                color: '#1456ff',
+                color: 'var(--primary)',
                 fontSize: 12,
                 fontWeight: 700,
                 letterSpacing: '0.22em',
@@ -66,7 +66,7 @@ export default function Platforms() {
               style={{
                 fontSize: 'clamp(32px, 3.5vw, 44px)',
                 fontWeight: 700,
-                color: '#fff',
+                color: 'var(--text-primary)',
                 lineHeight: 1.1,
                 marginBottom: 20,
                 letterSpacing: '-0.01em',
@@ -78,7 +78,7 @@ export default function Platforms() {
             {/* Description */}
             <motion.p
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
-              style={{ fontSize: 16, color: '#a1a1aa', lineHeight: 1.6, marginBottom: 40, maxWidth: 480 }}
+              style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 40, maxWidth: 480 }}
             >
               Experience next-level trading on our advanced platforms. Available on web, desktop, and mobile.
             </motion.p>
@@ -148,19 +148,19 @@ function PlatformRow({ icon, title, sub }: { icon: React.ReactNode; title: strin
         width: 40,
         height: 40,
         borderRadius: 8,
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.06)',
+        background: 'var(--pill)',
+        border: '1px solid var(--border-strong)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#ffffff',
+        color: 'var(--text-primary)',
         flexShrink: 0,
       }}>
         {icon}
       </div>
       <div>
-        <div style={{ fontSize: 15, fontWeight: 600, color: '#fff', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 13, color: '#666666', marginTop: 2 }}>{sub}</div>
+        <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '0.01em' }}>{title}</div>
+        <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 2 }}>{sub}</div>
       </div>
     </motion.div>
   )

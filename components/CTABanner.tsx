@@ -27,7 +27,7 @@ export default function CTABanner() {
   }
 
   return (
-    <section style={{ background: '#000000', paddingBottom: 80 }}>
+    <section style={{ background: 'var(--background)', paddingBottom: 80 }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
@@ -36,8 +36,8 @@ export default function CTABanner() {
           transition={{ duration: 0.9, ease }}
           onMouseMove={handleMouseMove}
           style={{
-            background: '#0a0a0a',
-            border: '1px solid #1a1a1d',
+            background: 'var(--card)',
+            border: '1px solid var(--border)',
             borderRadius: 16,
             margin: '0 clamp(16px, 4vw, 40px)',
             padding: 'clamp(32px, 6vw, 60px)',
@@ -51,23 +51,23 @@ export default function CTABanner() {
           }}
         >
           {/* Subtle inner glow */}
-          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 50%, rgba(255,255,255,0.03) 0%, transparent 60%)', pointerEvents: 'none' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 50%, var(--glass-bg) 0%, transparent 60%)', pointerEvents: 'none' }} />
 
           {/* LEFT SIDE */}
           <div style={{ position: 'relative', zIndex: 10 }}>
-            <h2 style={{ fontSize: 40, fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: 20 }}>
+            <h2 style={{ fontSize: 40, fontWeight: 700, color: 'var(--text-primary)', lineHeight: 1.1, marginBottom: 20 }}>
               Ready to Elevate Your Trading?
             </h2>
-            <p style={{ fontSize: 16, color: '#a8a8ad', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
+            <p style={{ fontSize: 16, color: 'var(--text-secondary)', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
               <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                 <a href="#" className="btn-solid">Get Started <span>→</span></a>
               </div>
-              <a href="#" style={{ fontSize: 14, color: '#a8a8ad', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s', marginLeft: 4 }}
-                onMouseOver={e => e.currentTarget.style.color = '#fff'}
-                onMouseOut={e => e.currentTarget.style.color = '#a8a8ad'}
+              <a href="#" style={{ fontSize: 14, color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s', marginLeft: 4 }}
+                onMouseOver={e => e.currentTarget.style.color = 'var(--text-primary)'}
+                onMouseOut={e => e.currentTarget.style.color = 'var(--text-secondary)'}
               >
                 or Try Demo Account
               </a>

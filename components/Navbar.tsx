@@ -16,9 +16,9 @@ export default function Navbar() {
   return (
     <nav
       style={{
-        background: scrolled ? 'rgba(0,0,0,0.9)' : 'rgba(0,0,0,0.5)',
+        background: scrolled ? 'rgba(0,0,0,0.9)' : 'transparent',
         backdropFilter: scrolled ? 'blur(24px)' : 'blur(14px)',
-        borderBottom: scrolled ? '1px solid rgba(255,255,255,0.06)' : '1px solid transparent',
+        borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
         height: 68,
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
         display: 'flex', alignItems: 'center',
@@ -45,14 +45,14 @@ export default function Navbar() {
               {/* Outer diamond/chevron shape */}
               <path
                 d="M18 4 L32 18 L18 32 L4 18 Z"
-                stroke="rgba(255,255,255,0.15)"
+                stroke="var(--glass-border)"
                 strokeWidth="1"
                 fill="none"
               />
               {/* Bold V chevron */}
               <path
                 d="M9 12 L18 26 L27 12"
-                stroke="#ffffff"
+                stroke="var(--text-primary)"
                 strokeWidth="3"
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -61,8 +61,8 @@ export default function Navbar() {
             </svg>
           </div>
           <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
-            <div style={{ fontSize: 7.5, fontWeight: 500, color: '#a1a1aa', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
+            <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
+            <div style={{ fontSize: 7.5, fontWeight: 500, color: 'var(--text-secondary)', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
           </div>
         </a>
 
@@ -76,7 +76,7 @@ export default function Navbar() {
               <a
                 href="#"
                 className="nav-link"
-                style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)', fontFamily: 'Inter', fontWeight: 400 }}
+                style={{ fontSize: 14, color: 'var(--text-secondary)', fontFamily: 'Inter', fontWeight: 400 }}
               >
                 {l}
               </a>
@@ -89,7 +89,7 @@ export default function Navbar() {
           <a
             href="#"
             className="btn-ghost hidden sm:inline-flex"
-            style={{ padding: '9px 22px', fontSize: 14, borderColor: 'rgba(255,255,255,0.25)' }}
+            style={{ padding: '9px 22px', fontSize: 14, borderColor: 'var(--border-strong)' }}
           >
             Login
           </a>
