@@ -41,13 +41,23 @@ export default function Ticker() {
   }, [])
 
   return (
-    <div style={{ background: 'var(--card)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
-      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 0 }}>
-          {pairs.map((p, i) => (
-            <TickerCell key={p.symbol} p={p} i={i} flash={flash[p.symbol]} total={pairs.length} />
-          ))}
-        </div>
+    <div style={{ padding: '0 clamp(20px, 4vw, 48px)', marginBottom: 'clamp(80px, 10vw, 128px)' }}>
+      <div style={{
+        maxWidth: 1200,
+        margin: '0 auto',
+        background: 'linear-gradient(180deg, #111111, #080808)',
+        border: '1px solid rgba(255,255,255,0.05)',
+        borderRadius: 24,
+        padding: '0 16px',
+        display: 'flex',
+        overflowX: 'auto',
+        overscrollBehaviorX: 'contain',
+        scrollSnapType: 'x mandatory',
+        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+      }} className="hide-scrollbar">
+        {pairs.map((p, i) => (
+          <TickerCell key={p.symbol} p={p} i={i} flash={flash[p.symbol]} total={pairs.length} />
+        ))}
       </div>
     </div>
   )
@@ -57,11 +67,14 @@ function TickerCell({ p, i, flash, total }: any) {
   return (
     <div style={{
       display: 'flex', flexDirection: 'column', gap: 10,
-      borderRight: i < total - 1 ? '1px solid var(--border)' : 'none',
+      borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.05)' : 'none',
       padding: '24px 28px',
       background: flash ? 'var(--glass-bg)' : 'transparent',
       transition: 'background 0.4s ease',
-      position: 'relative'
+      position: 'relative',
+      minWidth: 180,
+      flexShrink: 0,
+      scrollSnapAlign: 'start',
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <span style={{ fontSize: 11, fontWeight: 700, color: 'var(--text-primary)', letterSpacing: '0.02em' }}>{p.symbol}</span>

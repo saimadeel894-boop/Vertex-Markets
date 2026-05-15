@@ -43,18 +43,18 @@ export default function Hero() {
     <section
       onMouseMove={handleMouseMove}
       style={{
-        minHeight: '100vh',
+        height: 760,
         background: 'var(--background)',
         display: 'flex',
         alignItems: 'center',
-        paddingTop: 68,
-        paddingBottom: 80,
+        paddingTop: 80,
+        paddingBottom: 0,
         position: 'relative',
         overflow: 'hidden',
       }}
     >
-      {/* Background grid */}
-      <div className="hero-grid" />
+      {/* Background vignette */}
+      <div className="radial-vignette" />
 
       {/* Floating particles */}
       {particles.map((p, i) => (
@@ -77,7 +77,7 @@ export default function Hero() {
 
       <div
         className="container-padded"
-        style={{ maxWidth: 1440, margin: '0 auto', width: '100%', position: 'relative', zIndex: 10 }}
+        style={{ maxWidth: 1280, margin: '0 auto', width: '100%', position: 'relative', zIndex: 10 }}
       >
         <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
 
@@ -89,12 +89,12 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease }}
               style={{
-                fontSize: 'clamp(48px, 6vw, 72px)',
+                fontSize: 'clamp(40px, 5vw, 60px)',
                 fontWeight: 700,
-                color: 'var(--text-primary)',
+                color: '#FFFFFF',
                 lineHeight: 1.05,
-                marginBottom: 24,
-                letterSpacing: '-0.02em',
+                marginBottom: 20,
+                letterSpacing: '-0.03em',
               }}
             >
               Trade Smarter.<br />Trade Vertex.
@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.12 }}
-              style={{ fontSize: 17, color: 'var(--text-secondary)', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
+              style={{ fontSize: 16, color: '#A3A3A3', lineHeight: 1.6, maxWidth: 440, marginBottom: 40 }}
             >
               Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
             </motion.p>
@@ -114,12 +114,15 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.22 }}
-              style={{ display: 'flex', gap: 14, marginBottom: 56, flexWrap: 'wrap' }}
+              style={{ display: 'flex', gap: 14, marginBottom: 48, flexWrap: 'wrap' }}
             >
-              <a href="#" className="btn-solid" style={{ padding: '12px 28px', fontSize: 15 }}>
-                Get Started <span>→</span>
+              <a href="#" className="btn-solid" style={{ padding: '12px 24px', fontSize: 14, borderRadius: 6 }}>
+                Get Started 
+                <div style={{ background: 'rgba(0,0,0,0.2)', padding: 4, borderRadius: 4, display: 'flex' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </div>
               </a>
-              <a href="#" className="btn-ghost" style={{ padding: '12px 28px', fontSize: 15, background: 'transparent' }}>
+              <a href="#" className="btn-ghost" style={{ padding: '12px 24px', fontSize: 14, borderRadius: 6 }}>
                 Try Demo Account
               </a>
             </motion.div>
@@ -129,48 +132,25 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.32 }}
-              style={{ display: 'flex', alignItems: 'center', gap: 28, flexWrap: 'wrap' }}
+              style={{ display: 'flex', alignItems: 'center', gap: 24, flexWrap: 'wrap' }}
             >
               <Stat
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
-                }
+                icon={<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>}
                 title="Tight Spreads"
                 sub="From 0.0 pips"
               />
-              <div style={{ width: 1, height: 28, background: 'var(--glass-border)' }} className="hidden md:block" />
               <Stat
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                }
+                icon={<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>}
                 title="Fast Execution"
-                sub="&lt; 30ms Average"
+                sub="&lt; 30ms Avg"
               />
-              <div style={{ width: 1, height: 28, background: 'var(--glass-border)' }} className="hidden lg:block" />
               <Stat
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                }
-                title="Secure & Regulated"
-                sub="Global Compliance"
+                icon={<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>}
+                title="Secure"
+                sub="Regulated"
               />
-              <div style={{ width: 1, height: 28, background: 'var(--glass-border)' }} className="hidden md:block" />
               <Stat
-                icon={
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
-                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
-                  </svg>
-                }
+                icon={<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>}
                 title="24/7 Support"
                 sub="Real Traders"
               />

@@ -13,16 +13,15 @@ export default function Footer() {
 
           {/* Brand */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-              <div style={{ width: 36, height: 36, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-                  <path d="M18 4 L32 18 L18 32 L4 18 Z" stroke="var(--glass-border)" strokeWidth="1" fill="none" />
-                  <path d="M9 12 L18 26 L27 12" stroke="var(--text-primary)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+              <div style={{ width: 32, height: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, background: 'linear-gradient(135deg, #2A2A2A, #000)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6L12 20L20 6" stroke="#FFF" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <div>
-                <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
-                <div style={{ fontSize: 7.5, fontWeight: 500, color: 'var(--text-secondary)', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div style={{ fontSize: 17, fontWeight: 500, color: '#FFF', letterSpacing: '0.15em', lineHeight: 1 }}>VERTEX</div>
+                <div style={{ fontSize: 8, fontWeight: 500, color: '#737373', letterSpacing: '0.25em', textTransform: 'uppercase', marginTop: 3 }}>MARKETS</div>
               </div>
             </a>
             <p style={{ fontSize: 14, color: 'var(--text-secondary)', lineHeight: 1.65, maxWidth: 260 }}>
@@ -41,9 +40,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div style={{ borderTop: '1px solid var(--border)', paddingTop: 28 }}>
-          <p style={{ fontSize: 11, color: 'var(--text-muted)', lineHeight: 1.8, marginBottom: 24 }}>
-            <strong style={{ color: 'var(--text-secondary)' }}>Risk Warning:</strong> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure you fully understand the risks involved before trading. Past performance is not indicative of future results.
+        <div style={{ borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: 28 }}>
+          <p style={{ fontSize: 10, color: '#525252', lineHeight: 1.8, marginBottom: 24 }}>
+            <strong style={{ color: '#737373' }}>Risk Warning:</strong> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure you fully understand the risks involved before trading. Past performance is not indicative of future results.
           </p>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
             <p style={{ fontSize: 12, color: 'var(--text-muted)' }}>

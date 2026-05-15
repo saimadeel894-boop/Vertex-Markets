@@ -6,7 +6,7 @@ const ease = [0.22, 1, 0.36, 1]
 
 export default function Platforms() {
   return (
-    <section style={{ padding: '120px 0', background: 'var(--background)', overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(80px, 10vw, 128px) 0', background: 'var(--background)', overflow: 'hidden' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div style={{
           display: 'grid',
@@ -49,12 +49,12 @@ export default function Platforms() {
             <motion.div
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
               style={{
-                color: 'var(--primary)',
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: '0.22em',
+                color: '#737373',
+                fontSize: 10,
+                fontWeight: 500,
+                letterSpacing: '0.25em',
                 textTransform: 'uppercase',
-                marginBottom: 18,
+                marginBottom: 16,
               }}
             >
               POWERFUL. FLEXIBLE. ADVANCED.
@@ -66,13 +66,20 @@ export default function Platforms() {
               style={{
                 fontSize: 'clamp(32px, 3.5vw, 44px)',
                 fontWeight: 700,
-                color: 'var(--text-primary)',
+                color: '#FFFFFF',
                 lineHeight: 1.1,
                 marginBottom: 20,
-                letterSpacing: '-0.01em',
+                letterSpacing: '-0.02em',
               }}
             >
-              Trading Platforms<br />Built for Performance
+              Trading Platforms<br />
+              <span style={{ 
+                background: 'linear-gradient(180deg, #FFFFFF, #737373)', 
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'transparent' 
+              }}>
+                Built for Performance
+              </span>
             </motion.h2>
 
             {/* Description */}
@@ -83,42 +90,25 @@ export default function Platforms() {
               Experience next-level trading on our advanced platforms. Available on web, desktop, and mobile.
             </motion.p>
 
-            {/* Platform rows */}
+            {/* Platform rows -> mini cards in a row */}
             <motion.div
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
-              style={{ display: 'flex', flexDirection: 'column', gap: 20, marginBottom: 44 }}
+              style={{ display: 'flex', gap: 12, marginBottom: 40, flexWrap: 'wrap' }}
             >
-              <PlatformRow
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
-                }
-                title="Web Trader"
-                sub="Access Anywhere"
+              <PlatformCard
+                icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" /></svg>}
+                title="Web"
+                sub="Trader"
               />
-              <PlatformRow
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
-                }
+              <PlatformCard
+                icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2" /><line x1="8" y1="21" x2="16" y2="21" /><line x1="12" y1="17" x2="12" y2="21" /></svg>}
                 title="Desktop"
-                sub="Windows & Mac"
+                sub="App"
               />
-              <PlatformRow
-                icon={
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
-                    <line x1="12" y1="18" x2="12.01" y2="18" />
-                  </svg>
-                }
-                title="Mobile App"
-                sub="iOS & Android"
+              <PlatformCard
+                icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2" /><line x1="12" y1="18" x2="12.01" y2="18" /></svg>}
+                title="Mobile"
+                sub="App"
               />
             </motion.div>
 
@@ -126,8 +116,8 @@ export default function Platforms() {
             <motion.div
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
             >
-              <a href="#" className="btn-solid" style={{ padding: '14px 32px', fontSize: 15 }}>
-                Explore Platforms <span>→</span>
+              <a href="#" className="btn-solid" style={{ padding: '12px 24px', fontSize: 14 }}>
+                Explore Platforms <span style={{ marginLeft: 8 }}>→</span>
               </a>
             </motion.div>
           </motion.div>
@@ -138,29 +128,28 @@ export default function Platforms() {
   )
 }
 
-function PlatformRow({ icon, title, sub }: { icon: React.ReactNode; title: string; sub: string }) {
+function PlatformCard({ icon, title, sub }: { icon: React.ReactNode; title: string; sub: string }) {
   return (
     <motion.div
-      whileHover={{ x: 6 }}
-      style={{ display: 'flex', alignItems: 'center', gap: 16, cursor: 'pointer' }}
+      whileHover={{ y: -2, borderColor: 'rgba(255,255,255,0.2)' }}
+      style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        gap: 12, 
+        padding: '12px 16px',
+        background: 'rgba(255,255,255,0.03)',
+        border: '1px solid rgba(255,255,255,0.1)',
+        borderRadius: 12,
+        cursor: 'pointer',
+        transition: 'all 0.3s ease',
+      }}
     >
-      <div style={{
-        width: 40,
-        height: 40,
-        borderRadius: 8,
-        background: 'var(--pill)',
-        border: '1px solid var(--border-strong)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: 'var(--text-primary)',
-        flexShrink: 0,
-      }}>
+      <div style={{ color: '#FFF', flexShrink: 0 }}>
         {icon}
       </div>
       <div>
-        <div style={{ fontSize: 15, fontWeight: 600, color: 'var(--text-primary)', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 13, color: 'var(--text-muted)', marginTop: 2 }}>{sub}</div>
+        <div style={{ fontSize: 13, fontWeight: 700, color: '#FFF', lineHeight: 1 }}>{title}</div>
+        <div style={{ fontSize: 11, color: '#737373', marginTop: 2 }}>{sub}</div>
       </div>
     </motion.div>
   )

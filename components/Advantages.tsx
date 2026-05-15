@@ -169,7 +169,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
 
 export default function Advantages() {
   return (
-    <section style={{ padding: '120px 0 100px', background: 'var(--background)' }}>
+    <section style={{ padding: 'clamp(80px, 10vw, 128px) 0', background: 'var(--background)' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
 
         <motion.div
@@ -184,7 +184,7 @@ export default function Advantages() {
             <span
               style={{
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, var(--text-primary) 0%, var(--text-silver) 40%, var(--text-primary) 70%, var(--text-muted) 100%)',
+                background: 'linear-gradient(180deg, #FFFFFF 0%, #737373 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',

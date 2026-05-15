@@ -31,44 +31,44 @@ export default function Navbar() {
       >
 
         {/* Logo */}
-        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-          {/* Clean geometric V mark — no glow */}
+        <a href="#" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
           <div style={{
-            width: 36,
-            height: 36,
+            width: 32,
+            height: 32,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             flexShrink: 0,
+            background: 'linear-gradient(135deg, #2A2A2A, #000)',
+            border: '1px solid rgba(255,255,255,0.1)',
+            borderRadius: '8px',
+            boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.2)',
           }}>
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-              {/* Outer diamond/chevron shape */}
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
               <path
-                d="M18 4 L32 18 L18 32 L4 18 Z"
-                stroke="var(--glass-border)"
-                strokeWidth="1"
-                fill="none"
-              />
-              {/* Bold V chevron */}
-              <path
-                d="M9 12 L18 26 L27 12"
-                stroke="var(--text-primary)"
-                strokeWidth="3"
+                d="M4 6L12 20L20 6"
+                stroke="url(#v-grad)"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                fill="none"
               />
+              <defs>
+                <linearGradient id="v-grad" x1="4" y1="6" x2="20" y2="20" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#FFF" />
+                  <stop offset="1" stopColor="#888" />
+                </linearGradient>
+              </defs>
             </svg>
           </div>
-          <div>
-            <div style={{ fontSize: 16, fontWeight: 800, color: 'var(--text-primary)', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
-            <div style={{ fontSize: 7.5, fontWeight: 500, color: 'var(--text-secondary)', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ fontSize: 17, fontWeight: 500, color: '#FFF', letterSpacing: '0.15em', lineHeight: 1 }}>VERTEX</div>
+            <div style={{ fontSize: 8, fontWeight: 500, color: 'var(--text-secondary)', letterSpacing: '0.25em', textTransform: 'uppercase', marginTop: 3 }}>MARKETS</div>
           </div>
         </a>
 
         {/* Desktop nav links */}
         <ul
-          style={{ display: 'flex', alignItems: 'center', gap: 36, listStyle: 'none', margin: 0, padding: 0 }}
+          style={{ display: 'flex', alignItems: 'center', gap: 40, listStyle: 'none', margin: 0, padding: 0 }}
           className="hidden lg:flex"
         >
           {links.map(l => (
@@ -76,7 +76,7 @@ export default function Navbar() {
               <a
                 href="#"
                 className="nav-link"
-                style={{ fontSize: 14, color: 'var(--text-secondary)', fontFamily: 'Inter', fontWeight: 400 }}
+                style={{ fontSize: 14, color: '#D4D4D4', fontWeight: 400 }}
               >
                 {l}
               </a>
@@ -89,14 +89,14 @@ export default function Navbar() {
           <a
             href="#"
             className="btn-ghost hidden sm:inline-flex"
-            style={{ padding: '9px 22px', fontSize: 14, borderColor: 'var(--border-strong)' }}
+            style={{ padding: '8px 20px', fontSize: 13, borderColor: 'rgba(255,255,255,0.1)', borderRadius: 6 }}
           >
             Login
           </a>
           <a
             href="#"
             className="btn-solid"
-            style={{ padding: '9px 22px', fontSize: 14 }}
+            style={{ padding: '8px 20px', fontSize: 13, borderRadius: 6 }}
           >
             Get Started
           </a>

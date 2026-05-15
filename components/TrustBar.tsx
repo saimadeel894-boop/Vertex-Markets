@@ -59,15 +59,20 @@ const regulators = [
 
 export default function TrustBar() {
   return (
-    <section style={{
-      background: 'var(--card)',
-      padding: '40px 0',
-      borderTop: '1px solid var(--border)',
-      borderBottom: '1px solid var(--border)',
-      position: 'relative',
-    }}>
-      <div className="shimmer-line" />
-      <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 28 }}>
+    <section style={{ padding: '0 clamp(20px, 4vw, 48px)', marginTop: 80, marginBottom: 80, display: 'flex', justifyContent: 'center' }}>
+      <div style={{
+        background: 'linear-gradient(180deg, #111111, #080808)',
+        border: '1px solid rgba(255,255,255,0.05)',
+        borderRadius: 24,
+        padding: '32px 40px',
+        width: '100%',
+        maxWidth: 1200,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: 32,
+        boxShadow: '0 20px 40px rgba(0,0,0,0.4)',
+      }}>
         {/* Label */}
         <div style={{
           fontSize: 10,

@@ -36,13 +36,13 @@ export default function CTABanner() {
           transition={{ duration: 0.9, ease }}
           onMouseMove={handleMouseMove}
           style={{
-            background: 'var(--card)',
-            border: '1px solid var(--border)',
-            borderRadius: 16,
+            background: 'linear-gradient(90deg, #0A0A0A, #000000)',
+            border: '1px solid rgba(255,255,255,0.05)',
+            borderRadius: 24,
             margin: '0 clamp(16px, 4vw, 40px)',
-            padding: 'clamp(32px, 6vw, 60px)',
+            padding: 'clamp(32px, 6vw, 80px)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
             gap: 60,
             alignItems: 'center',
             position: 'relative',
@@ -62,8 +62,8 @@ export default function CTABanner() {
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
-              <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
-                <a href="#" className="btn-solid">Get Started <span>→</span></a>
+              <div style={{ display: 'flex', gap: 20, alignItems: 'center' }}>
+                <a href="#" className="btn-solid" style={{ padding: '12px 28px', fontSize: 14 }}>Get Started <span style={{ marginLeft: 8 }}>→</span></a>
               </div>
               <a href="#" style={{ fontSize: 14, color: 'var(--text-secondary)', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s', marginLeft: 4 }}
                 onMouseOver={e => e.currentTarget.style.color = 'var(--text-primary)'}

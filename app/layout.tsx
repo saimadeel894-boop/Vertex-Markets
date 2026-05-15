@@ -28,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preload" as="image" href="/icon-conditions.png" />
       </head>
       <body>
+        <div className="noise-overlay" />
         <CustomCursor />
         <GlobalSpotlight />
         {children}
