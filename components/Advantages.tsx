@@ -69,10 +69,10 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           rotateX,
           rotateY,
           transformStyle: 'preserve-3d',
-          background: '#0d0d0d',
+          background: '#0a0a0a',
           border: '1px solid',
-          borderColor: isHovered ? 'rgba(37,99,235,0.4)' : 'rgba(255,255,255,0.08)',
-          boxShadow: isHovered ? '0 20px 40px rgba(0,0,0,0.6), 0 0 40px rgba(37,99,235,0.1)' : 'none',
+          borderColor: isHovered ? 'rgba(255,255,255,0.25)' : 'rgba(255,255,255,0.05)',
+          boxShadow: isHovered ? '0 30px 60px rgba(0,0,0,0.7), 0 0 40px rgba(255,255,255,0.03)' : 'none',
           borderRadius: 12,
           padding: '32px 28px',
           minHeight: 340,
@@ -89,7 +89,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           style={{
             position: 'absolute',
             top: 0, left: 0, right: 0, bottom: 0,
-            background: 'radial-gradient(circle at 50% 0%, rgba(37,99,235,0.06) 0%, transparent 70%)',
+            background: 'radial-gradient(circle at 50% 0%, rgba(255,255,255,0.04) 0%, transparent 70%)',
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.3s',
             pointerEvents: 'none',
@@ -101,7 +101,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
           style={{
             position: 'absolute',
             top: 0, left: 0, right: 0, height: 1,
-            background: 'linear-gradient(90deg, transparent, rgba(37,99,235,0.6), transparent)',
+            background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent)',
             opacity: isHovered ? 1 : 0,
             transition: 'opacity 0.4s',
             pointerEvents: 'none',
@@ -155,7 +155,7 @@ function TiltCard({ ad, index }: { ad: typeof ads[0], index: number }) {
         <p
           style={{
             fontSize: 14.5,
-            color: '#9ca3af',
+            color: '#a1a1aa',
             lineHeight: 1.6,
             transform: 'translateZ(20px)',
           }}
@@ -180,7 +180,7 @@ export default function Advantages() {
           style={{ textAlign: 'center', marginBottom: 72 }}
         >
           <h2 style={{ fontSize: 'clamp(32px, 4vw, 46px)', fontWeight: 400, color: '#fff', letterSpacing: '-0.01em' }}>
-            <span style={{ color: '#9ca3af', fontWeight: 400 }}>Advantages Built for </span>
+            <span style={{ color: '#a1a1aa', fontWeight: 400 }}>Advantages Built for </span>
             <span
               style={{
                 fontWeight: 700,

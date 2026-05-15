@@ -7,7 +7,7 @@ const ease = [0.22, 1, 0.36, 1]
 
 export default function Hero() {
   const [isMobile, setIsMobile] = useState(false)
-  const [particles, setParticles] = useState<Array<{x: number, y: number, d: number, s: number}>>([])
+  const [particles, setParticles] = useState<Array<{ x: number, y: number, d: number, s: number }>>([])
 
   // 3D mouse tracking
   const mouseX = useMotionValue(0)
@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.12 }}
-              style={{ fontSize: 17, color: '#9ca3af', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
+              style={{ fontSize: 17, color: '#a1a1aa', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
             >
               Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
             </motion.p>
@@ -134,9 +134,9 @@ export default function Hero() {
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <line x1="2" y1="12" x2="22" y2="12"/>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
                   </svg>
                 }
                 title="Tight Spreads"
@@ -146,8 +146,8 @@ export default function Hero() {
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                   </svg>
                 }
                 title="Fast Execution"
@@ -157,7 +157,7 @@ export default function Hero() {
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
                   </svg>
                 }
                 title="Secure & Regulated"
@@ -167,8 +167,8 @@ export default function Hero() {
               <Stat
                 icon={
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 18v-6a9 9 0 0 1 18 0v6"/>
-                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/>
+                    <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
+                    <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
                   </svg>
                 }
                 title="24/7 Support"
@@ -223,7 +223,7 @@ export default function Hero() {
                 }}
               >
                 <svg width="100%" height="100%" opacity="0.1" preserveAspectRatio="none" viewBox="0 0 100 100">
-                  <path d="M5 85 L15 65 L25 75 L35 45 L45 55 L55 25 L65 45 L75 35 L85 65 L95 55" stroke="#fff" strokeWidth="0.5" fill="none"/>
+                  <path d="M5 85 L15 65 L25 75 L35 45 L45 55 L55 25 L65 45 L75 35 L85 65 L95 55" stroke="#fff" strokeWidth="0.5" fill="none" />
                   <rect x="10" y="70" width="2" height="15" fill="#fff" opacity="0.4" />
                   <rect x="20" y="60" width="2" height="25" fill="#fff" opacity="0.4" />
                   <rect x="30" y="50" width="2" height="35" fill="#fff" opacity="0.4" />
@@ -250,7 +250,7 @@ export default function Hero() {
                   borderRadius: '50%',
                   background: 'radial-gradient(#555, #111)',
                   border: '1px solid rgba(255,255,255,0.15)',
-                  boxShadow: '0 0 60px rgba(255,255,255,0.08), 0 0 120px rgba(255,255,255,0.02)',
+                  boxShadow: '0 0 60px rgba(255,255,255,0.08), 0 0 120px rgba(20,86,255,0.04)',
                   zIndex: 2,
                   transform: 'translateZ(0px)',
                 }}
@@ -284,9 +284,9 @@ export default function Hero() {
               {/* Floating price chips */}
               {!isMobile && (
                 <>
-                  <PriceChip top="18%" left="8%"   symbol="XAUUSD" price="2,384.65" change="+0.62%" up delay={0.6} tz={100} />
-                  <PriceChip top="8%"  right="8%"  symbol="EURUSD" price="1.08945"  change="+0.47%" up delay={0.7} tz={80} />
-                  <PriceChip top="46%" right="-4%" symbol="GBPUSD" price="1.27482"  change="+0.36%" up delay={0.8} tz={120} />
+                  <PriceChip top="18%" left="8%" symbol="XAUUSD" price="2,384.65" change="+0.62%" up delay={0.6} tz={100} />
+                  <PriceChip top="8%" right="8%" symbol="EURUSD" price="1.08945" change="+0.47%" up delay={0.7} tz={80} />
+                  <PriceChip top="46%" right="-4%" symbol="GBPUSD" price="1.27482" change="+0.36%" up delay={0.8} tz={120} />
                 </>
               )}
             </motion.div>
@@ -311,14 +311,14 @@ function Stat({ icon, title, sub }: { icon: React.ReactNode; title: string; sub:
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#9ca3af',
+        color: '#a1a1aa',
         flexShrink: 0,
       }}>
         {icon}
       </div>
       <div>
         <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 11, color: '#6b7280', whiteSpace: 'nowrap', marginTop: 2 }}
+        <div style={{ fontSize: 11, color: '#71717a', whiteSpace: 'nowrap', marginTop: 2 }}
           dangerouslySetInnerHTML={{ __html: sub }}
         />
       </div>
@@ -361,9 +361,9 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
       style={{
         position: 'absolute',
         top, left, right,
-        background: 'rgba(8,8,8,0.90)',
+        background: 'rgba(5,5,5,0.95)',
         backdropFilter: 'blur(14px)',
-        border: '1px solid rgba(255,255,255,0.12)',
+        border: '1px solid rgba(255,255,255,0.08)',
         padding: '10px 16px',
         borderRadius: 8,
         transform: `translateZ(${tz}px)`,
@@ -376,9 +376,9 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
         minWidth: 110,
       }}
     >
-      <div style={{ fontSize: 10, color: '#9ca3af', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
+      <div style={{ fontSize: 10, color: '#a1a1aa', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
       <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{display}</div>
-      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#22c55e' : '#ef4444', display: 'flex', alignItems: 'center', gap: 4 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#10b981' : '#ef4444', display: 'flex', alignItems: 'center', gap: 4 }}>
         <span style={{ fontSize: 8 }}>{up ? '▲' : '▼'}</span> {change}
       </div>
     </motion.div>

@@ -41,7 +41,7 @@ export default function Ticker() {
   }, [])
 
   return (
-    <div style={{ background: '#0d0d0d', borderTop: '1px solid rgba(255,255,255,0.08)', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
+    <div style={{ background: '#0a0a0a', borderTop: '1px solid rgba(255,255,255,0.05)', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
       <div className="container-padded" style={{ maxWidth: 1440, margin: '0 auto' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: 0 }}>
           {pairs.map((p, i) => (
@@ -59,13 +59,13 @@ function TickerCell({ p, i, flash, total }: any) {
       display: 'flex', flexDirection: 'column', gap: 10,
       borderRight: i < total - 1 ? '1px solid rgba(255,255,255,0.06)' : 'none',
       padding: '24px 28px',
-      background: flash === 'up' ? 'rgba(34,197,94,0.1)' : flash === 'down' ? 'rgba(239,68,68,0.1)' : 'transparent',
+      background: flash ? 'rgba(255,255,255,0.03)' : 'transparent',
       transition: 'background 0.4s ease',
       position: 'relative'
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <span style={{ fontSize: 11, fontWeight: 700, color: '#9ca3af', letterSpacing: '0.02em' }}>{p.symbol}</span>
-        <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? '#22c55e' : '#ef4444' }}>{p.change}</span>
+        <span style={{ fontSize: 11, fontWeight: 700, color: '#a1a1aa', letterSpacing: '0.02em' }}>{p.symbol}</span>
+        <span style={{ fontSize: 11, fontWeight: 600, color: p.up ? '#10b981' : '#ef4444' }}>{p.change}</span>
       </div>
       
       <div style={{ height: 24, display: 'flex', alignItems: 'center' }}>
@@ -85,7 +85,7 @@ function TickerCell({ p, i, flash, total }: any) {
       <svg width="100%" height="24" viewBox="0 0 100 24" preserveAspectRatio="none">
         <motion.path 
           d={p.up ? 'M0,18 L15,12 L30,15 L45,8 L60,10 L75,4 L90,6 L100,0' : 'M0,0 L15,8 L30,6 L45,14 L60,12 L75,20 L90,18 L100,24'} 
-          stroke={p.up ? '#22c55e' : '#ef4444'} 
+          stroke={p.up ? '#10b981' : '#ef4444'} 
           strokeWidth="1.2" 
           fill="none" 
           strokeLinecap="round" 

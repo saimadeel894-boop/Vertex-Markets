@@ -49,7 +49,7 @@ export default function Platforms() {
             <motion.div
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
               style={{
-                color: '#2563eb',
+                color: '#1456ff',
                 fontSize: 12,
                 fontWeight: 700,
                 letterSpacing: '0.22em',
@@ -78,7 +78,7 @@ export default function Platforms() {
             {/* Description */}
             <motion.p
               variants={{ hidden: { opacity: 0, x: 40 }, show: { opacity: 1, x: 0, transition: { duration: 0.8, ease } } }}
-              style={{ fontSize: 16, color: '#9ca3af', lineHeight: 1.6, marginBottom: 40, maxWidth: 480 }}
+              style={{ fontSize: 16, color: '#a1a1aa', lineHeight: 1.6, marginBottom: 40, maxWidth: 480 }}
             >
               Experience next-level trading on our advanced platforms. Available on web, desktop, and mobile.
             </motion.p>
@@ -148,8 +148,8 @@ function PlatformRow({ icon, title, sub }: { icon: React.ReactNode; title: strin
         width: 40,
         height: 40,
         borderRadius: 8,
-        background: 'rgba(255,255,255,0.05)',
-        border: '1px solid rgba(255,255,255,0.08)',
+        background: 'rgba(255,255,255,0.04)',
+        border: '1px solid rgba(255,255,255,0.05)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -160,7 +160,7 @@ function PlatformRow({ icon, title, sub }: { icon: React.ReactNode; title: strin
       </div>
       <div>
         <div style={{ fontSize: 15, fontWeight: 600, color: '#fff', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 13, color: '#6b7280', marginTop: 2 }}>{sub}</div>
+        <div style={{ fontSize: 13, color: '#71717a', marginTop: 2 }}>{sub}</div>
       </div>
     </motion.div>
   )

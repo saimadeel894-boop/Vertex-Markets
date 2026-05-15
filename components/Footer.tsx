@@ -22,10 +22,10 @@ export default function Footer() {
               </div>
               <div>
                 <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
-                <div style={{ fontSize: 7.5, fontWeight: 500, color: '#6b7280', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
+                <div style={{ fontSize: 7.5, fontWeight: 500, color: '#a1a1aa', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
               </div>
             </a>
-            <p style={{ fontSize: 14, color: '#6b7280', lineHeight: 1.65, maxWidth: 260 }}>
+            <p style={{ fontSize: 14, color: '#a1a1aa', lineHeight: 1.65, maxWidth: 260 }}>
               Empowering traders with institutional-grade technology, deep liquidity, and professional trading conditions.
             </p>
           </div>
@@ -42,19 +42,19 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', paddingTop: 28 }}>
-          <p style={{ fontSize: 11, color: '#4b5563', lineHeight: 1.8, marginBottom: 24 }}>
-            <strong style={{ color: '#9ca3af' }}>Risk Warning:</strong> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure you fully understand the risks involved before trading. Past performance is not indicative of future results.
+          <p style={{ fontSize: 11, color: '#71717a', lineHeight: 1.8, marginBottom: 24 }}>
+            <strong style={{ color: '#a1a1aa' }}>Risk Warning:</strong> Trading leveraged products such as Forex and CFDs carries a high degree of risk to your capital and may not be suitable for all investors. Please ensure you fully understand the risks involved before trading. Past performance is not indicative of future results.
           </p>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
-            <p style={{ fontSize: 12, color: '#4b5563' }}>
+            <p style={{ fontSize: 12, color: '#71717a' }}>
               © {year} Vertex Markets Ltd. All rights reserved.
             </p>
             <div style={{ display: 'flex', gap: 20 }}>
               {['Twitter', 'LinkedIn', 'Telegram'].map(s => (
                 <motion.a 
                   key={s} href="#" 
-                  whileHover={{ scale: 1.1, color: '#fff', textShadow: '0 0 10px rgba(37,99,235,0.8)' }}
-                  style={{ fontSize: 13, color: '#6b7280', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
+                  whileHover={{ scale: 1.1, color: '#fff', textShadow: '0 0 10px rgba(20,86,255,0.8)' }}
+                  style={{ fontSize: 13, color: '#a1a1aa', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
                 >{s}</motion.a>
               ))}
             </div>
@@ -72,9 +72,9 @@ function FooterCol({ title, links }: { title: string; links: string[] }) {
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
         {links.map(l => (
           <li key={l}>
-            <a href="#" style={{ fontSize: 14, color: '#6b7280', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
+            <a href="#" style={{ fontSize: 14, color: '#a1a1aa', textDecoration: 'none', transition: 'color 0.2s', fontWeight: 500 }}
               onMouseOver={e => e.currentTarget.style.color = '#fff'}
-              onMouseOut={e => e.currentTarget.style.color = '#6b7280'}
+              onMouseOut={e => e.currentTarget.style.color = '#a1a1aa'}
             >{l}</a>
           </li>
         ))}

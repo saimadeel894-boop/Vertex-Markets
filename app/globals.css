@@ -6,11 +6,12 @@
 
 :root {
   --bg: #000000;
-  --card: #0d0d0d;
-  --border: rgba(255,255,255,0.08);
-  --blue: #2563eb;
-  --green: #22c55e;
+  --card: #0a0a0a;
+  --border: rgba(255,255,255,0.05);
+  --blue: #1456ff;
+  --green: #10b981;
   --red: #ef4444;
+  --muted: #a1a1aa;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,12 +37,12 @@ h1, h2, h3, h4 {
   font-family: 'Inter', sans-serif;
 }
 
-::selection { background: #2563eb; color: #fff; }
+::selection { background: #1456ff; color: #fff; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #000; }
-::-webkit-scrollbar-thumb { background: rgba(37,99,235,0.4); border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(37,99,235,0.6); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
 
 /* ── Container ── */
 .container-padded { padding: 0 clamp(20px, 4vw, 48px); }
@@ -79,14 +80,14 @@ h1, h2, h3, h4 {
 .btn-solid {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px;
-  background: #2563eb; color: #fff;
+  background: #1456ff; color: #fff;
   border-radius: 6px; font-weight: 600; text-decoration: none;
   transition: all 0.3s ease;
   position: relative; overflow: hidden;
 }
 .btn-solid:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(37,99,235,0.5);
+  box-shadow: 0 0 30px rgba(255,255,255,0.1);
 }
 .btn-solid::after {
   content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
@@ -123,7 +124,7 @@ h1, h2, h3, h4 {
 .nav-link:hover { color: #fff; }
 .nav-link::after {
   content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0%; height: 2px; background: #2563eb;
+  width: 0%; height: 2px; background: #1456ff;
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }
@@ -152,7 +153,7 @@ h1, h2, h3, h4 {
 }
 .shimmer-line {
   position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   opacity: 0.5; overflow: hidden;
 }
 .shimmer-line::after {
@@ -179,13 +180,13 @@ h1, h2, h3, h4 {
 }
 .feature-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, #2563eb, transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
   opacity: 0; transition: opacity 0.4s ease;
 }
 .feature-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(37,99,235,0.35);
-  box-shadow: 0 -6px 30px rgba(37,99,235,0.15);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 -6px 30px rgba(0,0,0,0.5);
 }
 .feature-card:hover::before { opacity: 1; }
 

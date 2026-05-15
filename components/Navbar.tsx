@@ -62,7 +62,7 @@ export default function Navbar() {
           </div>
           <div>
             <div style={{ fontSize: 16, fontWeight: 800, color: '#fff', letterSpacing: '0.12em', lineHeight: 1 }}>VERTEX</div>
-            <div style={{ fontSize: 7.5, fontWeight: 500, color: '#6b7280', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
+            <div style={{ fontSize: 7.5, fontWeight: 500, color: '#a1a1aa', letterSpacing: '0.22em', textTransform: 'uppercase', marginTop: 2 }}>MARKETS</div>
           </div>
         </a>
 
