@@ -6,12 +6,12 @@
 
 :root {
   --bg: #000000;
-  --card: #050505;
-  --border: rgba(255,255,255,0.04);
-  --blue: #2d60ff;
-  --green: #10b981;
-  --red: #ef4444;
-  --muted: #e5e7eb;
+  --card: #0a0a0a;
+  --border: rgba(255,255,255,0.06);
+  --blue: #1456ff;
+  --green: #00c087;
+  --red: #ff3333;
+  --muted: #a1a1aa;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,7 +37,7 @@ h1, h2, h3, h4 {
   font-family: 'Inter', sans-serif;
 }
 
-::selection { background: #2d60ff; color: #fff; }
+::selection { background: #1456ff; color: #fff; }
 
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #000; }
@@ -80,14 +80,14 @@ h1, h2, h3, h4 {
 .btn-solid {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 32px;
-  background: #2d60ff; color: #fff;
+  background: #1456ff; color: #fff;
   border-radius: 6px; font-weight: 600; text-decoration: none;
   transition: all 0.3s ease;
   position: relative; overflow: hidden;
 }
 .btn-solid:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 30px rgba(45,96,255,0.25);
+  box-shadow: 0 0 30px rgba(20,86,255,0.25);
 }
 .btn-solid::after {
   content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
@@ -124,7 +124,7 @@ h1, h2, h3, h4 {
 .nav-link:hover { color: #fff; }
 .nav-link::after {
   content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0%; height: 2px; background: #2d60ff;
+  width: 0%; height: 2px; background: #1456ff;
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }

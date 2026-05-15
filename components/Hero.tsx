@@ -104,7 +104,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease, delay: 0.12 }}
-              style={{ fontSize: 17, color: '#e5e7eb', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
+              style={{ fontSize: 17, color: '#a1a1aa', lineHeight: 1.65, maxWidth: 460, marginBottom: 40 }}
             >
               Professional trading conditions, institutional-grade technology, and deep liquidity across global markets.
             </motion.p>
@@ -311,14 +311,14 @@ function Stat({ icon, title, sub }: { icon: React.ReactNode; title: string; sub:
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        color: '#e5e7eb',
+        color: '#a1a1aa',
         flexShrink: 0,
       }}>
         {icon}
       </div>
       <div>
         <div style={{ fontSize: 13, fontWeight: 700, color: '#fff', whiteSpace: 'nowrap', letterSpacing: '0.01em' }}>{title}</div>
-        <div style={{ fontSize: 11, color: '#a1a1aa', whiteSpace: 'nowrap', marginTop: 2 }}
+        <div style={{ fontSize: 11, color: '#666666', whiteSpace: 'nowrap', marginTop: 2 }}
           dangerouslySetInnerHTML={{ __html: sub }}
         />
       </div>
@@ -376,9 +376,9 @@ function PriceChip({ top, left, right, symbol, price, change, up, delay, tz }: a
         minWidth: 110,
       }}
     >
-      <div style={{ fontSize: 10, color: '#e5e7eb', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
+      <div style={{ fontSize: 10, color: '#a1a1aa', letterSpacing: '0.05em', fontWeight: 600 }}>{symbol}</div>
       <div style={{ fontSize: 15, fontWeight: 700, color: '#fff' }}>{display}</div>
-      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#10b981' : '#ef4444', display: 'flex', alignItems: 'center', gap: 4 }}>
+      <div style={{ fontSize: 11, fontWeight: 600, color: up ? '#00c087' : '#ff3333', display: 'flex', alignItems: 'center', gap: 4 }}>
         <span style={{ fontSize: 8 }}>{up ? '▲' : '▼'}</span> {change}
       </div>
     </motion.div>

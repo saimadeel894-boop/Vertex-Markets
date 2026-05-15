@@ -36,8 +36,8 @@ export default function CTABanner() {
           transition={{ duration: 0.9, ease }}
           onMouseMove={handleMouseMove}
           style={{
-            background: '#050505',
-            border: '1px solid rgba(255,255,255,0.04)',
+            background: '#0a0a0a',
+            border: '1px solid rgba(255,255,255,0.06)',
             borderRadius: 16,
             margin: '0 clamp(16px, 4vw, 40px)',
             padding: 'clamp(32px, 6vw, 60px)',
@@ -58,16 +58,16 @@ export default function CTABanner() {
             <h2 style={{ fontSize: 40, fontWeight: 700, color: '#fff', lineHeight: 1.1, marginBottom: 20 }}>
               Ready to Elevate Your Trading?
             </h2>
-            <p style={{ fontSize: 16, color: '#e5e7eb', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
+            <p style={{ fontSize: 16, color: '#a1a1aa', lineHeight: 1.6, marginBottom: 40, maxWidth: 440 }}>
               Join Vertex Markets today and trade the world's markets with confidence, technology, and transparency.
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
               <div style={{ display: 'flex', gap: 16, alignItems: 'center' }}>
                 <a href="#" className="btn-solid">Get Started <span>→</span></a>
               </div>
-              <a href="#" style={{ fontSize: 14, color: '#e5e7eb', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s', marginLeft: 4 }}
+              <a href="#" style={{ fontSize: 14, color: '#a1a1aa', textDecoration: 'none', fontWeight: 500, transition: 'color 0.2s', marginLeft: 4 }}
                 onMouseOver={e => e.currentTarget.style.color = '#fff'}
-                onMouseOut={e => e.currentTarget.style.color = '#e5e7eb'}
+                onMouseOut={e => e.currentTarget.style.color = '#a1a1aa'}
               >
                 or Try Demo Account
               </a>
